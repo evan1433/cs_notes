@@ -1,6 +1,6 @@
 - [llamaindex](https://developers.llamaindex.ai/python/framework/getting_started/concepts/)
 - langchain
-- spring-ai-alibaba
+- spring-ai   spring-ai-alibaba
 - owl
 - AutoGen
 - [camel-ai](https://github.com/camel-ai/camel)

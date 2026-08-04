@@ -34,7 +34,8 @@ CREATE ROLE app_user LOGIN PASSWORD 'replace-with-a-secure-password';
 GRANT ALL PRIVILEGES ON DATABASE app_db TO app_user;
 ```
 
-> **注意**：`\l`、`\c` 等以反斜杠开头的命令属于 `psql` 客户端，不是 SQL；应用程序通过连接字符串指定目标数据库，不能像 MySQL 那样使用 `USE database` 切换。
+> **注意**：`\l`、`\c` 等以反斜杠开头的命令属于 `psql` 客户端，不是 SQL；
+> 应用程序通过连接字符串指定目标数据库，不能像 MySQL 那样使用 `USE database` 切换。
 
 ### 标识符与数据类型
 
@@ -107,7 +108,7 @@ CREATE TABLE employees (
 
 #### 自增主键
 
-推荐使用 SQL 标准的 identity 列：
+推荐使用 SQL 标准的 `identity` 列：
 
 ```sql
 CREATE TABLE orders (

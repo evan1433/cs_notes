@@ -20,6 +20,7 @@ Python 编程语言在 AI 领域的应用。
 - [[03-python-functional|Python 函数式编程]]
 - [[04-python-async|Python 异步编程]]
 - [[05-python-type-hints|Python 类型提示]]
+- [[pydantic-validation|Pydantic 数据类型校验]]
 - [[06-python-stdlib|Python 内建模块]]
 - [[07-python-advanced|Python 进阶话题]]
 

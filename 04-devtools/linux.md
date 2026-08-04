@@ -21,7 +21,7 @@ tags:
 - [[linux/user-group-management|用户与用户组管理]]
 - [[linux/file-permissions|文件权限管理]]
 - [[linux/fhs-directory-layout|FHS 目录配置]]
-- [[linux/vim-editor|vim 程序编辑器]]
+- [[linux/vim-editor|Vim 与 Neovim 使用手册]]
 - [[linux/compression-packaging|文件压缩与打包]]
 - [[linux/shell-io-redirection|Shell IO 重定向与管线]]
 - [[linux/process-management|进程管理]]

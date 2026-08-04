@@ -30,7 +30,7 @@ tags:
 
 ### 编辑器与工具
 
-- [[vim-editor|vim 程序编辑器]] — 三种模式、光标移动、编辑操作、多窗口、配置、宏录制
+- [[vim-editor|Vim 与 Neovim 使用手册]] — 编辑语法、多文件管理、配置、Lua、LSP、Tree-sitter
 - [[compression-packaging|文件压缩与打包]] — tar、gzip、bzip2 压缩与解压
 
 ### Shell 进阶
