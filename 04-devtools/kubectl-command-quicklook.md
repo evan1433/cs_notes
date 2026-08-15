@@ -118,30 +118,28 @@ kubectl get pods -n <namespace>      # 指定命名空间操作资源
 
 ## **7. 高级/实用技巧**
 
-- **查看最近创建的 Pod**
-    
+- **查看最近创建的 Pod**    
 
 ```bash
 kubectl get pods --sort-by=.metadata.creationTimestamp
 ```
 
 - **查看某类资源所有字段（JSON/YAML）**
-    
+
 
 ```bash
 kubectl get pod <pod_name> -o yaml
 kubectl get pod <pod_name> -o json
 ```
 
-- **批量删除资源**
-    
+- **批量删除资源**    
 
 ```bash
 kubectl delete pod -l app=myapp   # 删除标签为 app=myapp 的 Pod
 ```
 
 - **滚动更新**
-    
+
 
 ```bash
 kubectl set image deployment/<deploy_name> <container_name>=<new_image>
@@ -154,14 +152,7 @@ kubectl rollout undo deployment/<deploy_name>    # 回滚更新
 ## **8. 小技巧**
 
 - `kubectl get all -n <namespace>`：一次查看所有资源
-    
-- `kubectl describe pod <pod_name>`：最详细的状态和事件信息
-    
-- `kubectl logs -f <pod_name>`：调试容器最常用命令
-    
+- `kubectl describe pod <pod_name>`：最详细的状态和事件信息    
+- `kubectl logs -f <pod_name>`：调试容器最常用命令    
 
 ---
-
-如果你愿意，我可以帮你画一张**“kubectl 命令速查图”**，把上面常用命令按 **查看/操作/调试/命名空间/滚动更新** 分类，视觉化一张 A4 大小的图，方便随时查阅。
-
-你想让我画吗？

@@ -18,7 +18,7 @@ source /usr/local/Ascend/cann/set_env.sh
 https://mindie-llm-doc.readthedocs.io/zh-cn/latest/user_guide/user_manual/service_parameter_configuration
 
 ```
-cd $ATB_SPEED_HOME_PATH
+ 
 ```
 
 
