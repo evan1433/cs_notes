@@ -18,6 +18,7 @@ tags:
 - [[linux/find-command|find 命令详解]]
 - [[linux/du-command|du 命令详解]]
 - [[linux/ln-links|ln 链接用法]]
+- [[linux/netstat-ss-command|netstat 与 ss 命令详解]]
 - [[linux/user-group-management|用户与用户组管理]]
 - [[linux/file-permissions|文件权限管理]]
 - [[linux/fhs-directory-layout|FHS 目录配置]]

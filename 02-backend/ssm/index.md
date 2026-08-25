@@ -17,3 +17,4 @@ SSM（Spring + Spring MVC + MyBatis）整合开发。
 
 - [[mybatis|MyBatis]]
 - [[ssm-integration|SSM 整合]]
+- [[./mybatis-plus|MyBatis-Plus]]

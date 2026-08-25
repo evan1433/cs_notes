@@ -1,12 +1,6 @@
 - [WebFlux源码之DispatcherHandler](https://www.cnblogs.com/huiyao/p/14444280.html)
 
-
-
-
-
 ## DispatcherHandler
-
-
 
 [spring webflux 核心组件](https://cloud.tencent.com/developer/article/2278305)
 ### 核心组件
@@ -45,7 +39,7 @@ Spring WebFlux 框架使用响应式编程模型来处理请求和响应。响�
 
 #### Mono
 
-Mono 是 Reactor 库中的一个类型，表示一个异步的单值[容器](https://cloud.tencent.com/product/tke?from_column=20065&from=20065)。Mono 对象可以包含一个值或一个异常，可以用于表示异步操作的结果。Mono 对象可以被订阅者订阅，并在异步操作完成后返回结果。Spring WebFlux 框架使用 Mono 类型来表示 HTTP 响应的主体内容。
+Mono 是 Reactor 库中的一个类型，表示一个异步的单值容器。Mono 对象可以包含一个值或一个异常，可以用于表示异步操作的结果。Mono 对象可以被订阅者订阅，并在异步操作完成后返回结果。Spring WebFlux 框架使用 Mono 类型来表示 HTTP 响应的主体内容。
 
 #### Flux
 

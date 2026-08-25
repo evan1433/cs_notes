@@ -43,7 +43,7 @@ UserService {
 `@TableName`
 配置中可以设置统一前缀
 
-`@TableId`   `value`  指定主建字段    `  type`  id自增算法     雪花算法
+`@TableId`   `value`  指定主建字段    `type`  id自增算法     雪花算法
 
 `@TableFiled`  逻辑删除字段
 

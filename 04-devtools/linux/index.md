@@ -18,6 +18,7 @@ tags:
 - [[find-command|find 命令详解]] — 按名称/类型/大小/时间/权限查找，执行操作
 - [[du-command|du 命令详解]] — 目录/文件磁盘占用统计、深度控制、排序筛选
 - [[ln-links|ln 链接用法]] — 硬链接与软链接的区别与使用
+- [[netstat-ss-command|netstat 与 ss 命令详解]] — 端口监听、连接状态、路由表、实战排障
 
 ### 用户与权限
 

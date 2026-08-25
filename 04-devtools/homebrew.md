@@ -409,7 +409,7 @@ test -x /usr/local/bin/brew && /usr/local/bin/brew --version
 
 如果能输出版本，说明只是 Shell 没有加载 Homebrew 环境。重新执行安装程序给出的
 `brew shellenv` 命令，并检查 `~/.zprofile` 是否正确。配置 Shell 的更多信息参见
-[[zsh|Zsh 配置文件加载顺序]]。
+[[linux/zsh|Zsh 配置文件加载顺序]]。
 
 ### Apple Silicon 上出现架构混用
 
@@ -504,4 +504,4 @@ man brew
 - [Homebrew 命令手册](https://docs.brew.sh/Manpage)
 - [Homebrew FAQ](https://docs.brew.sh/FAQ)
 - [Homebrew Formulae](https://formulae.brew.sh/)
-- [[zsh|Zsh 配置文件加载顺序]]
+- [[linux/zsh|Zsh 配置文件加载顺序]]

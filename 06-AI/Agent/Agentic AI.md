@@ -1,3 +1,9 @@
+---
+tag:
+  - agent
+  - ai
+---
+
 Agentic AI
 
 [google ai search for agentic ai](https://www.google.com/search?q=agentic&newwindow=1&sca_esv=b95b1b9f09dfb697&sxsrf=ANbL-n5DuVBPjHSI1oRaD2JojSzwjMpslg%3A1772498266293&ei=Wi2mafvLEbzCvr0PsZqp4Qw&biw=1512&bih=781&ved=2ahUKEwjpseyBwIKTAxXQREEAHUEyHTAQ0NsOegUIxwEQAA&uact=5&sclient=gws-wiz-serp&udm=50&fbs=ADc_l-Z6XGGbkKmpylZqg2J7ZOuVtSi6kM5ZjADb03gRVWnenfhJMtO4x41VfNir3SjdVdgWN-30tnEOpcUCfS6dqvbFd9I8OjcBBqvEK_IGxcnBYZPm5u_lsuVwGQhr2PCXMH1XnajuvWsd5q9R3UggqXL2zl0SFT60AeBSaQvgwYc5W3YkKjZUXuiKl3yR127f8U_TAsyyml0M7w7QgPmQdjUNYHgxPQ&aep=10&ntc=1&mstk=AUtExfDPIFmJMTwy63Bc_eSUqAqUm8QVTnwdP2QeWbkTYHE0zdm63EctdRnee4kUOa2cx7TYTNgAh1iqyK1oGY9mZIF1W3fKKJZBdLHSyZTruwa1l36Fu291_XAmI15dHa7pA-KupGTBh9GZZ1T69TUR5HuNqfuAn9Zsiafy2ZwCirQ2eecfjeU3GxwndBKONMs_Hk9Jtu3qO-bf6bo9EZ9Na5huFXHYGiSdMNreI1wH_2deYSmXFGnEfTPuVSZSuXv8plqNzVcebpUnRh4NHaq5-zu_L2GQ4KqljySM1XNeBQJQ11mVbzege8pgYGejuuTOxbGfZM5EzRBsj-YTCEnQ-5-oGct68TXX3D9Si3jV-DGEMhdtU3-5HtTP3EPNoRb2uVfV1Kvw3p8xDG_afI6VFlFzpY8riouk2FcCNAo1MIwgu2kV4s14ZMylDfnujF1E-bEZ-iIC5YE&csuir=1&mtid=2i-maYHzCJ2ZhbIPne3XyQY)

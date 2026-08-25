@@ -16,6 +16,6 @@ date: 2024-03-21
 
 - [[mysql-crash-course|MySQL Crash Course]]
 - [[mysql|MySQL 深入学习]]
+- [[mongodb|MongoDB]]
 - [[postgresql|PostgreSQL]]
 - [[clickhouse|ClickHouse]]
-- [[mybatis-plus|MyBatis-Plus]]
