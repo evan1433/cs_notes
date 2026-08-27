@@ -79,14 +79,13 @@ This repository supports both Obsidian viewing and GitHub Pages publishing via Q
 1. **Headers**: Use `#` for title, `##` for sections, `###` for subsections
 2. **Lists**: Use `-` for unordered lists, `1.` for ordered lists
 3. **Code blocks**: Use triple backticks with language identifier
-
-   ```markdown
-   ```java
+   
+```java
    public class Example {
        // code here
    }
-   ```
-   ```
+```
+  
 
 4. **Links**: Use Obsidian wiki-links for internal references: `[[filename]]`
 5. **External links**: Use `[text](url)` format
