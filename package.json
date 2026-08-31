@@ -8,7 +8,9 @@
     "quartz": "./quartz/bootstrap-cli.mjs",
     "build": "./quartz/bootstrap-cli.mjs build -d .",
     "preview": "./quartz/bootstrap-cli.mjs build -d . --serve",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "docs:audit": "python3 scripts/audit_docs.py",
+    "docs:audit:fail": "python3 scripts/audit_docs.py --fail"
   },
   "engines": {
     "npm": ">=10.9.2",

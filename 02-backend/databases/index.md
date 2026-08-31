@@ -17,5 +17,6 @@ date: 2024-03-21
 - [[mysql-crash-course|MySQL Crash Course]]
 - [[mysql|MySQL 深入学习]]
 - [[mongodb|MongoDB]]
-- [[postgresql|PostgreSQL]]
+- [[postgresql|PostgreSQL 基础]]
+- [[postgresql-advanced|PostgreSQL 特性与实战]]
 - [[clickhouse|ClickHouse]]

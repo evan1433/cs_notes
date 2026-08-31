@@ -24,9 +24,9 @@ date: 2024-03-21
 
 ### 计算机基础
 
-- [[01-cs-fundamentals/data-structures|数据结构]]
-- [[01-cs-fundamentals/computer-networks|计算机网络]]
-- [[01-cs-fundamentals/operating-systems|操作系统]]
+- [[01-cs-fundamentals/数据结构|数据结构]]
+- [[01-cs-fundamentals/计算机网络|计算机网络]]
+- [[01-cs-fundamentals/操作系统|操作系统]]
 
 ### 后端开发
 

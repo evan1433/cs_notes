@@ -34,3 +34,9 @@
 
 
 huggingface skills:  https://huggingface.co/changelog/papers-for-agents
+
+
+
+
+
+开发文档 skill

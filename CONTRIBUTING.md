@@ -388,6 +388,54 @@ Documents with `draft: true` are excluded from the published site (handled by Qu
 
 ---
 
+## 文档质量保障（Docs Quality Gates）
+
+> 本节是文档体系的执行层：模板保证"生而合规"，审计保证"持续合规"。
+
+### 写新笔记：从模板开始
+
+所有新笔记从 `templates/` 目录的对应模板创建，不要从空白文件开始：
+
+| 笔记类型 | 模板 | 适用场景 |
+|----------|------|----------|
+| 概念解释 | `templates/concept-note.md` | 原理、机制、方案对比 |
+| 实战教程 | `templates/tutorial-note.md` | 搭环境、部署、跑通流程 |
+| 速查参考 | `templates/reference-note.md` | 命令、参数、配置手册 |
+| 目录索引 | `templates/index-note.md` | 各目录的 index.md |
+
+选择依据见 [templates/README.md](templates/README.md)。模板已内置 front matter、
+双向链接占位、排错表格等必备结构，复制后按指引填写即可。
+
+### 提交前自查清单
+
+```bash
+npm run docs:audit   # 一键检查全库合规情况
+```
+
+审计脚本（`scripts/audit_docs.py`）检查六类问题：
+
+1. **front matter 完整性** —— title / description / tags / date 缺失率
+2. **命名合规** —— 中文或含空格的文件名
+3. **空壳文档** —— 小于 2KB 且未标 `draft: true`（会被发布成"空页面"）
+4. **代码块语言标注率** —— 未标注语言的代码块无法获得语法高亮
+5. **知识孤岛** —— 全文没有任何 `[[wiki-link]]` 的笔记（图谱中断点）
+6. **目录索引覆盖** —— 含 2 篇以上笔记却没有 index.md 的目录
+
+CI 场景使用 `npm run docs:audit:fail`，存在空壳已发布文档或命名违规时返回非零退出码。
+
+### 存量修复优先级
+
+面对历史欠账，按以下顺序修（性价比从高到低）：
+
+1. **空壳文档补 `draft: true`** —— 一行 front matter，立刻消除发布站上的空页面
+2. **命名违规重命名** —— 中文/空格文件名 → 英文 kebab-case，同时在 front matter
+   `aliases` 中保留旧名，避免旧链接失效（wiki-link 引用需同步更新）
+3. **缺索引目录补 index.md** —— 用 `templates/index-note.md` 创建
+4. **高频文档补 front matter** —— 先补访问量高的目录，再逐步覆盖
+5. **知识孤岛补双向链接** —— 修一篇链一篇，不必一次性补完
+
+---
+
 ## Git Workflow
 
 ### Branch Naming
