@@ -101,6 +101,11 @@ if [[ "$NODE_VERSION" -lt 22 ]]; then
     error "Node.js $NODE_VERSION is too old. Quartz 4.0 requires Node.js 22+."
 fi
 
+# 检查包管理器
+if [[ "$SKIP_BUILD" != true ]] && ! command -v pnpm &>/dev/null; then
+    error "pnpm is not installed. Run: corepack enable"
+fi
+
 # 检查 rsync
 if ! command -v rsync &>/dev/null; then
     error "rsync is not installed. Install it with: brew install rsync (macOS) or apt install rsync (Linux)"
@@ -133,11 +138,11 @@ else
     # 安装依赖（如需要）
     if [[ ! -d "node_modules" ]]; then
         info "Installing dependencies..."
-        npm install
+        pnpm install --frozen-lockfile
     fi
 
     # 执行构建
-    npm run build
+    pnpm build
 
     # 验证构建输出
     if [[ ! -d "$BUILD_DIR" ]]; then

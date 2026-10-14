@@ -11,6 +11,7 @@ date: 2026-08-24
 aliases:
   - sglang
   - SGLang
+reference: https://docs.sglang.io/
 ---
 # SGLang 推理服务框架
 

@@ -64,7 +64,7 @@ cs_notes/
 1. 克隆仓库到本地
 
    ```bash
-   git clone https://github.com/dukechase/cs_notes.git
+   git clone https://github.com/evan1433/cs_notes.git
    ```
 
 2. 使用 [Obsidian](https://obsidian.md) 打开仓库文件夹
@@ -75,7 +75,7 @@ cs_notes/
 
 本仓库已部署到 GitHub Pages，可直接在线浏览：
 
-👉 **[https://dukechase.github.io/cs_notes/](https://dukechase.github.io/cs_notes/)**
+👉 **[https://evan1433.github.io/cs_notes/](https://evan1433.github.io/cs_notes/)**
 
 ### 本地 Quartz 预览
 
@@ -83,13 +83,13 @@ cs_notes/
 
 ```bash
 # 安装依赖 (需要 Node.js 22+)
-nvm use 22 && npm install
+nvm use 22 && corepack enable && pnpm install --frozen-lockfile
 
 # 构建网站
-npm run build
+pnpm build
 
 # 本地预览 (http://localhost:8080)
-npm run preview
+pnpm preview
 ```
 
 ### 其他方式

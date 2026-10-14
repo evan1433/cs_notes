@@ -1,6 +1,15 @@
 ---
 title: java-并发
+description: Java 并发编程进阶，以 CompletableFuture 异步编排为主线
+tags:
+  - java
+  - concurrency
+  - completable-future
+  - backend
+date: 2026-10-12
 ---
+
+> 前置知识：[[java-multithreading|Java 多线程基础]]、[[java-thread-pool|Java 线程池]]
 
 - https://redspider.gitbook.io/concurrent
 

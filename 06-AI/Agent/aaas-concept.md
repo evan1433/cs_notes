@@ -1,5 +1,6 @@
 ---
 source: https://www.thebigpixel.net/articles-podcasts/is-aaas-agents-as-a-service-the-new-saas
+title: 智能体即服务
 ---
 **Agent as a Service (AaaS)** is a cloud-delivery model where autonomous AI agents—systems capable of reasoning, planning, and executing multi-step tasks independently—are provided to businesses on a consumption or subscription basis. 
 

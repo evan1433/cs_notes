@@ -42,13 +42,9 @@ AI Agent 智能体相关知识。
 ## 开源项目
 - qwenpaw
 - hermes-agent
-- 
+- [OpenClaw]()
 
 ## 参考资源
-
-
-qwenpaw
-
 
 - [[../llm/index|LLM]]
 - [[../huggingface/index|Hugging Face]]

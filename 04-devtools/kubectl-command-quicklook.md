@@ -3,6 +3,7 @@ source:
   - https://chatgpt.com/c/6a0fe07b-522c-83ea-ac8e-e193a8007228
 tags:
   - k8s
+reference: https://kubernetes.io/zh-cn/docs/reference/kubectl/
 ---
 
 当然可以，我帮你整理一份**面向初学者的简洁易懂的 `kubectl` 使用指南**，重点放在日常运维最常用的命令和场景。

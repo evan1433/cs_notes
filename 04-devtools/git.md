@@ -347,6 +347,10 @@ git commit -m "refactor: 重构用户模块代码结构"
 
 `git merge feature`   将 feature 分支合并到当前分支
 
+## git worktree
+
+`git worktree` 用于在同一仓库下同时检出多个分支到不同目录，共享同一份对象库，避免来回 `stash` 切换分支。适合紧急 hotfix、并行开发、版本对比等场景。完整用法见 [[git-worktree|Git Worktree 多工作树使用指南]]。
+
 ## git  rebase
 
 将一个分支的提交历史“重新定位”到另一个分支的最新提交上，从而形成线性的提交历史。

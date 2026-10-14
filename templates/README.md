@@ -36,7 +36,7 @@ cp templates/concept-note.md 06-AI/model_deploy/vllm.md
 ## 批量质量检查
 
 ```bash
-npm run docs:audit   # 运行文档合规审计，输出统计报告
+pnpm docs:audit   # 运行文档合规审计，输出统计报告
 ```
 
 审计脚本位于 `scripts/audit_docs.py`，检查 front matter 完整率、命名违规、空壳文档、代码块语言标注等指标。

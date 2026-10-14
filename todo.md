@@ -36,7 +36,10 @@
 huggingface skills:  https://huggingface.co/changelog/papers-for-agents
 
 
-
+keycloak
 
 
 开发文档 skill
+
+
+12-factor application（十二要素应用）

@@ -409,7 +409,7 @@ Documents with `draft: true` are excluded from the published site (handled by Qu
 ### 提交前自查清单
 
 ```bash
-npm run docs:audit   # 一键检查全库合规情况
+pnpm docs:audit   # 一键检查全库合规情况
 ```
 
 审计脚本（`scripts/audit_docs.py`）检查六类问题：
@@ -421,7 +421,7 @@ npm run docs:audit   # 一键检查全库合规情况
 5. **知识孤岛** —— 全文没有任何 `[[wiki-link]]` 的笔记（图谱中断点）
 6. **目录索引覆盖** —— 含 2 篇以上笔记却没有 index.md 的目录
 
-CI 场景使用 `npm run docs:audit:fail`，存在空壳已发布文档或命名违规时返回非零退出码。
+CI 场景使用 `pnpm docs:audit:fail`，存在空壳已发布文档或命名违规时返回非零退出码。
 
 ### 存量修复优先级
 

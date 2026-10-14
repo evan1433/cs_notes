@@ -44,15 +44,15 @@ This repository supports both Obsidian viewing and GitHub Pages publishing via Q
 1. Install Node.js 22+ (required by Quartz 4.0)
 2. Install dependencies:
    ```bash
-   fnm use 22 && npm install
+   fnm use 22 && corepack enable && pnpm install --frozen-lockfile
    ```
 3. Build the site:
    ```bash
-   npm run build
+   pnpm build
    ```
 4. Preview locally at http://localhost:8080:
    ```bash
-   npm run preview
+   pnpm preview
    ```
 
 ### Quartz Configuration
@@ -222,10 +222,10 @@ git commit -m "docs: update [topic] with [specific change]"
 
 ```bash
 # Build for production
-npm run build
+pnpm build
 
 # Preview locally
-npm run preview
+pnpm preview
 
 # Deploy: push to master branch, GitHub Actions will auto-deploy
 git push origin master

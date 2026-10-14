@@ -21,4 +21,5 @@ date: 2024-03-21
 - [[vue2|Vue 2]]
 - [[vue3|Vue 3]]
 - [[npm|NPM]]
+- [[vite|Vite 构建工具]]
 - [[json|JSON]]
