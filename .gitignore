@@ -17,6 +17,8 @@ node_modules/
 # OS
 Thumbs.db
 
+# TypeScript 增量编译缓存
+*.tsbuildinfo
 
 .workbuddy/
 .qoder/
