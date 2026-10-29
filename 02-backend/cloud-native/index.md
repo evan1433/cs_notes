@@ -1,11 +1,12 @@
 ---
 title: 云原生
-description: 云原生概念和构建工具（Maven 等）
+description: 云原生概念、构建工具（Maven 等）与 Java 权限认证框架（Sa-Token）
 tags:
   - cloud-native
   - devops
   - build-tools
-date: 2024-03-21
+  - auth
+date: 2026-10-28
 ---
 
 # 云原生
@@ -16,3 +17,4 @@ date: 2024-03-21
 
 - [[cloud-concepts|云概念]]
 - [[maven|Maven]]
+- [[sa-token|Sa-Token 权限认证框架]]
