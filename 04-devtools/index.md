@@ -34,5 +34,4 @@ date: 2024-03-21
 - [[latex-guide|LaTeX]]
 - [[asciidoc|AsciiDoc]]
 - [[markdown|Markdown]]
-- [[oauth2-guide|OAuth2]]
 - [[ide-guide|IDE 使用指南]]
