@@ -16,6 +16,6 @@ Web 服务器和框架相关知识。
 
 
 - [[oauth2|OAuth2]]
-- [OAuth2-guide](./oauth2-guide)
+- [[oauth2-guide|OAuth2 Guide]]
 - [[jwt|JWT 入门与使用]]
 - [[tomcat-jetty|Tomcat & Jetty]]
