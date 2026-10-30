@@ -36,13 +36,60 @@ h1, .special {
 运算符
  
 类型选择器（标签名选择器或者是元素选择器）
+
 ```css
 p {
 	font-size: 10
 }
 ```
 
+id 选择器
 
+```css
+#id {
+  color: red;
+}
+```
+
+class 选择器
+
+```css
+.class {
+  color: blue;
+}
+```
+
+组合选择器：让多个选择器共用一个 css 样式代码
+
+```css
+选择器1, 选择器2, 选择器3 {
+  key: value;
+}
+```
+
+## CSS 与 HTML 的结合方式
+
+1. 在标签的 `style` 属性上设置 `key:value` 修改标签样式（内联样式）
+2. 在 head 标签中，使用 `style` 标签来定义各种自己需要的 css 样式
+
+    ```html
+    <style type="text/css">
+    div {
+      border: 1px solid red;
+    }
+    span {
+      border: 1px solid red;
+    }
+    </style>
+    ```
+
+3. 把 css 样式写成一个单独的 css 文件，再通过 link 标签引入即可复用
+
+    ```html
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    ```
+
+常用样式：`color: red`、`width: 19px`、`height: 20px`
 
 ## 属性选择器
 

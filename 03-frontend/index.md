@@ -18,6 +18,7 @@ date: 2024-03-21
 - [[javascript|JavaScript]]
 - [[javascript-tutorial|JavaScript 教程]]
 - [[es6|ES6]]
+- [[jquery|jQuery]]
 - [[vue2|Vue 2]]
 - [[vue3|Vue 3]]
 - [[react|React 框架]]

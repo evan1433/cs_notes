@@ -24,6 +24,21 @@ var y = 8;
 var z = x + y;
 ```
 
+变量：一小块存储数据的内存空间。Java 语言是强类型语言，而 JavaScript 是弱类型语言：
+
+- **强类型**：在开辟变量存储空间时，定义了空间将来存储的数据的数据类型，只能存储固定类型的数据
+- **弱类型**：在开辟变量存储空间时，不定义空间将来的存储数据类型，可以存放任意类型的数据
+
+JS 原始数据类型（基本数据类型）：
+
+- `number`：数字（整数、小数、`NaN`）
+- `string`：字符串
+- `boolean`：`true` 和 `false`
+- `null`：一个对象为空的占位符
+- `undefined`：未定义，变量没有初始化值时默认赋值为 `undefined`
+
+> 注：`typeof null` 运算后得到的是 `object`。
+
 # js let
 作用域问题
 
@@ -33,6 +48,20 @@ var z = x + y;
 
 [JS运算符](https://www.w3school.com.cn/js/js_operators.asp)
 
+比较运算符 `==` 与 `===`（全等于）的区别：
+
+1. 类型相同：直接比较（字符串按照字典顺序逐位比较）
+2. 类型不同：`==` 先进行类型转换再比较；`===` 先判断类型，类型不一样直接返回 `false`
+
+JS 引擎会自动对运算数进行类型转换：
+
+- 其他类型转 `number`：`string` 按字面值转换（不是数字则转为 `NaN`）；`boolean` 中 `true` 转为 `1`、`false` 转为 `0`
+- 其他类型转 `boolean`：`number` 中 `0` 或 `NaN` 为假，其他为真；`string` 中除了空字符串 `""` 其他都是 `true`；`null` 和 `undefined` 都是 `false`；所有对象都为 `true`
+
+三元运算符：`表达式 ? 值1 : 值2`
+
+`switch` 语句在 JS 中可以接受任意的原始数据类型
+（Java 中只能接受 `byte int short char`、`Enum`、`String`）。
 
 # [JavaScript数据类型](https://www.w3school.com.cn/js/js_datatypes.asp)
 
@@ -299,11 +328,18 @@ var person = {
 | ---- | ---- |
 | onchange | HTML元素被改变 |
 | onclick | 用户点击了HTML元素 |
+| ondblclick | 用户双击了HTML元素 |
 | onmouseover | 用户把鼠标移动到 HTML 元素上 |
 | onmouseout | 用户把鼠标移开 HTML 元素 |
-| onkeydown | 用户按下键盘按键 |
+| onmousedown / onmouseup | 鼠标按钮被按下 / 松开 |
+| onmousemove | 鼠标被移动 |
+| onkeydown / onkeyup / onkeypress | 键盘按键被按下 / 松开 / 按下并松开 |
+| onfocus / onblur | 元素获得焦点 / 失去焦点 |
 | onload | 浏览器已经完成页面加载 |
-|  |  |
+| onselect | 文本被选中 |
+| onsubmit / onreset | 确认按钮 / 重置按钮被点击 |
+
+事件监听机制的概念：某些组件被执行了某些操作后，触发某些代码的执行。事件源（组件）上发生了某个事件，则触发执行某个监听器代码，将事件、事件源、监听器结合在一起叫注册监听。
 
 ## onload 和 onunload 事件
 
@@ -393,18 +429,101 @@ JavaScript数值始终是64位的浮点数
 # JavaScript HTML DOM
 **通过 HTML DOM，JavaScript 能够访问和改变 HTML 文档的所有元素。**
 
+`Document Object Model` 文档对象模型，将标记语言文档的各个组成部分封装为对象，
+可以使用这些对象对标记语言文档进行**CRUD**的动态操作。
+W3C DOM 标准分为三个部分：核心 DOM（针对任何结构化文档）、XML DOM、HTML DOM。
+
+核心 DOM 模型：
+
+- `Document`：文档对象（通过 `window.document` 或 `document` 获取）
+- `Element`：元素对象
+- `Attribute`：属性对象
+- `Text`：文本对象
+- `Comment`：注释对象
+- `Node`：节点对象，其他 5 个的父对象
+
+## Document 获取元素
+
+- `getElementById(elementId)`：根据 id 属性值获取元素对象，id 属性值一般唯一
+- `getElementsByTagName(tagname)`：根据元素名称获取元素对象们，返回值是一个数组
+- `getElementsByClassName(className)`：根据 class 属性值获取元素对象们
+- `getElementsByName(elementName)`：根据 name 属性值获取元素对象们
+
+创建其他 DOM 对象：`createAttribute()`、`createComment()`、`createElement()`、`createTextNode()`
+
+## Element 和 Node 操作
+
+`Element` 元素对象的方法：
+
+- `setAttribute()`：设置属性
+- `removeAttribute()`：删除属性
+
+`Node` 节点对象（所有 dom 对象都可以被认为是一个节点）：
+
+- `appendChild()`：向节点的子节点列表的结尾添加新的子节点
+- `removeChild()`：删除（并返回）当前节点的指定子节点
+- `replaceChild()`：用新节点替换一个子节点
+- `parentNode`：返回节点的父节点
+
+## innerHTML 与样式控制
+
+标签体的设置和获取：`innerHTML`、`innerText`
+
+控制元素样式：
+
+```javascript
+// 方式一：使用元素的 style 属性
+div1.style.border = "1px solid red";
+div1.style.width = "200px";
+// font-size --> fontSize
+div1.style.fontSize = "20px";
+
+// 方式二：提前定义好类选择器的样式，通过 className 属性设置其 class 属性值
+div1.className = "myClass";
+```
 
 # JS Browser BOM
 **浏览器对象模型（Browser Object Model (BOM)）允许 JavaScript 与浏览器对话。**
 
-
 ## window
+
+`Window` 对象不需要创建可以直接使用，`window` 引用可以省略：`window.方法名()` 等价于 `方法名()`。
+
+与弹出框有关的方法：
+
+- `alert()`：显示带有一段消息和一个确认按钮的警告框
+- `confirm()`：显示带有一段消息以及确认按钮和取消按钮的对话框（确定返回 `true`，取消返回 `false`）
+- `prompt()`：显示可提示用户输入的对话框，返回值为用户输入的内容
+
+与打开关闭有关的方法：
+
+- `close()`：关闭浏览器窗口（谁调用我，我关谁）
+- `open()`：打开一个新的浏览器窗口，返回新的 `Window` 对象
+
+与定时器有关的方法：
+
+- `setTimeout()`：在指定的毫秒数后调用函数或计算表达式，返回值是唯一标识，用于取消定时器
+- `clearTimeout()`：取消由 `setTimeout()` 设置的定时器
+- `setInterval()`：按照指定的周期（以毫秒计）来调用函数或计算表达式
+- `clearInterval()`：取消由 `setInterval()` 设置的定时器
 
 ## screen
 
 ## Location
 
+地址栏对象，通过 `window.location` 或 `location` 获取。
+
+- 方法：`reload()` 重新加载当前文档（刷新）
+- 属性：`href` 设置或返回完整的 URL
+
 ## History
+
+历史记录对象，通过 `window.history` 或 `history` 获取。
+
+- `back()`：加载 history 列表中的前一个 URL
+- `forward()`：加载 history 列表中的下一个 URL
+- `go(参数)`：加载 history 列表中的某个具体页面（正数前进几个历史记录，负数后退几个）
+- `length`：返回当前窗口历史列表中的 URL 数量
 
 ## Navigator
 
@@ -413,7 +532,6 @@ JavaScript数值始终是64位的浮点数
 ## Timing
 
 ## Cookies
-
 
 # WEB API
 

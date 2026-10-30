@@ -10,6 +10,49 @@ date: 2024-03-20
 
 # json
 
+## JS 中的 JSON
+
+JSON(JavaScript Object Notation) 在 JS 中以对象字面量的形式定义：
+
+```javascript
+var jsonObj = {
+  "key1": 12,
+  "key2": "abc",
+  "key3": true,
+  "key4": [11, "arr", false],
+  "key5": {"key5_1": 551, "key5_2": "key5_2_value"},
+  "key6": [
+    {"key6_1_1": 6611, "key6_1_2": "key6_1_2_value"},
+    {"key6_2_1": 6621, "key6_2_2": "key6_2_2_value"}
+  ]
+};
+```
+
+访问属性与数组：
+
+```javascript
+jsonObj.key1;        // 12
+jsonObj.key5.key5_1; // 551
+jsonObj.key6[0].key6_1_1; // 6611
+
+// 遍历 json 中的数组值
+for (var i = 0; i < jsonObj.key4.length; i++) {
+  console.log(jsonObj.key4[i]);
+}
+```
+
+`json` 的两种存在形式：
+
+- **json 对象**：对象的形式存在，操作 json 中的数据时使用
+- **json 字符串**：字符串的形式存在，客户端和服务器之间进行数据交换时使用
+
+两者互转：
+
+- `JSON.stringify()`：把 json 对象转换为 json 字符串
+- `JSON.parse()`：把 json 字符串转换为 json 对象
+
+> Java 侧通过 gson 做 Java 对象与 json 的互转，见 [[java-web|Java Web 开发]]。
+
 ## json schema
 
 JSON Schema 是一种用于描述和验证 JSON 数据结构的规范。以下是编写 JSON Schema 的基本步骤和一个示例：
