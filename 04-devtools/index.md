@@ -29,6 +29,7 @@ date: 2024-03-21
 - [[linux/vim-editor|Vim 与 Neovim]]
 - [[curl|curl]]
 - [[wget|wget]]
+- [[rsync|rsync]]
 - [[fastapi|FastAPI]]
 - [[conda|Conda]]
 - [[latex-guide|LaTeX]]
