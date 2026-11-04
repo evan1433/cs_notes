@@ -21,5 +21,6 @@ Spring 生态系统相关知识。
 - [[spring-boot4|Spring Boot 4 使用指南与发展现状]]
 - [[spring-boot3|Spring Boot 3 使用指南]]
 - [[spring-boot2|Spring Boot 2]]
+- [[spring-boot-config-precedence|Spring Boot 配置优先级]]
 - [[spring-cloud|Spring Cloud]]
 - [[spring-webflux|Spring WebFlux]]

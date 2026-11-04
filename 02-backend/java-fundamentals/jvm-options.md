@@ -179,6 +179,8 @@ java -Dhttps.proxyHost=10.0.0.1 -Dhttps.proxyPort=8080 \
 | `-Djava.util.concurrent.ForkJoinPool.common.parallelism=16` | JDK | 公共 ForkJoinPool 并行度，影响 `parallelStream()` |
 | `-Dreactor.netty.ioWorkerCount=8` | Reactor Netty | IO 线程数 |
 
+> 这些 `-D` 与配置文件、环境变量、命令行参数之间的覆盖顺序，见 [[spring-boot-config-precedence|Spring Boot 配置优先级]]。
+
 ## 排错对照表
 
 | 现象 | 原因 | 处理 |
@@ -224,4 +226,4 @@ java -Dapp.env=prod -XshowSettings:properties -version 2>&1 | grep -E 'app\.env|
 - [JEP 400: UTF-8 by Default](https://openjdk.org/jeps/400)
 - [JDK 21 系统属性完整清单（System Properties for Java 2 SDK）](https://docs.oracle.com/en/java/javase/21/docs/api/system-properties.html)
 - 原理与 GC 参数见 [[jvm|JVM 虚拟机核心原理]]
-- Spring Boot 参数覆盖顺序见 [[spring-boot2|Spring Boot 2 配置]]
+- Spring Boot 参数覆盖顺序见 [[spring-boot-config-precedence|Spring Boot 配置优先级]]
