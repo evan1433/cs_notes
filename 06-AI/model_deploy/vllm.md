@@ -540,15 +540,15 @@ curl http://localhost:8000/metrics
 
 ## 11. 常见问题排查
 
-| 问题 | 原因 | 解决方案 |
-|------|------|----------|
-| `CUDA out of memory` | 显存不足 | 调低 `--gpu-memory-utilization`、`--max-model-len`；开启量化 |
-| `The model's max seq len is larger than the maximum number of tokens` | `max_model_len` 超配置 | 显式设置 `--max-model-len`（如 `8192`） |
-| `ValueError: Tokenizer class ... not found` | 缺少 tokenizer 文件 | 指定 `--tokenizer` 或检查本地模型目录完整性 |
-| 多卡启动卡死/超时 | NCCL 通信问题 | 检查节点互通、`--master-addr`、防火墙端口（29500-29502） |
-| 推理速度极慢 | 误用 eager 模式 | 确认未加 `--enforce-eager`，CUDA Graph 默认开启 |
-| 私有模型 401/403 | HF 鉴权失败 | 添加 `--hf-token` 或使用 `huggingface-cli login` |
-| 流式输出不生效 | 客户端未启用 stream | 请求体加 `"stream": true` |
+| 问题                                                                    | 原因                  | 解决方案                                                 |
+| --------------------------------------------------------------------- | ------------------- | ---------------------------------------------------- |
+| `CUDA out of memory`                                                  | 显存不足                | 调低 `--gpu-memory-utilization`、`--max-model-len`；开启量化 |
+| `The model's max seq len is larger than the maximum number of tokens` | `max_model_len` 超配置 | 显式设置 `--max-model-len`（如 `8192`）                     |
+| `ValueError: Tokenizer class ... not found`                           | 缺少 tokenizer 文件     | 指定 `--tokenizer` 或检查本地模型目录完整性                        |
+| 多卡启动卡死/超时                                                             | NCCL 通信问题           | 检查节点互通、`--master-addr`、防火墙端口（29500-29502）            |
+| 推理速度极慢                                                                | 误用 eager 模式         | 确认未加 `--enforce-eager`，CUDA Graph 默认开启               |
+| 私有模型 401/403                                                          | HF 鉴权失败             | 添加 `--hf-token` 或使用 `huggingface-cli login`          |
+| 流式输出不生效                                                               | 客户端未启用 stream       | 请求体加 `"stream": true`                                |
 
 ## 12. 与其他推理框架对比
 
