@@ -21,6 +21,7 @@ Java 编程语言基础与进阶知识。
 - [[java-multithreading|Java 多线程基础]]
 - [[java-thread-pool|Java 线程池]]
 - [[java-concurrency|Java 并发编程（CompletableFuture）]]
+- [[java-high-concurrency|Java 后端高并发系统设计]]
 - [[jdk17|JDK 17 新特性]]
 - [[project-reactor|Project Reactor]]
 - [[unit-testing|Java 单元测试规范与原理]]
