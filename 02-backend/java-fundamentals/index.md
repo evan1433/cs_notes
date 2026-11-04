@@ -15,6 +15,8 @@ Java 编程语言基础与进阶知识。
 ## 内容导航
 
 - [[java-se|Java SE 核心语法]]
+- [[jvm|JVM 虚拟机核心原理]]
+- [[jvm-options|JVM 启动参数与 -D 系统属性速查]]
 - [[java-web|Java Web 开发]]
 - [[java-multithreading|Java 多线程基础]]
 - [[java-thread-pool|Java 线程池]]
