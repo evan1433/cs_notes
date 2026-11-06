@@ -1,3 +1,15 @@
+---
+title: Python 基础语法
+description: Python 的数据类型、内置容器（list/dict/set/tuple）、函数与控制流核心语法
+tags:
+  - python
+  - fundamentals
+  - data-structures
+date: 2026-11-06
+aliases:
+  - python-basics
+---
+
 > 参考：[廖雪峰 Python 教程](https://liaoxuefeng.com/books/python/introduction/index.html)
 
 # Python 基础语法
@@ -189,8 +201,6 @@ if 'a' in d.keys():
 
 ---
 
-你可以将上述代码块和说明复制到你的 [[00 Python 基础语法]] 笔记中，以完善字典部分的知识点。
-
 ### set（集合）
 
 ```python
@@ -378,3 +388,16 @@ while n > 0:
 >>> [x * x for x in range(1, 11) if x % 2 == 0]
 [4, 16, 36, 64, 100]
 ```
+
+---
+
+## See Also
+
+- [[02-python-oop|Python 面向对象]] —— 用类组织数据与行为
+- [[03-python-functional|Python 函数式编程]] —— 上面最后一段的列表生成式在这里展开
+- [[05-python-type-hints|Python 类型提示]] —— 给基础语法加上类型标注
+- [[13-python-exceptions|Python 异常处理]] —— 本文只提到 `try/except` 的语法形式，
+  异常链、`ExceptionGroup` 与自定义异常体系在那一篇展开
+- [[06-python-stdlib|Python 内建模块]] —— `collections` 对内置容器的增强
+- [[04-python-async|Python 异步编程]] —— 函数定义 `async def` 的延伸
+- [[index|Python 笔记目录]]

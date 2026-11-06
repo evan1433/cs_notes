@@ -1,3 +1,15 @@
+---
+title: Python 内建模块
+description: collections、os、sys、datetime、argparse、hashlib、json 等标准库常用模块速查
+tags:
+  - python
+  - stdlib
+  - collections
+date: 2026-11-06
+aliases:
+  - python-stdlib
+---
+
 > 参考：[廖雪峰 - 常用内建模块](https://liaoxuefeng.com/books/python/built-in-modules/index.html)
 
 # Python 内建模块
@@ -71,8 +83,8 @@ c.update('hello')
 
 > 详细指南参见：
 >
-> - [[Python os模块使用指南]]（完整 os 模块指南）
-> - [[os.path模块深度指南]]（os.path 专项指南）
+> - [[os-module-guide|Python os 模块使用指南]]（完整 os 模块指南）
+> - [[os-path-guide|os.path 模块深度指南]]（os.path 专项指南）
 
 ### 路径操作（os.path）
 

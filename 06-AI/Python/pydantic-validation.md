@@ -163,14 +163,15 @@ assert [user1.id, user2.id, user3.id] == [1, 2, 3]
 
 常用方法：
 
-| API | 用途 |
-|-----|------|
-| `Model(...)` | 使用关键字参数创建并校验模型 |
-| `Model.model_validate(data)` | 校验 Python 对象 |
+| API                               | 用途                     |
+| --------------------------------- | ---------------------- |
+| `Model(...)`                      | 使用关键字参数创建并校验模型         |
+| `Model.model_validate(data)`      | 校验 Python 对象           |
 | `Model.model_validate_json(data)` | 直接校验 JSON 字符串或 `bytes` |
-| `model.model_dump()` | 转换为 Python 字典 |
-| `model.model_dump_json()` | 序列化为 JSON 字符串 |
-| `Model.model_json_schema()` | 生成 JSON Schema |
+| `model.model_dump()`              | 转换为 Python 字典          |
+| `model.model_dump_json()`         | 序列化为 JSON 字符串          |
+| `Model.model_json_schema()`       | 生成 JSON Schema         |
+|                                   |                        |
 
 ## 5. 字段约束
 
@@ -180,7 +181,6 @@ assert [user1.id, user2.id, user3.id] == [1, 2, 3]
 
 ```python
 from pydantic import BaseModel, Field
-
 
 class RegisterRequest(BaseModel):
     username: str = Field(min_length=3, max_length=30, pattern=r"^[a-zA-Z0-9_]+$")

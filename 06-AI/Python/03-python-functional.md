@@ -1,3 +1,15 @@
+---
+title: Python 函数式编程
+description: 列表生成式、生成器与迭代器、map/filter/sorted、装饰器与偏函数的用法与取舍
+tags:
+  - python
+  - functional-programming
+  - iterator
+date: 2026-11-06
+aliases:
+  - python-functional
+---
+
 # Python 函数式编程
 
 ## 1. 列表生成式
@@ -353,3 +365,13 @@ def my_task(duration):
 >>> int2('1010101')
 85
 ```
+
+---
+
+## See Also
+
+- [[01-python-basics|Python 基础语法]] —— 函数、作用域与闭包是装饰器的前提
+- [[02-python-oop|Python 面向对象]] —— `__iter__`/`__next__` 与 `__call__` 让对象参与函数式写法
+- [[04-python-async|Python 异步编程]] —— 生成器让出执行权的能力，正是协程的语法源头
+- [[05-python-type-hints|Python 类型提示]] —— `Iterator`、`Generator`、`Callable` 的标注方式
+- [[index|Python 笔记目录]]

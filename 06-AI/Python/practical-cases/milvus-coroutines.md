@@ -1,3 +1,16 @@
+---
+title: 协程操作 Milvus 向量数据库
+description: 用 run_in_executor 包装 pymilvus 的同步 SDK，实现并发批量查询与插入
+tags:
+  - python
+  - asyncio
+  - milvus
+  - vector-database
+date: 2026-11-06
+aliases:
+  - milvus-coroutines
+---
+
 # 协程操作 Milvus 向量数据库
 
 > 依赖：`pip install pymilvus`
@@ -152,3 +165,11 @@ if __name__ == "__main__":
 | 协程并发 | ~2s |
 
 **关键点：** 协程通过并发减少 I/O 等待时间，但单个查询的延迟不变。适合批量查询场景。
+
+---
+
+## See Also
+
+- [[04-python-async|Python 异步编程]] —— `run_in_executor` / `to_thread` 包装同步 SDK 的原理
+- [[practical-cases/index|实战案例目录]] —— 其他落地案例
+- [[index|Python 笔记目录]]

@@ -1,6 +1,14 @@
 ---
+title: Python f-String Cheat Sheet
+description: f-string 的插值、格式说明符、对齐与调试写法速查，含训练日志常用格式
 tags:
   - python
+  - f-string
+  - string-formatting
+date: 2026-11-06
+aliases:
+  - Python f-String Cheat Sheet
+  - python-f-string-cheat-sheet
 ---
 
 # Python f-String Cheat Sheet
@@ -438,3 +446,12 @@ f"{batch_size=}"       # batch_size=128
 ```
 
 These are the formats you'll use most often when working with PyTorch, TRL, DeepSpeed, Accelerate, and LLM training logs.
+
+---
+
+## See Also
+
+- [[logging-module-guide|logging 模块使用指南]] —— 日志里的指标格式大多靠 `:.4f`、`:.2%` 这类说明符
+- [[01-python-basics|Python 基础语法]] —— 字符串基础与常用字符串方法
+- [[06-python-stdlib|Python 内建模块]] —— `datetime` 的时间格式化与 f-string 的配合
+- [[index|Python 笔记目录]]

@@ -1178,3 +1178,13 @@ signal.signal(signal.SIGUSR1, toggle_debug)
 5. **异常日志用 `exc_info=True`** 或 `logger.exception()` 保留堆栈
 6. **库作者只加 `NullHandler`**，不做任何日志配置
 7. **避免日志重复**：理解 `propagate` 机制，合理规划 handler 分布
+
+---
+
+## See Also
+
+- [[06-python-stdlib|Python 内建模块]] —— `sys.stderr`、`os.getpid()` 等日志常用信息来源
+- [[python-f-string-cheatsheet|f-String 速查]] —— 指标与训练日志的格式化写法
+- [[os-module-guide|os 模块使用指南]] —— 日志目录创建、权限与轮转文件路径
+- [[pydantic-validation|Pydantic 数据类型校验]] —— 结构化日志字段的校验与序列化
+- [[index|Python 笔记目录]]

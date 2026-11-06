@@ -1,7 +1,8 @@
 ---
 title: Python os.path 模块深度指南
+description: os.path 的路径拼接、分解、判断与规范化用法，以及跨平台与安全注意事项
 date: 2025-04-08
-tags: [Python, os, 文件路径, 跨平台]
+tags: [python, os, 文件路径, 跨平台]
 ---
 
 # Python os.path 模块完全使用指南
@@ -406,3 +407,11 @@ print(os.path.pardir)    # '..' (所有平台)
 这份指南涵盖了 `os.path` 的核心用法，希望能帮你彻底搞定路径处理！
 
 > **注意**：Python 3.4+ 推荐使用更现代的 `pathlib` 模块，它提供了更 Pythonic 的路径处理 API。但 `os.path` 仍然广泛使用，理解其用法对编写兼容性代码非常重要。
+
+---
+
+## See Also
+
+- [[os-module-guide|os 模块使用指南]] —— 文件/目录/进程等更广的 `os` 能力
+- [[06-python-stdlib|Python 内建模块]] —— 标准库速查入口
+- [[index|Python 笔记目录]]

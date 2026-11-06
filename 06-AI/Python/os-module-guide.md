@@ -1,3 +1,17 @@
+---
+title: Python os 模块使用指南
+description: os 模块的路径操作、文件与目录管理、进程控制、环境变量与文件描述符用法
+tags:
+  - python
+  - stdlib
+  - os
+date: 2026-11-06
+aliases:
+  - os-module-guide
+---
+
+# Python os 模块使用指南
+
 ## 目录
 
 1. [模块简介](#模块简介)
@@ -841,3 +855,13 @@ path = '中文路径'  # Python 3默认使用Unicode
 - 使用with语句管理资源
 
 通过合理使用`os`模块，你可以编写强大、可移植的系统管理脚本和工具程序。
+
+---
+
+## See Also
+
+- [[os-path-guide|os.path 模块深度指南]] —— 路径操作的逐函数详解
+- [[06-python-stdlib|Python 内建模块]] —— `os` 在标准库速查中的位置
+- [[11-python-cli|Python 命令行工具]] —— 脚本入口与 `-m` 运行方式
+- [[09-virtual-environments|Python 虚拟环境]] —— `PATH`、`VIRTUAL_ENV` 等环境变量的实际用途
+- [[index|Python 笔记目录]]

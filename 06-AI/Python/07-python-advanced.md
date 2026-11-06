@@ -1,3 +1,15 @@
+---
+title: Python 进阶话题
+description: PEP 机制、包与 __init__.py、dataclass、海象运算符与结构化模式匹配
+tags:
+  - python
+  - pep
+  - dataclass
+date: 2026-11-06
+aliases:
+  - python-advanced
+---
+
 # Python 进阶话题
 
 ## 1. PEP（Python Enhancement Proposal）
@@ -195,3 +207,18 @@ match point:
     case (x, y):
         print(f"Point: ({x}, {y})")
 ```
+
+---
+
+## See Also
+
+- [[01-python-basics|Python 基础语法]] —— 语法层面的前置知识
+- [[02-python-oop|Python 面向对象]] —— `dataclass` 生成的 `__init__`/`__repr__` 等价于手写 dunder
+- [[05-python-type-hints|Python 类型提示]] —— PEP 484 → 695 的类型语法演进
+- [[14-context-managers|Python 上下文管理器与 contextlib]] —— `with` 协议与装饰器的组合用法
+  （`ContextDecorator` 让上下文管理器同时充当装饰器）
+- [[13-python-exceptions|Python 异常处理]] —— `except*` 与 `ExceptionGroup` 属于 3.11 的语法级新特性
+- [[15-python-concurrency|Python 并发与并行]] —— 解释器层面的约束（GIL、子解释器）
+- [[08-pypi-pip|PyPI 与 pip]] —— `__init__.py` 与包发布的关系
+- [[10-uv|uv 包管理器]] —— 现代项目脚手架与 PEP 机制的关系
+- [[index|Python 笔记目录]]
