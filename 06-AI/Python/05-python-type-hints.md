@@ -763,7 +763,7 @@ def checked(fn):
 - [[04-python-async|Python 异步编程]] —— `Coroutine`、`Awaitable`、`AsyncIterator` 的标注
 - [[pydantic-validation|Pydantic 数据类型校验]] —— 把类型提示变成运行时校验
 - [[07-python-advanced|Python 进阶话题]] —— `dataclass` 与类型标注天然配合
-- [[index|Python 笔记目录]]
+- [[06-AI/python/index|Python 笔记目录]]
 
 ## 参考
 

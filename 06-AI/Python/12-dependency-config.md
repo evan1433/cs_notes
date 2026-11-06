@@ -354,7 +354,7 @@ lock 与声明的差异处理，uv 给了三档策略（`--frozen` / `--locked` 
 - [[09-virtual-environments|Python 虚拟环境]] —— 依赖装进哪个隔离环境
 - [[07-python-advanced|Python 进阶话题]] —— `__init__.py` 与包结构
 - [[02-python-oop|Python 面向对象]] —— `entry_points` 指向的函数通常就是模块级 `main()`
-- [[index|Python 笔记目录]]
+- [[06-AI/python/index|Python 笔记目录]]
 
 ## 参考
 

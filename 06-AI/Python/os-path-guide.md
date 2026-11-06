@@ -414,4 +414,4 @@ print(os.path.pardir)    # '..' (所有平台)
 
 - [[os-module-guide|os 模块使用指南]] —— 文件/目录/进程等更广的 `os` 能力
 - [[06-python-stdlib|Python 内建模块]] —— 标准库速查入口
-- [[index|Python 笔记目录]]
+- [[06-AI/python/index|Python 笔记目录]]

@@ -400,4 +400,4 @@ while n > 0:
   异常链、`ExceptionGroup` 与自定义异常体系在那一篇展开
 - [[06-python-stdlib|Python 内建模块]] —— `collections` 对内置容器的增强
 - [[04-python-async|Python 异步编程]] —— 函数定义 `async def` 的延伸
-- [[index|Python 笔记目录]]
+- [[06-AI/python/index|Python 笔记目录]]

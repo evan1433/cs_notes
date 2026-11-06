@@ -51,4 +51,4 @@ Python 编程语言在 AI 领域的应用。
 - [[18-debugging-profiling|Python 调试与性能分析]]
 
 ### 实战案例
-- [[practical-cases/index|实战案例]]
+- [[06-AI/python/practical-cases/index|实战案例]]

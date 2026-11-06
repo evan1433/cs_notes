@@ -341,7 +341,7 @@ pip install .             # 常规安装，拷贝一份到 site-packages
 - [[09-virtual-environments|虚拟环境]]
 - [[10-uv|uv 包管理器]]
 - [[12-dependency-config|依赖管理配置文件]]
-- [[index|Python 目录]]
+- [[06-AI/python/index|Python 目录]]
 
 ## 参考
 

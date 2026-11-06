@@ -734,7 +734,7 @@ print(Plugin.plugins)   # {'CSVPlugin': <class 'CSVPlugin'>}
 - [[05-python-type-hints|Python 类型提示]] —— 类属性标注、`Self`、`Protocol` 与 `override`
 - [[07-python-advanced|Python 进阶话题]] —— `dataclass` 是手写 `__init__`/`__repr__` 的官方替代
 - [[04-python-async|Python 异步编程]] —— `__aenter__`/`__aiter__` 等异步协议
-- [[index|Python 笔记目录]]
+- [[06-AI/python/index|Python 笔记目录]]
 
 ## 参考
 

@@ -879,7 +879,7 @@ uvloop.run(main())          # 替代 asyncio.run(main())
 - [[07-python-advanced|Python 进阶话题]] —— 装饰器与语言机制的其他侧面
 - [[pydantic-validation|Pydantic 数据类型校验]] —— 异步接口层的数据边界校验
 - [[01-python-basics|Python 基础语法]] —— 语法基础回顾
-- [[index|Python 笔记目录]]
+- [[06-AI/python/index|Python 笔记目录]]
 
 ## 参考
 

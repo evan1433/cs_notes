@@ -171,5 +171,5 @@ if __name__ == "__main__":
 ## See Also
 
 - [[04-python-async|Python 异步编程]] —— `run_in_executor` / `to_thread` 包装同步 SDK 的原理
-- [[practical-cases/index|实战案例目录]] —— 其他落地案例
-- [[index|Python 笔记目录]]
+- [[06-AI/python/practical-cases/index|实战案例目录]] —— 其他落地案例
+- [[06-AI/python/index|Python 笔记目录]]
