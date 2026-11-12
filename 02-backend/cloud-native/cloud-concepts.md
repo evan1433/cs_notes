@@ -1,54 +1,376 @@
-# 云计算
+---
+title: 云计算基础：概念、演进与解决方案
+description: 从应用架构演进切入，讲清云计算的本质、发展历程、要解决的核心问题，以及 IaaS/PaaS/SaaS、容器编排、Serverless 等解决路径
+tags:
+  - cloud-native
+  - cloud-computing
+  - architecture
+  - distributed-system
+  - devops
+date: 2026-11-12
+aliases:
+  - 云计算
+---
 
-[云计算](https://baike.baidu.com/item/%E4%BA%91%E8%AE%A1%E7%AE%97/9969353?fromModule=lemma_inlink)中讨论的服务包括**基础设施即服务**（[IaaS](https://baike.baidu.com/item/IaaS/5863121?fromModule=lemma_inlink)），**平台即服务**（PaaS）和**软件即服务**（[SaaS](https://baike.baidu.com/item/SaaS/6703273?fromModule=lemma_inlink)）三个层次的服务。
+# 云计算基础：概念、演进与解决方案
 
- 平台即服务（PaaS）是云计算的重要组成部分，提供运算平台与解决方案服务 [1]  。在云计算的典型层级中，PaaS层介于**软件即服务与基础设施即服务之间**。
+## 概述
 
- PaaS提供用户将云端基础设施部署与创建至客户端，或者借此获得使用编程语言、程序库与服务。用户不需要管理与控制云端基础设施（包含[网络](https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C/143243?fromModule=lemma_inlink)、[服务器](https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8/100571?fromModule=lemma_inlink)、操作系统或存储），但需要控制上层的应用程序部署与应用托管的环境。PaaS将软件研发的平台做为一种服务，以软件即服务（SaaS）模式交付给用户。PaaS 提供软件部署平台（runtime），抽象掉了硬件和操作系统细节，可以无缝地扩展（scaling）。开发者只需要关注自己的业务逻辑，不需要关注底层。即PaaS 为生成、测试和部署软件应用程序提供一个环境。
+云计算不是"把服务器搬到别人的机房"，而是把**算力从固定资产变成可编程的公共服务**：
+按需申请、按量计费、弹性伸缩，把资源管理的负担从业务团队转移到平台层。
+理解它最好的入口不是定义，而是先看应用架构为什么会一步步演进到"必须依赖云"。
 
-# harbor镜像仓库
+## 前置知识
 
-# k8s学习笔记
-虚拟机 ip 地址
-192.168.56.102  master
+- 进程、虚拟内存等操作系统基础：理解"虚拟化"如何把一台物理机切成多台逻辑机
+- [[http-protocol|HTTP 协议]]：云服务的 API 化交付方式建立在其之上
+- 基本的部署概念（进程、端口、反向代理），可参考 [[nginx|Nginx 全面指南]]
 
-192.168.56.103  node1
+## 一、应用架构的演进：云的需求从哪里来
 
-192.168.56.104  node2
+架构演进的主线只有一条：**单体应用撑不住规模时，就拆；拆开之后协作成本爆炸时，就需要平台来兜底**。
+云正是那个"兜底平台"。
 
-```shell
-wget https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo -O /etc/yum.repos.d/docker-ce.repo
+| 阶段 | 时期 | 核心矛盾 | 应对手段 |
+|------|------|----------|----------|
+| 单体架构 | 1960s–2000s | 改一处要全量发布，只能整体扩容 | 分层、模块化、单库单进程 |
+| 垂直拆分 | 1990s–2000s | 单体耦合，高流量模块无法单独扩容 | 按业务线拆成独立子系统 |
+| SOA | 2000s–2010s | 重复建设（每个系统都写一遍登录） | 抽取共享服务 + ESB 统一治理 |
+| 微服务 | 2010s 至今 | ESB 成为瓶颈，服务粒度太粗 | 细粒度服务 + 轻量协议 + 去中心化治理 |
+| 云原生 | 2015 后 | 几十上百个服务的部署、扩缩、自愈靠人扛不住 | 容器 + 编排 + 声明式交付 |
+| AI 原生 | 2023 后 | 应用逻辑由硬编码变为模型推理，算力异构 | Agent 编排 + 异构算力调度 + 向量数据层 |
 
-yum -y install docker-ce-18.06.1.ce-3.el7
+### 1.1 单体与垂直拆分：能跑，但扩展不经济
 
+所有功能（UI、业务逻辑、数据访问）打包进一个进程、一个数据库，部署简单、调试直观。
+问题是扩容只能**整体复制**：只有订单模块吃 CPU，也必须再复制一份用户模块。
+垂直拆分解决了单点扩容，却带来"烟囱式"重复建设——三个子系统三套登录、三套权限、三套日志。
 
-cat > /etc/docker/daemon.json << EOF
-{
-"registry-mirrors": ["https://b9pmyelo.mirror.aliyuncs.com"]
-}
-EOF
+### 1.2 SOA：第一次尝试"能力复用"
 
-cat > /etc/yum.repos.d/kubernetes.repo << EOF
-[kubernetes]
-name=Kubernetes
-baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
-enabled=1
-gpgcheck=0
-repo_gpgcheck=0
-gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
-https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
-EOF
+把公共能力（用户、鉴权、消息）抽成共享服务，通过**企业服务总线（ESB）**统一路由、转换协议、做治理。
+复用问题解决了，但 ESB 本身成了集中式瓶颈和单点故障，SOAP/WSDL 的协议栈也让迭代速度极慢。
 
+### 1.3 微服务：把治理责任下放
 
-kubeadm init \
---apiserver-advertise-address=192.168.56.102 \
---image-repository registry.aliyuncs.com/google_containers \
---kubernetes-version v1.17.0 \
---service-cidr=10.96.0.0/12 \
---pod-network-cidr=10.244.0.0/16
-EOF
+服务围绕业务能力拆分，各自独立数据库、独立技术栈、独立发布节奏，通过 HTTP/REST 或 gRPC 通信。
+代价是**复杂度从代码转移到了基础设施**：服务发现、配置管理、分布式事务、链路追踪、灰度发布，
+这些能力如果每个团队都自建一遍，等于把 SOA 的重复建设问题换了个形态重演。
+拆分边界怎么划、每个分布式问题对应什么方案，见 [[microservices|微服务架构]]。
+
+> 这正是云原生要解决的问题：把这些"每个服务都需要、但不该由业务团队实现"的能力，下沉到平台。
+
+### 1.4 云原生：把运维能力产品化
+
+[CNCF](https://github.com/cncf/toc/blob/main/DEFINITION.md) 的定义要点是：
+以**容器、服务网格、微服务、不可变基础设施、声明式 API** 为代表的技术手段，
+让应用能在公有云、私有云、混合云这类动态环境中被构建和运行。
+
+四个支柱对应四类痛点：
+
+| 支柱 | 解决的问题 | 代表技术 |
+|------|-----------|----------|
+| 容器化 | 环境不一致（"我本地是好的"） | [[docker|Docker]] |
+| 动态编排 | 扩缩容、自愈、滚动发布靠人手工 | [[kubernetes|Kubernetes]] |
+| 微服务 | 单体无法独立演进与扩容 | REST/gRPC、服务网格 |
+| DevOps + CI/CD | 发布靠人肉脚本，回滚靠通宵 | GitLab CI、Argo CD |
+
+### 1.5 AI 原生：架构重心的下一次转移
+
+核心逻辑从"确定性硬编码"变为"概率性推理"，基础设施从 CPU + 关系型数据库转向 **GPU + 向量数据库**，
+K8s 的角色也从容器编排器变成异构算力的调度器。这部分展开见 [[../../06-AI/ai-native-arch|AI 原生架构]]。
+
+## 二、云的概念与本质
+
+### 2.1 权威定义
+
+[NIST SP 800-145](https://csrc.nist.gov/pubs/sp/800/145/final) 的定义至今仍是事实标准：
+云计算是一种**通过网络按需访问可配置计算资源池**的模式，资源（网络、服务器、存储、应用、服务）
+可以**快速供给和释放**，且只需最少的管理投入或服务商交互。
+
+定义里三个关键词决定了云和"自己买服务器托管"的本质区别：
+**资源池化**（不是一对一交付）、**按需自服务**（不用提工单）、**可度量**（用多少算多少）。
+
+### 2.2 五大基本特征
+
+| 特征 | 含义 | 缺失后的后果 |
+|------|------|--------------|
+| 按需自服务 | 用户自助申请，无需人工审批开通 | 扩容要走采购流程，弹性名存实亡 |
+| 广泛网络访问 | 标准协议、任意终端可达 | 退化为局域网内的私有资源 |
+| 资源池化 | 多租户共享物理资源池 | 无法摊薄成本，利用率上不去 |
+| 快速弹性 | 容量可快速伸缩，对用户近乎无限 | 大促扛不住，平时又大量闲置 |
+| 可度量服务 | 用量可计量、可计费、可审计 | 成本无法归因到业务 |
+
+### 2.3 底层关键机制：虚拟化
+
+云能把一台物理机"切"给多个租户，靠的是虚拟化——把 CPU、内存、I/O 抽象成可分配的虚拟资源。
+
+- **全虚拟化 / 硬件辅助虚拟化**（KVM、Xen）：完整虚拟机，隔离强、启动慢（秒级）
+- **容器化**（Docker、containerd）：共享内核，隔离弱一些、启动快（百毫秒级）
+- **MicroVM**（Firecracker 等）：在两者之间取平衡，Serverless 常用
+
+隔离强度与启动速度的权衡，直接决定了上层产品形态：虚拟机适合长驻服务，容器适合弹性调度。
+
+### 2.4 服务模型：责任边界在哪里
+
+云的三层服务模型本质是**责任分界线画在哪一层**：
+
+| 模型 | 用户管理 | 服务商管理 | 典型场景 |
+|------|----------|-----------|----------|
+| IaaS | OS、运行时、应用、数据 | 虚拟化、服务器、存储、网络 | 需要完全控制权，迁移既有系统 |
+| PaaS | 应用、数据 | 运行时、OS、中间件、基础设施 | 只写业务逻辑，不碰运维 |
+| SaaS | 仅数据与配置 | 全部 | 开箱即用的成品软件 |
+
+**PaaS 是三层里最容易被误解的一层**。它提供"生成、测试、部署软件的环境"：
+把运行时（runtime）作为服务交付，抽象掉硬件与操作系统细节，从而可以无缝扩容（scaling）。
+用户的控制范围止于"上层应用的部署与应用托管环境"——不管网络、服务器、操作系统、存储，
+但要为自己的应用配置、依赖版本、环境变量负责。
+
+一个常见误判：**上云不等于用 PaaS**。只把虚拟机搬上公有云，拿到的仍是 IaaS，
+环境不一致、发布靠手工的问题一个都没解决。
+
+## 三、云的发展历程
+
+| 时间 | 里程碑 | 意义 |
+|------|--------|------|
+| 1961 | John McCarthy 提出"计算力像水电一样按需供给" | 效用计算的思想原型 |
+| 1972 | IBM VM/370 实现硬件虚拟化 | 技术上第一次能"切分"大型机 |
+| 1990s | 网格计算、ASP、托管服务 | 分布式资源共享的早期实践 |
+| 1999 | Salesforce 上线 | SaaS 商业模式成立 |
+| 2006 | AWS 推出 EC2 / S3 | IaaS 商业化拐点，云开始可"租" |
+| 2008 | Google App Engine | PaaS 形态出现 |
+| 2010 | OpenStack 发布 | 私有云有了开源底座 |
+| 2011 | NIST 发布云定义 | 概念与术语标准化 |
+| 2013 | Docker 开源 | 交付物从"代码"变成"镜像" |
+| 2014 | Kubernetes 开源；AWS Lambda 发布 | 编排标准化 + Serverless 起点 |
+| 2015 | CNCF 成立 | 云原生生态开始有组织地演进 |
+| 2019 后 | 混合云、多云成为企业主流 | 从"上不上云"转向"怎么组合用云" |
+| 2023 后 | GPU 即服务、AI 云 | 算力结构从通用走向异构 |
+
+两条线索值得注意：
+
+1. **抽象层级持续上移**：物理机 → 虚拟机（IaaS）→ 运行时（PaaS）→ 函数（FaaS）→ 模型 API。
+   每上移一层，用户少管一件事，代价是失去一点控制力和可移植性。
+2. **关注点从资源转向应用**：早期比拼机房和价格，现在比拼的是"应用多久能被安全地发布出去"。
+
+## 四、云要解决的核心问题
+
+云的四个价值主张，对应四类原本由业务团队自己承担的负担：
+
+### 4.1 资源利用率：从"按峰值采购"到"按实际使用付费"
+
+传统模式下每个系统按**自身峰值**独立采购，平均利用率常年在 10%–20%；
+资源池化后不同业务的峰值在时间上错开，整体利用率被摊高，成本模型也从 CapEx（一次性投入）
+变成 OpEx（按量付费）。
+
+### 4.2 弹性：容量与业务量解耦
+
+大促、开课、热点事件都会造成数量级波动。云把"提前买机器"换成"声明期望副本数"，
+由编排器在秒级到分钟级补齐容量。注意弹性不只是扩容——**缩容同样重要**，否则成本会持续爬升。
+
+### 4.3 交付效率：消除环境漂移
+
+"开发环境能跑、测试环境白屏、生产环境报错"的根因是**部署产物不唯一**。
+容器把"代码 + 依赖 + 运行时"打成不可变镜像，同一镜像在任意环境行为一致，
+配合声明式清单，环境差异被压缩到只剩配置项。
+
+### 4.4 可靠性：把容灾变成配置项
+
+单机房、单实例的可用性上限是硬件决定的。云提供多可用区、跨区域复制、健康检查与自动替换，
+把"容灾"从一次性工程项目变成可持续运行的机制——前提是你真的做了多可用区部署并演练过。
+
+### 4.5 运维边界：责任共担
+
+云不是"托管一切"。服务商负责"云本身的安全与可用"，用户负责"云上的配置与数据"。
+**绝大多数线上事故落在用户侧**：错误的网络策略、未设上限的自动扩容、没有备份的数据库。
+
+| 传统痛点 | 云上解法 | 引入的新代价 |
+|----------|----------|--------------|
+| 采购周期以周计 | 分钟级自助开通 | 成本容易失控，需 FinOps 治理 |
+| 利用率低 | 资源池化 + 多租户 | 邻居干扰（noisy neighbor） |
+| 容量按峰值预估 | 自动扩缩容 | 扩容滞后，需预热与限流兜底 |
+| 环境不一致 | 不可变镜像 + 声明式部署 | 镜像与配置管理本身成为新工程 |
+| 单点故障 | 多可用区、自愈 | 跨区延迟与数据一致性成本 |
+| 运维靠人 | 平台化、可观测性 | 平台团队成为新的关键路径 |
+
+## 五、解决方案全景
+
+### 5.1 先选部署形态
+
+| 形态 | 资源归属 | 适用场景 | 主要代价 |
+|------|----------|----------|----------|
+| 公有云 | 服务商 | 弹性需求大、快速试错、全球化 | 长期高负载时单价偏高，合规受限 |
+| 私有云 | 企业自建 | 数据敏感、行业监管、已有大量资产 | 需要自建平台团队，弹性上限受硬件约束 |
+| 混合云 | 两者结合 | 核心数据留在本地，弹性峰峰上公有云 | 网络打通、身份与数据一致性复杂 |
+| 社区云 | 特定群体共享 | 同行业合规要求一致的多方 | 生态与工具链支持有限 |
+
+现实中的主流不是"选一种"，而是**核心稳态负载放私有云/专属区，突发弹性负载放公有云**。
+
+### 5.2 再选服务模型
+
+按"团队能承担多少运维"来选，而不是按技术先进性选：
+
+- 团队没有专职运维 → 优先 PaaS / FaaS，把 OS 与中间件交出去
+- 有遗留系统、需要深度调优 → IaaS，保留完全控制权
+- 需求是成品能力（邮件、CRM、监控）→ SaaS，不要自建
+
+纵向叠一层常见扩展模型：
+
+| 扩展模型 | 交付物 | 计费粒度 | 典型用途 |
+|----------|--------|----------|----------|
+| CaaS（容器即服务） | 容器运行时 + 编排 | 节点/资源 | 微服务标准底座 |
+| FaaS（函数即服务） | 单次函数调用 | 调用次数 + 执行时长 | 事件驱动、定时任务、Webhook |
+| BaaS（后端即服务） | 鉴权、存储、推送等 API | 按用量 | 移动端/小程序快速搭后端 |
+
+### 5.3 运行时落地：容器 + 编排
+
+容器解决"打包一致"，编排解决"跑起来之后的所有事"。一个最小可用的部署单元包含
+**镜像、副本数、资源请求/限制、健康检查、扩缩容策略**：
+
+```dockerfile
+# 多阶段构建：编译环境不进运行镜像，镜像体积和攻击面都更小
+FROM maven:3.9-eclipse-temurin-21 AS build
+WORKDIR /src
+COPY pom.xml .
+RUN mvn -q dependency:go-offline    # 先只拉依赖，命中 Docker 层缓存
+COPY src ./src
+RUN mvn -q package -DskipTests
+
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+COPY --from=build /src/target/order-service.jar app.jar
+# 用非 root 运行，容器逃逸时的影响面更小
+RUN useradd -r -u 1001 appuser && chown -R appuser /app
+USER appuser
+ENTRYPOINT ["java", "-XX:MaxRAMPercentage=75", "-jar", "app.jar"]
 ```
 
-k8s  **Kubernetes1.24版本及以上移除了对docker的直接集成**，使用`containerd`实现。
+```yaml
+# deployment.yaml：声明"要什么状态"，由编排器负责把实际状态收敛过去
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+        - name: app
+          image: registry.example.com/order-service:1.8.2
+          resources:
+            # requests 决定调度，limits 决定被 OOMKill 的阈值，两者都写才可控
+            requests: { cpu: "500m", memory: "512Mi" }
+            limits: { cpu: "1", memory: "1Gi" }
+          readinessProbe:          # 未就绪不接流量，避免发布期间把请求打到冷启动的实例
+            httpGet: { path: /actuator/health/readiness, port: 8080 }
+            initialDelaySeconds: 10
+          livenessProbe:           # 卡死不退出时由编排器重启，而不是等告警
+            httpGet: { path: /actuator/health/liveness, port: 8080 }
+            periodSeconds: 20
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: order-service
+spec:
+  scaleTargetRef: { apiVersion: apps/v1, kind: Deployment, name: order-service }
+  minReplicas: 3
+  maxReplicas: 30             # 必须有上限，否则异常流量会烧掉整月预算
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target: { type: Utilization, averageUtilization: 65 }
+```
 
-[【Kubernetes1.26.x：container runtime is not running问题详细排查】_mikasa_akm的博客-CSDN博客](https://blog.csdn.net/weixin_52156647/article/details/129758753)
+只写 `Deployment` 不加上限、不配探针，是"用了 K8s 但没拿到云原生收益"的最典型状态。
+更深的内容见 [[kubernetes|Kubernetes]] 与 [[helm|Helm]]。
+
+### 5.4 交付流水线：把发布变成可重复动作
+
+镜像只解决"一致"，要让发布可重复还需要流水线：构建 → 扫描 → 推送 → 更新清单 → 渐进放量。
+云原生推荐的形态是 **GitOps**：集群状态由 Git 中的清单唯一决定，回滚等于 revert 一个 commit。
+
+```bash
+# GitOps 的典型循环：改镜像标签 → 提交 → 控制器自动收敛
+git checkout -b release/order-1.8.2
+kustomize edit set image registry.example.com/order-service=registry.example.com/order-service:1.8.2
+git commit -am "chore(order): bump image to 1.8.2"
+# 推送后由 Argo CD / Flux 检测到差异并同步，人工只需观察健康指标
+```
+
+### 5.5 流量入口与治理
+
+外部流量进入集群通常分三段，各段职责不要混：
+
+1. **入口层**：负载均衡（L4）与入口控制器（L7），负责 TLS 终止与路由——参见 [[nginx|Nginx]]
+2. **服务间通信**：服务发现在 K8s 内建；跨语言、跨集群的治理（熔断、重试、mTLS、金丝雀）
+   交给服务网格（Istio、Linkerd），但**能用应用层库解决就别上网格**，它会显著增加运维面
+3. **东西向策略**：网络策略（NetworkPolicy）限定谁能访问谁，默认拒绝比默认放行安全得多
+
+### 5.6 可观测性：三个信号 + 一条成本线
+
+| 信号 | 回答的问题 | 常见工具 |
+|------|-----------|----------|
+| Metrics | 系统现在健康吗？趋势如何？ | Prometheus + Grafana |
+| Logs | 出错那一刻发生了什么？ | Loki / ELK |
+| Traces | 一个请求慢在哪一跳？ | OpenTelemetry + Jaeger |
+
+可观测性的隐性成本是**存储与基数**：高基数标签（用户 ID、请求 ID）会把指标系统打爆，
+日志全量留存也会让账单超过计算费用。采样与保留策略要在上线前定好。
+
+### 5.7 Serverless：把"服务器"这件事交给平台
+
+FaaS 让代码以函数为单位运行，按调用次数与执行时长计费，无请求时零成本。
+适用：事件回调、定时任务、低频内部工具、流量尖峰明显的入口层。
+不适用：长连接、持续高吞吐、对冷启动敏感的核心链路——这类场景容器往往更便宜也更稳定。
+
+### 5.8 一个可落地的组合方案
+
+以一个日活十万级的电商系统为例，典型的组合是：
+
+- **形态**：核心交易与用户数据在私有云（合规），大促弹性容量溢出到公有云
+- **底座**：容器化 + K8s 多可用区部署，Helm 管理多环境清单
+- **入口**：云负载均衡 → Ingress（Nginx）→ 服务；静态资源走 CDN
+- **拆分**：交易、库存、支付按业务边界拆服务，服务内保持模块化，避免拆得过细
+- **交付**：CI 产出镜像并扫描漏洞，GitOps 推清单，按 5% → 25% → 100% 灰度
+- **弹性**：HPA 按 CPU/QPS 扩容，配合限流与熔断做兜底，maxReplicas 设硬上限
+- **数据**：主库多可用区 + 只读副本，跨区备份，定期做恢复演练
+- **可观测**：指标告警接值班，Trace 采样率 10%，日志保留 7 天
+- **成本**：按命名空间做成本归因，每月复核闲置资源与超配的 requests
+
+## 六、常见误区
+
+| 误区 | 实际情况 | 纠正方法 |
+|------|----------|----------|
+| 上云 = 把虚拟机搬到云上 | 只是 IaaS 平移，交付效率与弹性都没改善 | 先容器化，再用声明式编排 |
+| 云原生 = 用 Kubernetes | K8s 只是编排层，缺 CI/CD 与可观测仍是手工运维 | 按四支柱逐项补齐，别只买编排 |
+| 微服务一定优于单体 | 分布式复杂度会转移给团队，小团队可能被拖垮 | 按组织规模与业务边界拆，先模块化 |
+| 弹性 = 自动扩容 | 缩容、预热、限流缺失时扩缩容反而制造故障 | HPA 设上限 + 限流 + 容量基线压测 |
+| Serverless 一定更省钱 | 高频长任务下按量计费可能远超包年包月 | 用真实调用特征做成本压测 |
+| 上云就天然高可用 | 单可用区部署照样整体故障 | 多 AZ + 故障演练，别只看 SLA 数字 |
+| 云上安全由服务商负责 | 责任共担，配置错误几乎全在用户侧 | 最小权限、网络策略默认拒绝、定期审计 |
+
+## 七、与相关概念的关系
+
+- 与 [[docker|Docker]]：容器是云原生的交付单元，解决"打包一致"；云提供运行这些容器的资源池。
+- 与 [[kubernetes|Kubernetes]]：编排器是 IaaS 之上的"操作系统"，把资源池变成可声明、可自愈的应用运行环境。
+- 与 [[helm|Helm]]：多环境部署时，清单的版本化与参数化交给包管理器，而不是复制粘贴 YAML。
+- 与 [[nginx|Nginx]]：Ingress 与反向代理层仍是流量入口的核心，云没有替代它，只是让它可声明式管理。
+- 与 [[../../06-AI/ai-native-arch|AI 原生架构]]：云原生解决"应用如何稳定运行"，AI 原生在此之上替换了应用的核心逻辑层。
+- 与 SOA / 微服务的区别：SOA 强调集中式治理（ESB），微服务强调去中心化，云原生强调**平台化承载**。
+
+## 参考
+
+- [NIST SP 800-145: The NIST Definition of Cloud Computing](https://csrc.nist.gov/pubs/sp/800/145/final)
+- [CNCF: Cloud Native Definition v1.0](https://github.com/cncf/toc/blob/main/DEFINITION.md)
+- [AWS: Overview of Amazon Web Services](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.html)
+- [The Twelve-Factor App](https://12factor.net/zh_cn/)
+- [[cloud-native/index|云原生目录]]、[[kubernetes|Kubernetes 学习指南]]

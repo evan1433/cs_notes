@@ -16,6 +16,8 @@ aliases:
 # Spring Cloud
 
 > 原文参考：[一篇文章搞懂 Spring Cloud 是什么](https://www.cnblogs.com/mrhelloworld/p/springcloud.html)
+>
+> 本文讲**组件怎么用**；架构层面的取舍（边界怎么划、什么时候不该拆、每类分布式问题的方案对比）见 [[microservices|微服务架构]]。
 
 Spring Cloud 解决的是一个很具体的问题：把分布式系统里**反复要写一遍的样板代码**（配置集中管理、服务注册发现、路由、熔断、负载均衡、链路追踪）封装成一组可以"引依赖即用"的 Starter，让每个微服务只关心自己的业务代码。它不是另一个框架，而是架在 Spring Boot 自动装配之上的一整套**分布式治理工具箱**。
 
