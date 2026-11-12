@@ -230,7 +230,7 @@ pip install -r requirements.txt
 - [[10-uv|uv 包管理器]] —— `uv venv` / `uv sync` 是同一件事的更快实现，且自带 lock
 - [[12-dependency-config|依赖管理配置文件]] —— 决定环境里到底要装什么
 - [[11-python-cli|Python 命令行工具]] —— `python -m venv` 正是 `-m` 的典型用法
-- [[06-AI/python/index|Python 笔记目录]]
+- [[python/index|Python 笔记目录]]
 
 ## 参考
 

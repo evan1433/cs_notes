@@ -374,4 +374,4 @@ def my_task(duration):
 - [[02-python-oop|Python 面向对象]] —— `__iter__`/`__next__` 与 `__call__` 让对象参与函数式写法
 - [[04-python-async|Python 异步编程]] —— 生成器让出执行权的能力，正是协程的语法源头
 - [[05-python-type-hints|Python 类型提示]] —— `Iterator`、`Generator`、`Callable` 的标注方式
-- [[06-AI/python/index|Python 笔记目录]]
+- [[python/index|Python 笔记目录]]

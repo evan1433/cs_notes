@@ -864,4 +864,4 @@ path = '中文路径'  # Python 3默认使用Unicode
 - [[06-python-stdlib|Python 内建模块]] —— `os` 在标准库速查中的位置
 - [[11-python-cli|Python 命令行工具]] —— 脚本入口与 `-m` 运行方式
 - [[09-virtual-environments|Python 虚拟环境]] —— `PATH`、`VIRTUAL_ENV` 等环境变量的实际用途
-- [[06-AI/python/index|Python 笔记目录]]
+- [[python/index|Python 笔记目录]]

@@ -14,8 +14,7 @@ date: 2024-03-21
 
 ## 目录
 
-### 编程语言
-- [[python/index|Python]]
+> Python 语言基础与工程实践属通用编程知识，笔记已迁至后端目录：[[python/index|Python]]。
 
 ### 深度学习框架
 - [[pytorch/index|PyTorch]]

@@ -510,4 +510,4 @@ python -m venv .venv                     # 建虚拟环境
 - [[17-pytest|pytest 测试框架]] —— `python -m pytest` 相比 `pytest` 能避免解释器错配
 - [[18-debugging-profiling|Python 调试与性能分析]] —— `-X importtime`、`python -m pdb` 与本文的开关体系直接衔接
 - [[13-python-exceptions|Python 异常处理]] —— 未捕获异常为何退出码是 1、怎样映射成自定义退出码
-- [[06-AI/python/index|Python 笔记目录]]
+- [[python/index|Python 笔记目录]]

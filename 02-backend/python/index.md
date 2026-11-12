@@ -1,16 +1,16 @@
 ---
 title: Python
-description: Python 编程语言在 AI 领域的应用，包括基础语法、面向对象、异常与上下文管理、并发、包管理、标准库与工程实践
+description: Python 语言基础与工程实践，涵盖语法、面向对象、异步与并发、类型提示、标准库、包管理、测试与调试
 tags:
   - python
-  - ai
   - programming
-date: 2026-11-06
+  - backend
+date: 2026-11-12
 ---
 
 # Python
 
-Python 编程语言在 AI 领域的应用。
+Python 语言基础与工程实践。面向 AI 与后端的通用底座，与 [[java-fundamentals/index|Java 基础]] 同级。
 
 ## 目录
 
@@ -51,4 +51,4 @@ Python 编程语言在 AI 领域的应用。
 - [[18-debugging-profiling|Python 调试与性能分析]]
 
 ### 实战案例
-- [[06-AI/python/practical-cases/index|实战案例]]
+- [[practical-cases/index|实战案例]]

@@ -1187,4 +1187,4 @@ signal.signal(signal.SIGUSR1, toggle_debug)
 - [[python-f-string-cheatsheet|f-String 速查]] —— 指标与训练日志的格式化写法
 - [[os-module-guide|os 模块使用指南]] —— 日志目录创建、权限与轮转文件路径
 - [[pydantic-validation|Pydantic 数据类型校验]] —— 结构化日志字段的校验与序列化
-- [[06-AI/python/index|Python 笔记目录]]
+- [[python/index|Python 笔记目录]]

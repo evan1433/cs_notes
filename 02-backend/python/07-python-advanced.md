@@ -221,4 +221,4 @@ match point:
 - [[15-python-concurrency|Python 并发与并行]] —— 解释器层面的约束（GIL、子解释器）
 - [[08-pypi-pip|PyPI 与 pip]] —— `__init__.py` 与包发布的关系
 - [[10-uv|uv 包管理器]] —— 现代项目脚手架与 PEP 机制的关系
-- [[06-AI/python/index|Python 笔记目录]]
+- [[python/index|Python 笔记目录]]

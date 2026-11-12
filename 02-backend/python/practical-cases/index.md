@@ -20,5 +20,5 @@ date: 2026-11-06
 
 ## 相关
 
-- [[06-AI/python/index|Python 笔记目录]]
+- [[python/index|Python 笔记目录]]
 - [[04-python-async|Python 异步编程]] —— 案例中用到的协程调度与同步 SDK 包装方式
