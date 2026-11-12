@@ -1,6 +1,6 @@
 ---
 title: 数据库
-description: MySQL、ClickHouse、MyBatis 等数据库相关知识
+description: MySQL、PostgreSQL、ClickHouse、MongoDB、SQLAlchemy 等数据库相关知识
 tags:
   - database
   - mysql
@@ -19,4 +19,6 @@ date: 2024-03-21
 - [[mongodb|MongoDB]]
 - [[postgresql|PostgreSQL 基础]]
 - [[postgresql-advanced|PostgreSQL 特性与实战]]
+- [[sqlalchemy|SQLAlchemy 技术指南]]
 - [[clickhouse|ClickHouse]]
+- [[neo4j|Neo4j 图数据库]]
