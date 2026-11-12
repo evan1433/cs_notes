@@ -263,6 +263,8 @@ public class TimingBeanPostProcessor implements BeanPostProcessor {
 
 AOP 解决"横切关注点"问题：日志、鉴权、事务、埋点这类逻辑天然散布在所有业务方法周围，用切面把它们从业务代码里抽出来。
 
+> 本节讲机制。要查具体写法——五种通知的签名规则、切点表达式文法、参数绑定、执行顺序、自调用失效的排查——见 [[spring-aop|Spring AOP 写法手册]]。
+
 ### 5.1 术语对照
 
 | 术语 | 含义 | 代码载体 |
