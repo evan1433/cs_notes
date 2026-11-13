@@ -1,21 +1,21 @@
 ---
 title: Web 服务器
-description: Spring WebFlux、OAuth2、Tomcat、Jetty 等 Web 服务器和框架
+description: Tomcat / Jetty / Netty、OAuth2、JWT 等 Web 服务器、网络框架与认证方案
 tags:
   - web-server
   - backend
   - spring
-date: 2024-03-21
+date: 2026-11-13
 ---
 
 # Web 服务器
 
-Web 服务器和框架相关知识。
+Web 服务器、网络框架和认证授权相关知识。
 
 ## 内容导航
 
-
+- [[tomcat-jetty|Tomcat & Jetty]]
+- [[netty|Netty 核心原理与实战]]
 - [[oauth2|OAuth2]]
 - [[oauth2-guide|OAuth2 Guide]]
 - [[jwt|JWT 入门与使用]]
-- [[tomcat-jetty|Tomcat & Jetty]]

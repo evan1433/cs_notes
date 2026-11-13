@@ -1,13 +1,13 @@
 ---
 title: Tomcat 与 Jetty 架构深度解析
-description: 基于"深入拆解 Tomcat & Jetty"系列笔记，系统梳理 Web 容器、HTTP 协议、Servlet 规范、Tomcat 连接器与容器架构、生命周期与启动流程，并对比 Jetty 架构与选型
+description: 基于"深入拆解 Tomcat & Jetty"系列笔记，系统梳理 Web 容器、HTTP 协议、Servlet 规范、Tomcat 连接器与容器架构、生命周期与启动流程，对比 Jetty 架构与选型，并补充版本选型、部署形态、Connector 调优与常见排错等生产实践
 tags:
   - tomcat
   - jetty
   - servlet
   - web-server
   - java
-date: 2026-08-23
+date: 2026-11-13
 ---
 
 # Tomcat 与 Jetty 架构深度解析
@@ -563,8 +563,144 @@ public class JettyDemo {
 - 深度定制容器行为、追求极低资源占用、嵌入式组件开发 → **Jetty**
 - 两者都遵循 Servlet 规范，对上层应用（Spring MVC 等）透明，切换成本低
 
+## 十一、Tomcat 生产实践
+
+> 前面十节讲的是"内部怎么运转"，这一节补"线上怎么用"：选版本、选部署形态、调连接器、排故障。
+
+### 11.1 版本选型
+
+Tomcat 采用"一个主版本对应一代规范"的策略，选错版本最直接的后果是 `javax.servlet` 与 `jakarta.servlet`
+包名不兼容——Spring Boot 3 必须配 Tomcat 10.1+。
+
+截至 2026 年 11 月，官方支持矩阵：
+
+| Tomcat 版本 | 最新发布 | Servlet / JSP | 最低 JDK | 状态与适用场景 |
+|-------------|----------|---------------|----------|----------------|
+| 11.0.x | 11.0.27 | 6.1 / 4.0 | 17 | Stable，Jakarta EE 11，新项目首选 |
+| 10.1.x | 10.1.61 | 6.0 / 3.1 | 11 | Stable，Jakarta EE 10，Spring Boot 3.x 基线 |
+| 9.0.x | 9.0.123 | 4.0 / 2.3 | 8 | Stable，最后一个 `javax.servlet` 版本，存量系统居多 |
+| 8.5.x 及更早 | — | — | — | EOL，仅安全补丁视角下的历史版本 |
+
+> 注意：Tomcat 8.5 起**移除了 BIO 连接器**，网上大量老文章里的 `protocol="org.apache.coyote.http11.Http11Protocol"`
+> 在 8.5+ 已经不存在，配置了会启动失败。现在只有 NIO / NIO2 / APR 三种。
+
+### 11.2 三种部署形态
+
+| 形态 | 入口 | 适用场景 | 特点 |
+|------|------|----------|------|
+| 独立安装 + WAR | `bin/startup.sh` + 丢 WAR 到 `webapps/` | 传统运维、需要独立升级容器 | 容器与应用解耦，多应用共用实例 |
+| 嵌入式 API | 代码里 `new Tomcat()` | 自研框架、需要精确控制 | 不依赖外部安装，随应用打包 |
+| Spring Boot 内嵌 | `spring-boot-starter-web` | 绝大多数现代 Java 服务 | 配置即生效，`server.tomcat.*` 覆盖默认值 |
+
+嵌入式启动（Tomcat 10+，注意是 `jakarta.servlet`）：
+
+```java
+import java.io.File;
+import org.apache.catalina.Context;
+import org.apache.catalina.startup.Tomcat;
+
+public class EmbeddedTomcat {
+    public static void main(String[] args) throws Exception {
+        Tomcat tomcat = new Tomcat();
+        tomcat.setPort(8080);
+        // 必须先调用：触发默认 Connector 创建，否则 start 后没有监听端口
+        tomcat.getConnector();
+        Context ctx = tomcat.addContext("", new File(".").getAbsolutePath());
+        Tomcat.addServlet(ctx, "hello", new HelloServlet());
+        ctx.addServletMappingDecoded("/hello", "hello");
+        tomcat.start();
+        // 阻塞主线程，等价于独立模式下的 await() 监听 8005
+        tomcat.getServer().await();
+    }
+}
+```
+
+Spring Boot 侧等价配置（属性名对应 9.x 的 `server.tomcat.*`，Boot 3.x 仍然适用）：
+
+```yaml
+server:
+  port: 8080
+  tomcat:
+    threads:
+      max: 200            # 最大工作线程数，对应 Connector maxThreads
+      min-spare: 20       # 最小空闲线程，预热用
+    accept-count: 200     # 全连接队列长度，对应 acceptCount
+    max-connections: 8192 # 最大连接数，NIO 下可远大于线程数
+    connection-timeout: 5s
+    keep-alive-timeout: 20s
+    max-keep-alive-requests: 100
+    uri-encoding: UTF-8
+```
+
+### 11.3 Connector 关键参数
+
+独立部署时在 `conf/server.xml` 里调，逻辑与上表一致：
+
+```xml
+<Connector port="8080"
+           protocol="org.apache.coyote.http11.Http11NioProtocol"
+           maxThreads="200"
+           minSpareThreads="20"
+           acceptCount="200"
+           maxConnections="8192"
+           connectionTimeout="5000"
+           keepAliveTimeout="20000"
+           maxKeepAliveRequests="100"
+           compression="on"
+           compressionMinSize="2048"
+           URIEncoding="UTF-8" />
+```
+
+| 参数 | 作用 | 调优建议 |
+|------|------|----------|
+| `maxThreads` | 同时处理请求的最大线程数 | 不是越大越好。IO 等待型服务 200~500；阻塞调用多则配合压测定 |
+| `acceptCount` | 全连接队列满后的等待队列长度 | 高并发入口适当放大（如 200~1024），队列溢出直接拒绝连接 |
+| `maxConnections` | 同一时刻可接受并处理的连接数 | NIO 下可远大于 `maxThreads`，超出部分排队；一般设为线程数的 2~10 倍 |
+| `connectionTimeout` | 建立连接后等待请求行的超时 | 防慢连接攻击，默认 60s 偏大，5~10s 更合理 |
+| `keepAliveTimeout` | Keep-Alive 连接空闲保持时间 | 要略大于上游（Nginx）的 keepalive 时间，避免上游复用已关闭连接 |
+| `maxKeepAliveRequests` | 单连接最大复用次数 | 默认 100，内网高 QPS 可调大以减少握手开销 |
+| `compression` | 响应压缩 | 文本类响应（JSON/HTML）开启，图片等已压缩格式没必要 |
+| `URIEncoding` | URL 解码字符集 | 统一 UTF-8，否则中文参数乱码 |
+
+### 11.4 线程数与连接数怎么估
+
+Tomcat 的 NIO 模型里**线程数与连接数是解耦的**：Acceptor 接连接，Poller 监听事件，只有真正有请求要处理时才
+从线程池取线程。所以一条经验公式：
+
+```text
+maxThreads ≈ QPS × 平均响应时间(s) ÷ 期望并发利用率
+```
+
+例如 2000 QPS、平均响应 50ms：`2000 × 0.05 = 100` 个线程在忙，留一倍余量 → `maxThreads=200`。
+若接口里有 1s 的外部调用，同样 QPS 下就需要 2000 个线程——此时不该堆线程，而是改异步或加缓存。
+
+> 还要给 JVM 留余量：`maxThreads × 单线程栈大小(默认 1MB)` 是线程栈的理论上限，再叠加堆内存，
+> 容器内存配额容易被撑爆。一台 4C8G 的机器，`maxThreads=500` 已经偏激进。
+
+### 11.5 常见排错
+
+| 现象 | 原因 | 解决 |
+|------|------|------|
+| 启动报 `ClassNotFoundException: javax.servlet.*` | Tomcat 10+ 已改为 `jakarta.servlet` | 升级依赖到 Jakarta 版本，或用 Tomcat 9 |
+| `java.net.BindException: Address already in use` | 端口被占用或上一个实例未退干净 | `lsof -i:8080` 定位；检查 `shutdown.sh` 是否因 8005 端口被改而失效 |
+| 大量 `503` / 连接被拒 | `maxThreads` 打满且 `acceptCount` 队列溢出 | 加大线程池或优化慢接口；用 `Manager` 页面/JMX 看线程占用 |
+| 请求偶发超时但 CPU 不高 | 线程都卡在外部调用上，线程池耗尽 | 排查阻塞点，加超时与熔断，必要时改异步 Servlet |
+| `OutOfMemoryError: Metaspace` | 频繁热部署导致类加载器泄漏 | 生产关闭热部署，或用 `MemoryLeakTracingListener` 定位 |
+| 中文参数乱码 | `URIEncoding` 非 UTF-8 | Connector 显式设置 `URIEncoding="UTF-8"` |
+| AccessLog 缺失 | `AccessLogValve` 未启用或路径不可写 | 在 Host 下配置 `AccessLogValve`，检查目录权限 |
+
+## See Also
+
+- [[netty|Netty 核心原理与实战]] —— 网络框架底层视角，与 Servlet 容器的定位差异
+- [[java-web|Java Web 开发]] —— Servlet、Filter、Listener、Session 的使用
+- [[jvm|JVM 虚拟机核心原理]] —— 线程栈、Metaspace、GC 与容器内存规划
+- [[java-thread-pool|Java 线程池]] —— 与 Tomcat 工作线程池的对照
+- [[02-backend/web-servers/index|Web 服务器目录]]
+
 ## 参考来源
 
+- [Apache Tomcat 版本对照表](https://tomcat.apache.org/whichversion.html)
+- [Apache Tomcat HTTP Connector 配置](https://tomcat.apache.org/tomcat-11.0-doc/config/http.html)
 - [深入拆解 Tomcat & Jetty（一）Web 容器](https://www.jianshu.com/p/53be6fb1c130)
 - [深入拆解 Tomcat & Jetty（二）HTTP 协议必知必会](https://www.jianshu.com/p/2fb60fc28ba9)
 - [深入拆解 Tomcat & Jetty（三）Servlet 规范和 Servlet 容器](https://www.jianshu.com/p/2bfe0639a4d3)
