@@ -60,7 +60,7 @@ Use **kebab-case** with numbered prefixes for main categories:
 | `05-book-notes/` | 05-读书笔记/ | Book reading notes |
 | `06-ai/` | 06-AI/ | AI & Machine Learning |
 | `sys-analyst/` | 系统分析师/ | System Analyst certification |
-| `sys-architect/` | 系统架构师/ | System Architect certification |
+| `architecture/` | 架构实践/ | Architecture practice (not exam prep) |
 
 Subdirectories use kebab-case without numbers:
 
@@ -164,7 +164,7 @@ aliases:
 
 ### Standard Template
 
-```markdown
+````markdown
 ---
 title: Topic Title
 description: Brief description.
@@ -189,7 +189,7 @@ Explain what this topic is about and why it matters.
 
 Explain with code examples.
 
-```language
+```js
 // Runnable code example
 const example = "with language tag";
 ```
@@ -218,7 +218,7 @@ Common pitfalls and solutions.
 
 - [[related-document|Related Topic]]
 - [External Resource](https://example.com)
-```
+````
 
 ### Structure Guidelines
 
@@ -267,7 +267,7 @@ try (BufferedReader reader = new BufferedReader(
 
 When documenting errors:
 
-```markdown
+````markdown
 ## Common Errors
 
 ### NullPointerException
@@ -281,7 +281,7 @@ if (object != null) {
     object.doSomething();
 }
 ```
-```
+````
 
 ---
 
@@ -403,7 +403,7 @@ Documents with `draft: true` are excluded from the published site (handled by Qu
 | 速查参考 | `templates/reference-note.md` | 命令、参数、配置手册 |
 | 目录索引 | `templates/index-note.md` | 各目录的 index.md |
 
-选择依据见 [templates/README.md](templates/README.md)。模板已内置 front matter、
+选择依据见 [templates/README.md](https://github.com/evan1433/cs_notes/blob/master/templates/README.md)。模板已内置 front matter、
 双向链接占位、排错表格等必备结构，复制后按指引填写即可。
 
 ### 提交前自查清单
@@ -491,7 +491,7 @@ cs_notes/
 ├── 05-book-notes/         # Book reading notes
 ├── 06-ai/                 # ML, DL, LLM, PyTorch
 ├── sys-analyst/           # System Analyst certification
-└── sys-architect/         # System Architect certification
+└── architecture/          # Architecture practice (not exam prep)
 ```
 
 ### File Naming Cheatsheet
@@ -509,7 +509,7 @@ cs_notes/
 ## Questions?
 
 - Check existing notes in the same category for style reference
-- Review [AGENTS.md](../AGENTS.md) for project conventions
-- Look at [README.md](../README.md) for overall project context
+- Review [AGENTS.md](https://github.com/evan1433/cs_notes/blob/master/AGENTS.md) for project conventions
+- Look at [README.md](README.md) for overall project context
 
 Happy documenting!

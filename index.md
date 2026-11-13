@@ -24,9 +24,9 @@ date: 2024-03-21
 
 ### 计算机基础
 
-- [[01-cs-fundamentals/数据结构|数据结构]]
-- [[01-cs-fundamentals/计算机网络|计算机网络]]
-- [[01-cs-fundamentals/操作系统|操作系统]]
+- [[数据结构|数据结构]]
+- [[计算机网络|计算机网络]]
+- [[操作系统|操作系统]]
 
 ### 后端开发
 
@@ -38,11 +38,11 @@ date: 2024-03-21
 
 ### 前端开发
 
-- [[03-frontend/html|HTML]]
-- [[03-frontend/css|CSS]]
-- [[03-frontend/javascript|JavaScript]]
-- [[03-frontend/vue2|Vue 2]]
-- [[03-frontend/vue3|Vue 3]]
+- [[html|HTML]]
+- [[css|CSS]]
+- [[javascript|JavaScript]]
+- [[vue2|Vue 2]]
+- [[vue3|Vue 3]]
 
 ### 人工智能
 
@@ -55,7 +55,7 @@ date: 2024-03-21
 ### 其他
 
 - [[05-book-notes/index|读书笔记]]
-- [[sys-architect/index|系统架构师]]
+- [[architecture/index|架构实践]]
 - [[04-devtools/index|开发工具]]
 
 ---

@@ -25,8 +25,8 @@ This repository supports both Obsidian viewing and GitHub Pages publishing via Q
 ├── 04-devtools/             # General Tools & Concepts
 ├── 05-book-notes/           # Book Notes
 ├── 06-ai/                   # Artificial Intelligence
-├── sys-architect/           # System Architecture
-├── sys-analyst/             # System Analyst
+├── architecture/            # Architecture practice
+├── sys-analyst/             # System Analyst exam prep
 ├── .obsidian/               # Obsidian config (gitignored)
 ├── quartz/                  # Quartz 4.0 core components
 ├── quartz.config.ts         # Quartz configuration
