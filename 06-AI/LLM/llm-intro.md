@@ -1,5 +1,10 @@
+---
+title: LLM 入门
+tags:
+  - LLM
+---
+
 # LLM
-#LLM
 
 - [llm-twin-course](https://github.com/decodingml/llm-twin-course)
 

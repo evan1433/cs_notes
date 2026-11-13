@@ -1,4 +1,8 @@
-#LLM 
+---
+title: 论文阅读清单
+tags:
+  - LLM
+---
 
 - [Attention is all you need](https://arxiv.org/abs/1706.03762)
 - [UNIFIED-IO: A UNIFIED MODEL FOR VISION, LANGUAGE, AND MULTI-MODAL TASKS](https://arxiv.org/pdf/2206.08916)

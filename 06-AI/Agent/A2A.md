@@ -1,3 +1,15 @@
+---
+title: Google A2A 协议指南
+tags:
+  - AI
+  - Agent
+  - A2A
+  - 协议
+  - Google
+  - 互操作性
+  - JSON-RPC
+---
+
 # Google A2A 协议指南
 
 ## 概述
@@ -352,6 +364,4 @@ print(card.to_json())
 
 ---
 
-## 标签
 
-#AI #Agent #A2A #协议 #Google #互操作性 #JSON-RPC

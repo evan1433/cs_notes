@@ -1,4 +1,9 @@
-#LLM  #VLM
+---
+title: BEiT
+tags:
+  - LLM
+  - VLM
+---
 
 [ BEiT: BERT Pre-Training of Image Transformers](https://arxiv.org/abs/2106.08254)
 
