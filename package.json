@@ -3,6 +3,7 @@
   "description": "计算机科学笔记 - Quartz 4.0",
   "private": true,
   "version": "1.0.0",
+  "license": "MIT",
   "type": "module",
   "packageManager": "pnpm@12.5.1",
   "scripts": {

@@ -1,7 +1,7 @@
 # 📚 全栈学习笔记
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Markdown](https://img.shields.io/badge/markdown-%E2%9C%93-blue.svg)](.markdownlint.json)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/evan1433/cs_notes/blob/master/LICENSE)
+![Markdown](https://img.shields.io/badge/markdown-%E2%9C%93-blue.svg)
 [![Obsidian](https://img.shields.io/badge/Obsidian-Compatible-purple.svg)](https://obsidian.md)
 [![Quartz](https://img.shields.io/badge/Quartz-4.0-green.svg)](https://quartz.jzhao.xyz/)
 
@@ -51,10 +51,9 @@ cs_notes/
 │   ├── lvlm/
 │   └── agent/
 ├── sys-analyst/            # 系统分析师备考
-├── sys-architect/          # 系统架构师备考
+├── architecture/           # 架构实践（非备考）
 ├── quartz/                 # Quartz 4.0 核心组件
-├── CONTRIBUTING.md         # 文档编写规范
-└── .markdownlint.json       # Markdown 格式规则
+└── CONTRIBUTING.md         # 文档编写规范
 ```
 
 ## 🚀 使用方式
@@ -128,7 +127,7 @@ pnpm preview
 
 ## 🤝 贡献指南
 
-欢迎提交 Issue 或 PR 参与贡献！详细规范请参考 [CONTRIBUTING.md](./CONTRIBUTING.md)。
+欢迎提交 Issue 或 PR 参与贡献！详细规范请参考 [[CONTRIBUTING|CONTRIBUTING.md]]。
 
 ### 快速规范
 
@@ -174,7 +173,7 @@ date: YYYY-MM-DD
 
 ## 📄 许可证
 
-本项目采用 [MIT License](LICENSE) 开源许可。
+本项目采用 [MIT License](https://github.com/evan1433/cs_notes/blob/master/LICENSE) 开源许可。
 
 ## 🙏 致谢
 
