@@ -23,6 +23,7 @@ Java 编程语言基础与进阶知识。
 - [[java-concurrency|Java 并发编程（CompletableFuture）]]
 - [[java-high-concurrency|Java 后端高并发系统设计]]
 - [[jdk17|JDK 17 新特性]]
-- [[project-reactor|Project Reactor]]
+- [[project-reactor|Project Reactor（单篇笔记）]]
+- [[02-backend/java-fundamentals/reactor/index|Project Reactor 专题]]：概念 / 来源 / 使用 / Sink / Processor / 案例 / 应用
 - [[unit-testing|Java 单元测试规范与原理]]
 - [[java-interview|Java 面试题]]

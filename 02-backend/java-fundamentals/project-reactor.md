@@ -3,6 +3,9 @@ title: project-reactor
 tag:
   - reactor
 ---
+> **本笔记已拆分为专题**：概念、来源、使用、应用、代码案例、Sink 与 Processor 组件分别成篇，
+> 入口见 [[02-backend/java-fundamentals/reactor/index|Project Reactor 专题]]。本页保留为速查与碎片笔记合集。
+
 [Reactor 3 参考指南](https://easywheelsoft.github.io/reactor-core-zh/index.html#about-doc)
 
 ## reactive stream
