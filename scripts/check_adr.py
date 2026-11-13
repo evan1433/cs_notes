@@ -8,9 +8,9 @@
   4. 是否写明了否决理由（只写结论的 ADR 无法自我辩护）
 
 用法：
-    python3 scripts/check_adr.py sys-architect/decisions
-    python3 scripts/check_adr.py sys-architect/decisions --strict   # CI 用，有问
-                                                                   # 题即返回非零
+    python3 scripts/check_adr.py architecture/decisions
+    # CI 用：--strict 时任何警告也算失败
+    python3 scripts/check_adr.py architecture/decisions --strict
 
 退出码：0 = 全部合规；1 = 存在不完整 ADR（--strict 时任何警告也算失败）
 """
