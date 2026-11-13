@@ -515,8 +515,8 @@ torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
 
 ## 参考资源
 
-- [[06-Linear]] - 全连接层
-- [[07-激活函数]] - 激活函数详解
-- [[08-损失函数]] - 损失函数
-- [[09-优化器]] - 优化器
-- [[13-模型训练完整流程]] - 完整训练示例
+- [[06-linear]] - 全连接层
+- [[07-activation-functions]] - 激活函数详解
+- [[08-loss-functions]] - 损失函数
+- [[09-optimizers]] - 优化器
+- [[13-training流程]] - 完整训练示例

@@ -562,5 +562,5 @@ try {
 - [Redis 官方文档](https://redis.io/docs/latest/)
 - [Redis 命令参考](https://redis.io/commands/)
 - [Redis 设计与实现（内部编码与持久化原理）](http://redisbook.com/)
-- [[middleware/index|中间件索引]]
+- [[02-backend/middleware/index|中间件索引]]
 - [[mysql|MySQL]]

@@ -710,7 +710,7 @@ curl http://127.0.0.1:9000/minio/v2/metrics/cluster
 
 ## 相关笔记
 
-- [[middleware/index|中间件索引]]
+- [[02-backend/middleware/index|中间件索引]]
 - [[redis|Redis]]
 - [[docker|Docker]]
 - [[docker-compose|Docker Compose]]

@@ -458,7 +458,7 @@ Framework 版本不是你直接选的——**由 Boot 决定**：
 - [[jdk17|JDK 17]]（Java 17 的语言特性是新基线的一部分）
 - [[spring-webflux|Spring WebFlux]]
 - [[spring-mvc|Spring MVC]]
-- [[spring/index|Spring 生态目录]]
+- [[02-backend/spring/index|Spring 生态目录]]
 
 ## 参考
 

@@ -575,7 +575,7 @@ Boot 4.0 同步做了两件配套的事：代码库全面模块化（自动配�
 - [[spring-boot4|Spring Boot 4 使用指南与发展现状]]
 - [[spring-cloud|Spring Cloud]]（HTTP 服务组的负载均衡与熔断由 Spring Cloud 2025.1 接管）
 - [[jdk17|JDK 17]]（语言基线）
-- [[spring/index|Spring 生态目录]]
+- [[02-backend/spring/index|Spring 生态目录]]
 
 ## 参考
 

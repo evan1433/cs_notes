@@ -709,7 +709,7 @@ RustFS 发现已知挂载点上是新格式化盘时，会自动把缺失分片�
 
 ## 相关笔记
 
-- [[middleware/index|中间件索引]]
+- [[02-backend/middleware/index|中间件索引]]
 - [[minio|MinIO]]：同为 S3 兼容对象存储，纠删码原理与多副本对比的详细推导在那边
 - [[docker|Docker]] / [[docker-compose|Docker Compose]]：容器化部署
 - [[kubernetes|Kubernetes]] / [[helm|Helm]]：MNMD 集群与 Operator 部署

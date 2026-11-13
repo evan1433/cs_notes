@@ -562,7 +562,7 @@ for epoch in range(100):
 
 ## 参考资源
 
-- [[08-损失函数]] - 损失函数详解
-- [[13-模型训练完整流程]] - 训练示例
+- [[08-loss-functions]] - 损失函数详解
+- [[13-training流程]] - 训练示例
 - [PyTorch 优化器文档](https://pytorch.org/docs/stable/optim.html)
 - [学习率调度器文档](https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate)

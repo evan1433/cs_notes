@@ -120,7 +120,7 @@ CREATE TABLE t_demo (
 - **DDL 隐式提交**：执行 `ALTER TABLE`、`TRUNCATE` 会强制提交当前事务，且无法回滚。
   这是"事务里混入 DDL 导致数据不一致"的根源。
 - **DML 可回滚**（InnoDB），但 `TRUNCATE` 属于 DDL，不可回滚且会重置自增计数器。
-- **DQL 不产生 undo**，但会产生一致性读的快照（见 [9.4 MVCC](#94-mvcc-多版本并发控制)）。
+- **DQL 不产生 undo**，但会产生一致性读的快照（见 [9.7 MVCC](#97-mvcc多版本并发控制)）。
 
 ## 3. 数据类型选型
 
@@ -1906,7 +1906,7 @@ KILL <thread_id>;
 - [[redis|Redis]] — 缓存与 MySQL 的经典配合（Cache-Aside、缓存穿透/击穿/雪崩）
 - [[clickhouse|ClickHouse]] — OLAP 分析场景
 - [[mongodb|MongoDB]] — 文档型数据库对比
-- [[databases/index|数据库目录]]
+- [[02-backend/databases/index|数据库目录]]
 
 **官方文档**
 

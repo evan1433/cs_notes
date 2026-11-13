@@ -25,9 +25,9 @@ date: 2024-03-10
 - [[qwen-vl-overview|多模态技术梳理：Qwen-VL 系列]]
 
 ### Qwen-VL 系列
-- [[qwen-vl-series/index|Qwen-VL 系列]]
+- [[06-AI/lvlm/qwen-vl-series/index|Qwen-VL 系列]]
 
 ## 参考资源
 
-- [[../llm/index|LLM]]
-- [[../papers/index|论文学习]]
+- [[06-AI/llm/index|LLM]]
+- [[06-AI/papers/index|论文学习]]

@@ -447,7 +447,7 @@ def train(input, target, model):
 
 ## 参考资源
 
-- [[10-多层感知机-MLP]] - 基础神经网络
-- [[12-Transformer]] - 注意力机制
+- [[10-mlp]] - 基础神经网络
+- [[12-transformer]] - 注意力机制
 - [PyTorch LSTM 文档](https://pytorch.org/docs/stable/generated/torch.nn.LSTM.html)
 - [Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)

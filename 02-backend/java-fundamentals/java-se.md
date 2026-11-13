@@ -1185,7 +1185,7 @@ Interger.valueOf()
 自动拆箱
 
 
-[[Mysql]]
+[[mysql|MySQL]]
 
 # JDBC核心技术
 

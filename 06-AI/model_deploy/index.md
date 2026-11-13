@@ -34,5 +34,5 @@ date: 2026-08-28
 
 ## 相关目录
 
-- [[../llm/index|LLM]]
-- [[../gpu-specs|GPU 规格对比]]
+- [[06-AI/llm/index|LLM]]
+- [[06-AI/gpu-specs|GPU 规格对比]]

@@ -24,8 +24,8 @@ https://huggingface.co/docs/accelerate/usage_guides/deepspeed
 
 ## 参考资源
 
-- [[../pytorch/index|PyTorch]]
-- [[../machine-learning/index|机器学习]]
-- [[../llm/index|LLM]]
-- [Agentic RL](../Agent/Agentic%20RL.md)
+- [[06-AI/pytorch/index|PyTorch]]
+- [[06-AI/machine-learning/index|机器学习]]
+- [[06-AI/llm/index|LLM]]
+- [[06-AI/Agent/Agentic RL|Agentic RL]]
 

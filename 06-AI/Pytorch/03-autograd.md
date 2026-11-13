@@ -512,6 +512,6 @@ for epoch in range(100):
 
 ## 参考资源
 
-- [[02-张量操作]] - 张量基础操作
-- [[09-优化器]] - 参数优化
+- [[02-tensor-operations]] - 张量基础操作
+- [[09-optimizers]] - 参数优化
 - [PyTorch 自动求导官方文档](https://pytorch.org/docs/stable/autograd.html)

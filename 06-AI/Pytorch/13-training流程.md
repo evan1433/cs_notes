@@ -754,8 +754,8 @@ project/
 
 ## 参考资源
 
-- [[04-数据加载-Dataset-DataLoader]] - 数据处理
-- [[05-nn.Module]] - 模型构建
-- [[08-损失函数]] - 损失函数
-- [[09-优化器]] - 优化器
+- [[04-data-loading]] - 数据处理
+- [[05-nn-module]] - 模型构建
+- [[08-loss-functions]] - 损失函数
+- [[09-optimizers]] - 优化器
 - [PyTorch 官方教程](https://pytorch.org/tutorials/)

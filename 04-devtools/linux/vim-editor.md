@@ -925,6 +925,6 @@ carol,rust,2
 
 ## 21. 延伸阅读
 
-- [[../tmux|Tmux 使用指南]]
+- [[04-devtools/tmux|Tmux 使用指南]]
 - [[bash-basics|Bash 基础]]
-- [[../ide-guide|IDE 使用指南]]
+- [[04-devtools/ide-guide|IDE 使用指南]]

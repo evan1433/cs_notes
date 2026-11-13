@@ -16,11 +16,11 @@ date: 2024-01-13
 
 - [[00-math-basics|数学基础]]
 - [[01-machine-learning|机器学习]]
-- [[concepts|概念]]
+- [[06-AI/machine-learning/concepts|概念]]
 - [[classic-algorithms|经典算法]]
 - [[nlp|NLP]]
 
 ## 参考资源
 
-- [[../deep-learning/index|深度学习]]
-- [[../pytorch/index|PyTorch]]
+- [[06-AI/deep-learning/index|深度学习]]
+- [[06-AI/pytorch/index|PyTorch]]

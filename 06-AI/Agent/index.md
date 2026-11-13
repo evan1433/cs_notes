@@ -31,7 +31,7 @@ AI Agent 智能体相关知识。
 - [[aaas-concept|AaaS 概念]]
 
 ### 架构设计
-- [[agent-arch|Agent 架构图]]
+- [[agent-arch.excalidraw|Agent 架构图]]
 - [[agent.excalidraw|Agent excalidraw]]
 
 ## 学习资源
@@ -46,5 +46,5 @@ AI Agent 智能体相关知识。
 
 ## 参考资源
 
-- [[../llm/index|LLM]]
-- [[../huggingface/index|Hugging Face]]
+- [[06-AI/llm/index|LLM]]
+- [[06-AI/huggingface/index|Hugging Face]]

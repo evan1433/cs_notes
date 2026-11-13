@@ -24,6 +24,6 @@ Hugging Face 大语言模型课程。
 
 ## 参考资源
 
-- [[../index|Hugging Face Course]]
-- [[../../../llm/index|LLM]]
-- [[../../../pytorch/index|PyTorch]]
+- [[06-AI/huggingface/hf-course/index|Hugging Face Course]]
+- [[06-AI/llm/index|LLM]]
+- [[06-AI/pytorch/index|PyTorch]]

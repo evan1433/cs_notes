@@ -500,6 +500,6 @@ values, indices = torch.topk(x, k=2, dim=1)
 
 ## 参考资源
 
-- [[01-向量]] - 多维张量概念理解
-- [[03-自动求导-autograd]] - 梯度计算
+- [[01-vectors]] - 多维张量概念理解
+- [[03-autograd]] - 梯度计算
 - [PyTorch 官方文档 - Tensor](https://pytorch.org/docs/stable/tensors.html)

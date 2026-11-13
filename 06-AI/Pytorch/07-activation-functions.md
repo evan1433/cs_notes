@@ -344,6 +344,6 @@ y = F.relu_(x)  # inplace 版本，可能导致错误
 
 ## 参考资源
 
-- [[06-Linear]] - 全连接层
-- [[10-多层感知机-MLP]] - 神经网络示例
+- [[06-linear]] - 全连接层
+- [[10-mlp]] - 神经网络示例
 - [PyTorch 激活函数文档](https://pytorch.org/docs/stable/nn.html#non-linear-activations-weighted-sum-nonlinearity)

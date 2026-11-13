@@ -15,16 +15,16 @@ Hugging Face 生态系统学习笔记。
 ## 目录
 
 ### 官方课程
-- [[hf-course/index|Hugging Face Course]]
+- [[06-AI/huggingface/hf-course/index|Hugging Face Course]]
 
 ### 博客
-- [[hf-blog/index|Blog]]
+- [[06-AI/huggingface/hf-blog/index|Blog]]
 
 ### 文档
-- [[hf-doc/index|Documentation]]
+- [[06-AI/huggingface/hf-doc/index|Documentation]]
 - [[doc-index|Hugging Face Doc Index]]
 
 ## 参考资源
 
-- [[../llm/index|LLM]]
-- [[../pytorch/index|PyTorch]]
+- [[06-AI/llm/index|LLM]]
+- [[06-AI/pytorch/index|PyTorch]]

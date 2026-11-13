@@ -18,5 +18,5 @@ Hugging Face Agent 课程。
 
 ## 参考资源
 
-- [[../index|Hugging Face Course]]
-- [[../../../agent/index|Agent]]
+- [[06-AI/huggingface/hf-course/index|Hugging Face Course]]
+- [[06-AI/Agent/index|Agent]]

@@ -673,4 +673,4 @@ Taskmaster AI 解决的是大型项目中的**上下文腐烂（Context Rot）**
 
 ---
 
-> **相关笔记**：[[ai-coding-overview]] | [[vibe-coding-vs-sdd]]
+> **相关笔记**：AI 编码概览（待补） | Vibe Coding 与 SDD 的区别（待补）

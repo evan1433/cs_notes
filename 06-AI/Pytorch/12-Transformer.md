@@ -560,9 +560,8 @@ for batch in train_loader:
 
 ## 参考资源
 
-- [[11-LSTM]] - 循环神经网络
-- [[注意力机制]] - Attention 详解
-- [[07-激活函数]] - GELU 等
+- [[11-lstm]] - 循环神经网络
+- [[07-activation-functions]] - GELU 等
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
 - [The Annotated Transformer](https://nlp.seas.harvard.edu/2018/04/03/attention.html)
 - [PyTorch Transformer 文档](https://pytorch.org/docs/stable/nn.html#transformer)

@@ -10,7 +10,7 @@ date: 2026-08-28
 
 # Agent 开发框架
 
-> 记录企业级 Agent 应用开发框架的选型对比与实践笔记，与 [[../index|Agent 总览]] 中的概念篇互补。
+> 记录企业级 Agent 应用开发框架的选型对比与实践笔记，与 [[06-AI/Agent/index|Agent 总览]] 中的概念篇互补。
 
 ## 笔记索引
 
@@ -21,5 +21,5 @@ date: 2026-08-28
 
 ## 相关目录
 
-- [[../index|Agent 总览]]
-- [[../../llm/index|LLM]]
+- [[06-AI/Agent/index|Agent 总览]]
+- [[06-AI/llm/index|LLM]]

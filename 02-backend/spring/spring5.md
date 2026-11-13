@@ -500,7 +500,7 @@ public class OrderJdbcRepository {
 }
 ```
 
-> Spring 6.1 起有了更顺手的 `JdbcClient`，同一个查询可以写成 `jdbcClient.sql("...").param("status", s).query(ROW_MAPPER).list()`，详见 [[spring6#5.2 JdbcClient]]。
+> Spring 6.1 起有了更顺手的 `JdbcClient`，同一个查询可以写成 `jdbcClient.sql("...").param("status", s).query(ROW_MAPPER).list()`，详见 [[spring6#4.2 JdbcClient：JDBC 的统一门面]]。
 
 ## 常见排错
 
@@ -521,7 +521,7 @@ public class OrderJdbcRepository {
 - [[spring-mvc|Spring MVC]]
 - [[spring-boot2|Spring Boot 2]]（Spring 5 体系的自动装配）
 - [[spring-webflux|Spring WebFlux]]（5.0 引入的响应式栈）
-- [[spring/index|Spring 生态目录]]
+- [[02-backend/spring/index|Spring 生态目录]]
 - [[java-se|Java SE 基础]]（反射、注解、动态代理是理解 AOP 的前提）
 
 ## 参考

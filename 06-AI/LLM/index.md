@@ -15,12 +15,12 @@ date: 2024-03-18
 ## 目录
 
 - [[llm-intro|LLM 入门]]
-- [[concepts|概念]]
+- [[06-AI/llm/concepts|概念]]
 - [[causal-language-model|Causal Language Model]]
 - [[fine-tuning-framework|LLM Fine-tuning Framework]]
 
 ## 参考资源
 
-- [[../pytorch/index|PyTorch]]
-- [[../huggingface/index|Hugging Face]]
-- [[../papers/index|论文学习]]
+- [[06-AI/pytorch/index|PyTorch]]
+- [[06-AI/huggingface/index|Hugging Face]]
+- [[06-AI/papers/index|论文学习]]

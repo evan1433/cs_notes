@@ -24,17 +24,17 @@ GLUE基准任务
 
 ## 论文
 
-[Vision Transformer (ViT)](../论文学习/Vision%20Transformer%20(ViT).md) 
+[[06-AI/papers/vision-transformer-vit|Vision Transformer (ViT)]] 
 
-[CLIP](../论文学习/CLIP.md) 
-[OpenCLIP](../论文学习/OpenCLIP.md)
+[[06-AI/papers/CLIP|CLIP]] 
+[[06-AI/papers/OpenCLIP|OpenCLIP]]
 
-[BEiT](../论文学习/BEiT.md)
+[[06-AI/papers/BEiT|BEiT]]
 
-[IBOT](../论文学习/IBOT.md)
+[[06-AI/papers/IBOT|IBOT]]
 
 dino
-[DINOv2- Learning Robust Visual Features without Supervision](../论文学习/DINOv2-%20Learning%20Robust%20Visual%20Features%20without%20Supervision.md)
+[[06-AI/papers/dinov2|DINOv2- Learning Robust Visual Features without Supervision]]
 
 
 

@@ -43,5 +43,5 @@ AI 领域重要论文阅读笔记。
 
 ## 阅读列表
 
-- [[read-list|阅读清单]]
+- [[06-AI/papers/read-list|阅读清单]]
 - [[read-it-later|待读列表]]

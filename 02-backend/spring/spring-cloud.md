@@ -595,7 +595,7 @@ management:
 - [[spring-boot3|Spring Boot 3 使用指南]]
 - [[spring-boot2|Spring Boot 2]]
 - [[spring-webflux|Spring WebFlux]]
-- [[spring/index|Spring 生态目录]]
+- [[02-backend/spring/index|Spring 生态目录]]
 - [[cloud-concepts|云原生常见概念]]
 - [[oauth2-guide|OAuth2 指南]]（网关做统一鉴权时的协议背景）
 - [[redis|Redis]]（Gateway 分布式限流的存储依赖）

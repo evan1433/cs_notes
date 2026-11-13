@@ -23,5 +23,5 @@ date: 2024-01-21
 
 ## 参考资源
 
-- [[../index|LVLM]]
-- [[../../llm/index|LLM]]
+- [[06-AI/lvlm/index|LVLM]]
+- [[06-AI/llm/index|LLM]]

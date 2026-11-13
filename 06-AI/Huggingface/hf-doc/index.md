@@ -18,5 +18,5 @@ Hugging Face 官方文档阅读笔记。
 
 ## 参考资源
 
-- [[../index|Hugging Face]]
+- [[06-AI/huggingface/index|Hugging Face]]
 - [官方文档](https://huggingface.co/docs)

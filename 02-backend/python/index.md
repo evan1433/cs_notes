@@ -10,7 +10,7 @@ date: 2026-11-12
 
 # Python
 
-Python 语言基础与工程实践。面向 AI 与后端的通用底座，与 [[java-fundamentals/index|Java 基础]] 同级。
+Python 语言基础与工程实践。面向 AI 与后端的通用底座，与 [[02-backend/java-fundamentals/index|Java 基础]] 同级。
 
 ## 目录
 
@@ -51,4 +51,4 @@ Python 语言基础与工程实践。面向 AI 与后端的通用底座，与 [[
 - [[18-debugging-profiling|Python 调试与性能分析]]
 
 ### 实战案例
-- [[practical-cases/index|实战案例]]
+- [[02-backend/python/practical-cases/index|实战案例]]

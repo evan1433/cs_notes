@@ -15,8 +15,8 @@ date: 2024-03-21
 
 ## Model
 
--  [Qwen3-ASR](Qwen3-ASR.md)
+-  [[06-AI/lalm/Qwen3-ASR|Qwen3-ASR]]
 
 ## 参考资源
 
-- [[read-list|阅读清单]]
+- [[06-AI/read-list|阅读清单]]

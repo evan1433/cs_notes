@@ -20,5 +20,5 @@ Hugging Face 深度强化学习课程。
 
 ## 参考资源
 
-- [[../index|Hugging Face Course]]
-- [[../../../deep-learning/index|深度学习]]
+- [[06-AI/huggingface/hf-course/index|Hugging Face Course]]
+- [[06-AI/deep-learning/index|深度学习]]

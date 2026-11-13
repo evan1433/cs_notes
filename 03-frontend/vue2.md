@@ -16,7 +16,7 @@ date: 2024-04-12
 - [vu2 api doc](https://cn.vuejs.org/api/)
 - [vue2 router](https://router.vuejs.org/zh)
 
-**学习 Vue 之前需要掌握的 JavaScript 基础知识[[04 ES6]]**
+**学习 Vue 之前需要掌握的 JavaScript 基础知识：[[es6|ES6]]**
 
 
 

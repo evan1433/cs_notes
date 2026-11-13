@@ -595,5 +595,5 @@ SearchHits<ProductDoc> hits = elasticsearchTemplate.search(query, ProductDoc.cla
 - [Elasticsearch 官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
 - [Elasticsearch 权威指南（中文）](https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html)
 - [analysis-ik 中文分词插件](https://github.com/infinilabs/analysis-ik)
-- [[middleware/index|中间件索引]]
+- [[02-backend/middleware/index|中间件索引]]
 - [[mysql|MySQL]]

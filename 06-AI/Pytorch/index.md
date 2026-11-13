@@ -37,5 +37,5 @@ PyTorch 深度学习框架学习笔记。
 
 ## 参考资源
 
-- [[../machine-learning/index|机器学习基础]]
-- [[../deep-learning/index|深度学习]]
+- [[06-AI/machine-learning/index|机器学习基础]]
+- [[06-AI/deep-learning/index|深度学习]]

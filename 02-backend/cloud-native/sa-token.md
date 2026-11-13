@@ -587,7 +587,7 @@ public class SsoServerController {
 
 ## See Also
 
-- [[cloud-native/index|云原生目录]] —— 本文所属目录
+- [[02-backend/cloud-native/index|云原生目录]] —— 本文所属目录
 - [[spring-boot3|Spring Boot 3]] —— 集成 Sa-Token 时的 Boot 版本基线
 - [[spring-mvc|Spring MVC]] —— `SaInterceptor` 依托的拦截器机制
 - [[spring-cloud|Spring Cloud]] —— 微服务网关鉴权场景

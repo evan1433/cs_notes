@@ -274,7 +274,7 @@ EXPOSE 80/tcp
 
 ### 2.7 VOLUME —— 声明挂载点
 
-详见 [3.5 数据卷管理](#35-数据卷管理-volume)。在 Dockerfile 中：
+详见 [3.3 数据卷管理](#33-数据卷管理volume)。在 Dockerfile 中：
 
 ```dockerfile
 VOLUME ["/data", "/logs"]
@@ -1452,4 +1452,4 @@ RUN npm config set registry https://registry.npmmirror.com
 - [Docker 深度清除镜像缓存](https://juejin.cn/post/7041119023286730782)
 - [Dockerfile 中更换国内源](https://blog.csdn.net/yyj108317/article/details/105984674)
 
-[[k8s#k8s概述]]
+[[kubernetes#1. K8s 概述|K8s 概述]]
