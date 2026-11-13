@@ -15,12 +15,12 @@ date: 2026-11-12
 
 ## 子目录
 
-- [[java-fundamentals/index|Java 基础]]
-- [[python/index|Python]]
-- [[databases/index|数据库]]
-- [[web-servers/index|Web 服务器]]
-- [[cloud-native/index|云原生]]
-- [[middleware/index|中间件]]
-- [[projects/index|项目实战]]
-- [[spring/index|Spring]]
-- [[ssm/index|SSM]]
+- [[02-backend/java-fundamentals/index|Java 基础]]
+- [[02-backend/python/index|Python]]
+- [[02-backend/databases/index|数据库]]
+- [[02-backend/web-servers/index|Web 服务器]]
+- [[02-backend/cloud-native/index|云原生]]
+- [[02-backend/middleware/index|中间件]]
+- [[02-backend/projects/index|项目实战]]
+- [[02-backend/spring/index|Spring]]
+- [[02-backend/ssm/index|SSM]]
