@@ -54,7 +54,7 @@ FastAPI 适合以下场景：
 
 ### 2.1 创建项目
 
-推荐使用 [[10-uv|uv]] 管理虚拟环境和依赖：
+推荐使用 [[06-uv|uv]] 管理虚拟环境和依赖：
 
 ```bash
 mkdir fastapi-demo
@@ -521,7 +521,7 @@ async def good_endpoint() -> dict[str, bool]:
     return {"ok": True}
 ```
 
-参见 [[04-python-async|Python 异步编程]]。
+参见 [[24-python-async|Python 异步编程]]。
 
 ## 9. 配置管理
 

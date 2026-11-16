@@ -1,13 +1,6 @@
 ---
 title: Google A2A 协议指南
-tags:
-  - AI
-  - Agent
-  - A2A
-  - 协议
-  - Google
-  - 互操作性
-  - JSON-RPC
+tags: [ai, agent, a2a, protocols, google, 互操作性, json-rpc]
 ---
 
 # Google A2A 协议指南

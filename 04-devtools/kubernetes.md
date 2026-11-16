@@ -1,12 +1,7 @@
 ---
 title: Kubernetes (K8s) 学习指南
 description: 基于 Kubernetes 官方文档整理的容器编排学习资料，涵盖架构、核心概念、控制器、网络、存储、安全等
-tags:
-  - kubernetes
-  - k8s
-  - container
-  - cloud-native
-  - devops
+tags: [kubernetes, container, cloud-native, devops]
 date: 2026-05-25
 ---
 # Kubernetes (K8s) 学习指南

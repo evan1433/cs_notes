@@ -1,11 +1,7 @@
 ---
 title: CLIP - Learning Transferable Visual Models From Natural Language Supervision
 date: 2021-02-26
-tags:
-  - CLIP
-  - Vision-Language
-  - 对比学习
-  - 零样本
+tags: [clip, vision-language, 对比学习, 零样本]
 ---
 
 # CLIP - Learning Transferable Visual Models From Natural Language Supervision

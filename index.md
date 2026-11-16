@@ -1,8 +1,7 @@
 ---
 title: 首页
 description: 全栈学习笔记首页
-tags:
-  - home
+tags: []
 date: 2024-03-21
 ---
 # 全栈学习笔记

@@ -359,6 +359,12 @@ importers:
       '@types/js-yaml':
         specifier: ^4.0.9
         version: 4.0.9
+      '@types/katex':
+        specifier: 0.16.8
+        version: 0.16.8
+      '@types/mdast':
+        specifier: 4.0.4
+        version: 4.0.4
       '@types/node':
         specifier: ^25.0.10
         version: 25.5.0
@@ -368,6 +374,9 @@ importers:
       '@types/source-map-support':
         specifier: ^0.5.10
         version: 0.5.10
+      '@types/unist':
+        specifier: 3.0.3
+        version: 3.0.3
       '@types/ws':
         specifier: ^8.18.1
         version: 8.18.1

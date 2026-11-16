@@ -1,11 +1,7 @@
 ---
 title: Reactor 代码案例
 description: 八个可直接运行的 Reactor 案例：阻塞桥接、并发聚合、顺序控制、批处理、重试退避、SSE 广播、LLM 流式输出与测试
-tags:
-  - java
-  - reactor
-  - reactive
-  - examples
+tags: [java, reactor, reactive]
 date: 2026-11-13
 aliases:
   - reactor-examples

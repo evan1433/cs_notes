@@ -1,10 +1,7 @@
 ---
 title: OAuth 2.0
 date: 2024-01-01
-tags:
-  - OAuth
-  - 认证
-  - 安全
+tags: [oauth, authentication, security]
 ---
 # OAuth 2.0
 

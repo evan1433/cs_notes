@@ -1,11 +1,7 @@
 ---
 title: Web应用系统分析与设计
 description: 系统分析师Web应用系统分析与设计知识，包括Web系统架构、Web系统设计等内容
-tags:
-  - Web应用
-  - Web架构
-  - Web设计
-  - 系统分析师
+tags: [web应用, web架构, web设计, sys-analyst]
 date: 2026-04-13
 ---
 # Web应用系统分析与设计

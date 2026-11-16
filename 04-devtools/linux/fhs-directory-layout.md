@@ -1,10 +1,7 @@
 ---
 title: Linux FHS 目录配置
 description: Linux FHS（文件系统层次结构标准）目录配置规范，根目录及 /usr、/var 等子目录详解
-tags:
-  - linux
-  - fhs
-  - filesystem
+tags: [linux, fhs, file-system]
 ---
 
 # Linux FHS 目录配置

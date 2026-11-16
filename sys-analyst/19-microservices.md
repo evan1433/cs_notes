@@ -1,11 +1,7 @@
 ---
 title: 微服务系统分析与设计
 description: 系统分析师微服务系统分析与设计知识，包括微服务概述、微服务架构、微服务设计等内容
-tags:
-  - 微服务
-  - 服务治理
-  - 容器化
-  - 系统分析师
+tags: [microservices, service-governance, 容器化, sys-analyst]
 date: 2026-04-13
 ---
 # 微服务系统分析与设计

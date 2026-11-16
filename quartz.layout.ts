@@ -44,6 +44,12 @@ export const defaultContentPageLayout: PageLayout = {
       useSavedState: true,
       sortFn: (a, b) => {
         // Sort with Chinese locale support
+        // Keep the Python learning path in filename order while displaying titles.
+        if (a.slug.startsWith("02-backend/python/") && b.slug.startsWith("02-backend/python/")) {
+          const aOrder = Number(a.slugSegment.match(/^(\d+)-/)?.[1] ?? Infinity)
+          const bOrder = Number(b.slugSegment.match(/^(\d+)-/)?.[1] ?? Infinity)
+          if (aOrder !== bOrder) return aOrder - bOrder
+        }
         return a.displayName.localeCompare(b.displayName, "zh-CN", { numeric: true })
       },
       filterFn: (node) => {
@@ -112,6 +118,12 @@ export const defaultListPageLayout: PageLayout = {
       folderDefaultState: "collapsed",
       useSavedState: true,
       sortFn: (a, b) => {
+        // Keep the Python learning path in filename order while displaying titles.
+        if (a.slug.startsWith("02-backend/python/") && b.slug.startsWith("02-backend/python/")) {
+          const aOrder = Number(a.slugSegment.match(/^(\d+)-/)?.[1] ?? Infinity)
+          const bOrder = Number(b.slugSegment.match(/^(\d+)-/)?.[1] ?? Infinity)
+          if (aOrder !== bOrder) return aOrder - bOrder
+        }
         return a.displayName.localeCompare(b.displayName, "zh-CN", { numeric: true })
       },
       filterFn: (node) => {

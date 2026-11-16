@@ -393,11 +393,11 @@ while n > 0:
 
 ## See Also
 
-- [[02-python-oop|Python 面向对象]] —— 用类组织数据与行为
-- [[03-python-functional|Python 函数式编程]] —— 上面最后一段的列表生成式在这里展开
-- [[05-python-type-hints|Python 类型提示]] —— 给基础语法加上类型标注
-- [[13-python-exceptions|Python 异常处理]] —— 本文只提到 `try/except` 的语法形式，
+- [[07-python-oop|Python 面向对象]] —— 用类组织数据与行为
+- [[09-python-functional|Python 函数式编程]] —— 上面最后一段的列表生成式在这里展开
+- [[17-python-type-hints|Python 类型提示]] —— 给基础语法加上类型标注
+- [[08-python-exceptions|Python 异常处理]] —— 本文只提到 `try/except` 的语法形式，
   异常链、`ExceptionGroup` 与自定义异常体系在那一篇展开
-- [[06-python-stdlib|Python 内建模块]] —— `collections` 对内置容器的增强
-- [[04-python-async|Python 异步编程]] —— 函数定义 `async def` 的延伸
+- [[11-python-stdlib|Python 内建模块]] —— `collections` 对内置容器的增强
+- [[24-python-async|Python 异步编程]] —— 函数定义 `async def` 的延伸
 - [[02-backend/python/index|Python 笔记目录]]

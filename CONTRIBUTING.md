@@ -342,6 +342,16 @@ tags:
   - dependency-injection  # Concept
 ```
 
+### 标签维护规则
+
+- 保留平铺标签，统一使用英文小写和连字符；新增前先搜索已有标签。
+- 每篇建议使用 2～4 个标签，覆盖领域、技术或概念；不强制删除有检索价值的额外标签。
+- 同义词只保留一个名称，例如 `kubernetes`、`llm`、`microservices`、`distributed-system`、`domain-driven-design`。
+- 目录承担主要分类；不要为单篇文章创建与标题重复且没有复用价值的标签。
+- 低频不等于无用：具体技术、算法和概念标签可以保留；含义不明确时先保留。
+- 保留插件和工作流使用的 `excalidraw`、`copilot-conversation`、`clippings`、`template` 等功能标签。
+- 改名时同步检查正文标签及搜索表达式，跳过代码块、链接和绘图数据。
+
 ### Directory vs. Tags
 
 - **Directories** — Primary organization (what major area)
@@ -426,7 +436,7 @@ CI 场景使用 `pnpm docs:audit:fail`，存在空壳已发布文档或命名违
 ### 存量修复优先级
 
 面对历史欠账，按以下顺序修（性价比从高到低）：
-
+ 
 1. **空壳文档补 `draft: true`** —— 一行 front matter，立刻消除发布站上的空页面
 2. **命名违规重命名** —— 中文/空格文件名 → 英文 kebab-case，同时在 front matter
    `aliases` 中保留旧名，避免旧链接失效（wiki-link 引用需同步更新）

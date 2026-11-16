@@ -697,5 +697,5 @@ Query Node 内存水位、WAL 消费延迟、Compaction 任务堆积。
 - 架构总览：<https://milvus.io/docs/architecture_overview.md>
 - 版本说明：<https://milvus.io/docs/release_notes.md>
 - 中文架构解析：[云原生向量数据库 Milvus 知识大全](https://cloud.tencent.com/developer/article/2338267)
-- 本地实践笔记：[[milvus-coroutines]]
+- 本地实践笔记：[[01-milvus-coroutines]]
 - [Milvus 3.0 发布：湖原生向量搜索与更强大的检索引擎](https://milvus.io/blog/announcing-milvus-3-lake-native-vector-search-and-a-more-powerful-retrieval-engine.md)

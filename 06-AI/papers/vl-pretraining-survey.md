@@ -1,11 +1,7 @@
 ---
 title: Vision-Language Pre-training - Basics, Recent Advances, and Future Trends
 date: 2022-10-17
-tags:
-  - VLP
-  - 多模态
-  - Vision-Language
-  - 综述
+tags: [vlp, multimodal, vision-language, 综述]
 ---
 
 # Vision-Language Pre-training - Basics, Recent Advances, and Future Trends

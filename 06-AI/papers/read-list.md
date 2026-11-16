@@ -1,7 +1,6 @@
 ---
 title: 论文阅读清单
-tags:
-  - LLM
+tags: [llm]
 ---
 
 - [Attention is all you need](https://arxiv.org/abs/1706.03762)

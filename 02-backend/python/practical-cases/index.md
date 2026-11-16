@@ -16,9 +16,9 @@ date: 2026-11-06
 
 | 案例 | 场景 | 涉及技术 |
 |------|------|----------|
-| [[milvus-coroutines\|协程操作 Milvus 向量数据库]] | 批量向量检索与写入 | asyncio、`run_in_executor`、pymilvus |
+| [[01-milvus-coroutines\|协程操作 Milvus 向量数据库]] | 批量向量检索与写入 | asyncio、`run_in_executor`、pymilvus |
 
 ## 相关
 
 - [[02-backend/python/index|Python 笔记目录]]
-- [[04-python-async|Python 异步编程]] —— 案例中用到的协程调度与同步 SDK 包装方式
+- [[24-python-async|Python 异步编程]] —— 案例中用到的协程调度与同步 SDK 包装方式

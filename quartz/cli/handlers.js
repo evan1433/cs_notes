@@ -468,14 +468,17 @@ export async function handleBuild(argv) {
   }
 
   if (argv.watch) {
-    const paths = await globby([
-      "**/*.ts",
-      "quartz/cli/*.js",
-      "quartz/static/**/*",
-      "**/*.tsx",
-      "**/*.scss",
-      "package.json",
-    ])
+    const paths = await globby(
+      [
+        "**/*.ts",
+        "quartz/cli/*.js",
+        "quartz/static/**/*",
+        "**/*.tsx",
+        "**/*.scss",
+        "package.json",
+      ],
+      { gitignore: true },
+    )
     chokidar
       .watch(paths, { ignoreInitial: true })
       .on("add", () => build(clientRefresh))

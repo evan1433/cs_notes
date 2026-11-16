@@ -1,7 +1,6 @@
 ---
 title: BERT
-tags:
-  - LLM
+tags: [llm]
 ---
 
 BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding

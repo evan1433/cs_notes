@@ -76,17 +76,17 @@ aliases:
 
 ## 三、创建
 
-| 类别 | 操作符 | 说明 |
-|------|--------|------|
-| 定值 | `Flux.just(1, 2, 3)` / `Mono.just(x)` | 已就绪的内存值 |
-| 空/错误 | `Mono.empty()` / `Flux.error(e)` / `Mono.never()` | 边界与测试 |
-| 集合 | `Flux.fromIterable(list)` / `fromArray` / `fromStream` | 桥接同步集合 |
-| 序列 | `Flux.range(1, 5)` / `Flux.interval(Duration.ofSeconds(1))` | 计数、定时 |
-| 延迟计算 | `Mono.fromCallable(() -> jdbcQuery())` | 每次订阅重新执行，异常进 `onError` |
-| 延迟装配 | `Mono.defer(() -> dynamicPublisher())` | 每次订阅重建整个流 |
-| 异步桥接 | `Mono.fromFuture(cf)` / `Mono.fromCompletionStage` | 对接 `CompletableFuture` |
-| 回调桥接 | `Flux.create(sink -> ...)` | 对接事件监听器（见 [[04-sink\|Sink]]） |
-| 资源绑定 | `Flux.using(...)` / `Mono.usingWhen(...)` | 有打开/关闭配对的资源 |
+| 类别   | 操作符                                                         | 说明                           |
+| ---- | ----------------------------------------------------------- | ---------------------------- |
+| 定值   | `Flux.just(1, 2, 3)` / `Mono.just(x)`                       | 已就绪的内存值                      |
+| 空/错误 | `Mono.empty()` / `Flux.error(e)` / `Mono.never()`           | 边界与测试                        |
+| 集合   | `Flux.fromIterable(list)` / `fromArray` / `fromStream`      | 桥接同步集合                       |
+| 序列   | `Flux.range(1, 5)` / `Flux.interval(Duration.ofSeconds(1))` | 计数、定时                        |
+| 延迟计算 | `Mono.fromCallable(() -> jdbcQuery())`                      | 每次订阅重新执行，异常进 `onError`       |
+| 延迟装配 | `Mono.defer(() -> dynamicPublisher())`                      | 每次订阅重建整个流                    |
+| 异步桥接 | `Mono.fromFuture(cf)` / `Mono.fromCompletionStage`          | 对接 `CompletableFuture`       |
+| 回调桥接 | `Flux.create(sink -> ...)`                                  | 对接事件监听器（见 [[04-sink\|Sink]]） |
+| 资源绑定 | `Flux.using(...)` / `Mono.usingWhen(...)`                   | 有打开/关闭配对的资源                  |
 
 ```java
 import reactor.core.publisher.Flux;

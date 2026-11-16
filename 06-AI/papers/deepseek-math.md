@@ -1,12 +1,7 @@
 ---
 title: DeepSeekMath - Pushing the Limits of Mathematical Reasoning in Open Language Models
 date: 2024-02-05
-tags:
-  - LLM
-  - 数学推理
-  - RL
-  - DeepSeek
-  - GRPO
+tags: [llm, 数学推理, reinforcement-learning, deepseek, grpo]
 ---
 
 # DeepSeekMath - Pushing the Limits of Mathematical Reasoning in Open Language Models

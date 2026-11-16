@@ -1,11 +1,7 @@
 ---
 title: BitDance - Scaling Autoregressive Generative Models with Binary Tokens
 date: 2026-02-15
-tags:
-  - VLM
-  - 图像生成
-  - 自回归
-  - Diffusion
+tags: [vlm, 图像生成, 自回归, diffusion]
 ---
 
 # BitDance - Scaling Autoregressive Generative Models with Binary Tokens

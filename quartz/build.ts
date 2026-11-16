@@ -127,7 +127,7 @@ async function startWatching(
     contentMap,
     ignored: (fp) => {
       const pathStr = toPosixPath(fp.toString())
-      if (pathStr.startsWith(".git/")) return true
+      if (pathStr === ".git" || pathStr.startsWith(".git/")) return true
       if (gitIgnoredMatcher(pathStr)) return true
       for (const pattern of cfg.configuration.ignorePatterns) {
         if (minimatch(pathStr, pattern)) {
@@ -147,6 +147,10 @@ async function startWatching(
     persistent: true,
     cwd: argv.directory,
     ignoreInitial: true,
+    // Prune ignored directories before allocating watchers, not just their events.
+    ignored: (fp, stats) =>
+      buildData.ignored(path.relative(argv.directory, fp)) ||
+      (stats?.isDirectory() === true && gitIgnoredMatcher(`${toPosixPath(fp)}/`)),
   })
 
   const changes: ChangeEvent[] = []

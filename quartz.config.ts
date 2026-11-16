@@ -1,5 +1,6 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
+import { byDateAndAlphabeticalFolderFirst } from "./quartz/components/PageList"
 
 /**
  * Quartz 4 Configuration for CS Notes
@@ -17,6 +18,7 @@ const config: QuartzConfig = {
       "private",
       "templates",
       ".obsidian",
+      ".agents/**",
       ".devcontainer",
       ".git",
       ".github",
@@ -98,7 +100,16 @@ const config: QuartzConfig = {
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
       Plugin.ContentPage(),
-      Plugin.FolderPage(),
+      Plugin.FolderPage({
+        sort: (a, b) => {
+          if (a.slug?.startsWith("02-backend/python/") && b.slug?.startsWith("02-backend/python/")) {
+            const aOrder = Number(a.slug.split("/").at(-1)?.match(/^(\d+)-/)?.[1] ?? Infinity)
+            const bOrder = Number(b.slug.split("/").at(-1)?.match(/^(\d+)-/)?.[1] ?? Infinity)
+            if (aOrder !== bOrder) return aOrder - bOrder
+          }
+          return byDateAndAlphabeticalFolderFirst(config.configuration)(a, b)
+        },
+      }),
       Plugin.TagPage(),
       Plugin.ContentIndex({
         enableSiteMap: true,

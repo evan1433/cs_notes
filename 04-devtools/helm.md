@@ -1,12 +1,7 @@
 ---
 title: Helm 使用指南
 description: Kubernetes 包管理器 Helm 的核心概念、Chart 开发、模板语法、常用命令及最佳实践
-tags:
-  - helm
-  - kubernetes
-  - k8s
-  - cloud-native
-  - devops
+tags: [helm, kubernetes, cloud-native, devops]
 date: 2026-08-20
 ---
 # Helm 使用指南

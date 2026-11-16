@@ -1,7 +1,6 @@
 ---
 title: LLM 入门
-tags:
-  - LLM
+tags: [llm]
 ---
 
 # LLM

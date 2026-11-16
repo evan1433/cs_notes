@@ -1,11 +1,7 @@
 ---
 title: Reactor 起源与演进
 description: 从 Rx 谱系到 Reactive Streams 规范，再到 Reactor 1/2/3 与 Spring WebFlux 的采纳，以及版本线与虚拟线程时代的定位
-tags:
-  - java
-  - reactor
-  - reactive
-  - history
+tags: [java, reactor, reactive]
 date: 2026-11-13
 aliases:
   - reactor-history

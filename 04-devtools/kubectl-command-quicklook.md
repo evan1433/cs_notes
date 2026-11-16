@@ -1,8 +1,7 @@
 ---
 source:
   - https://chatgpt.com/c/6a0fe07b-522c-83ea-ac8e-e193a8007228
-tags:
-  - k8s
+tags: [kubernetes]
 reference: https://kubernetes.io/zh-cn/docs/reference/kubectl/
 ---
 

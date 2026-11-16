@@ -1,11 +1,7 @@
 ---
 title: 领域驱动设计（DDD）
 description: 从架构师视角讲清 DDD 的核心价值——如何划定服务边界，涵盖子域划分、限界上下文、上下文映射七种模式、事件风暴与聚合设计规则
-tags:
-  - ddd
-  - system-architecture
-  - microservices
-  - domain-modeling
+tags: [domain-driven-design, system-architecture, microservices, domain-modeling]
 date: 2026-11-13
 ---
 
