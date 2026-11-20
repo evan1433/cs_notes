@@ -39,9 +39,11 @@ tags:
 - [[shell-io-redirection|Shell IO 重定向与管线]] — stdin/stdout/stderr、grep/cut/sort/wc/uniq/tee
 - [[text-processing-commands|Linux 文本处理命令]] — sed、awk、cut、wc、sort、uniq、tr、xargs 实战
 
-### 进程管理
+### 进程与服务管理
 
 - [[process-management|进程管理]] — ps、top、kill、nohup 后台运行
+- [[systemctl|systemctl 与 systemd 服务管理]] — unit 编写、服务启停自启、drop-in 覆盖、journalctl 日志与排错
+- [[supervisord|Supervisor 进程管理]] — supervisord 配置、supervisorctl 运维、容器内多进程托管与踩坑
 
 ## 其他
 
