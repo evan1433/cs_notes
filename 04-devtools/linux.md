@@ -25,6 +25,7 @@ tags:
 - [[vim-editor|Vim 与 Neovim 使用手册]]
 - [[compression-packaging|文件压缩与打包]]
 - [[shell-io-redirection|Shell IO 重定向与管线]]
+- [[shell-quoting-and-expansion|Shell 引号、变量展开与文件名处理]]
 - [[process-management|进程管理]]
 - [[systemctl|systemctl 与 systemd 服务管理]]
 - [[supervisord|Supervisor 进程管理]]

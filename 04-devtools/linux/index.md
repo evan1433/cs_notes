@@ -37,6 +37,7 @@ tags:
 ### Shell 进阶
 
 - [[shell-io-redirection|Shell IO 重定向与管线]] — stdin/stdout/stderr、grep/cut/sort/wc/uniq/tee
+- [[shell-quoting-and-expansion|Shell 引号、变量展开与文件名处理]] — `$()`、四种引号、参数展开、批量处理与踩坑清单
 - [[text-processing-commands|Linux 文本处理命令]] — sed、awk、cut、wc、sort、uniq、tr、xargs 实战
 
 ### 进程与服务管理

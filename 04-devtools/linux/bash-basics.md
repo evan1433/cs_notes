@@ -181,3 +181,9 @@ echo ${PATH}
 ## 9. 数据流重定向与管线
 
 详见 [[shell-io-redirection|Shell IO 重定向与管线命令]]
+
+## 10. 相关笔记
+
+- [[shell-quoting-and-expansion|Shell 引号、变量展开与文件名处理]] — 引号与展开的进阶用法、批量处理文件的安全写法与踩坑清单
+- [[find-command|find 命令详解]] — 与 `-exec`、`-print0` 配合的批量操作
+- [[text-processing-commands|Linux 文本处理命令]] — sed、awk、xargs 实战
