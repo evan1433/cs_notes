@@ -61,8 +61,7 @@ date: 2026-11-18
 
 ### 文档检查
 
-在仓库根目录运行以下命令检查本系列。局部配置继承仓库规则，允许 Go 代码块使用 gofmt 的制表符，
-并将 YAML 的展示标题与正文 H1 分别处理；不放宽正文行长或代码围栏规则。
+在仓库根目录运行以下命令检查本系列。局部配置继承仓库规则，允许 Go 代码块使用 gofmt 的制表符，并将 YAML 的展示标题与正文 H1 分别处理；不放宽正文行长或代码围栏规则。
 
 ```bash
 pnpm dlx markdownlint-cli@0.45.0 --config 02-backend/go/.markdownlint.json '02-backend/go/*.md'

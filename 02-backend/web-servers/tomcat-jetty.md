@@ -493,7 +493,7 @@ Server 内部使用线程不安全的数组持有 Service、Engine 使用线程�
 
 ### 9.1 Jetty 简介
 
-Jetty 是 Eclipse 基金会旗下的开源 Servlet 容器，同样实现 Servlet 规范。它与 Tomcat 定位相同（HTTP 服务器 + Servlet 容器），但设计哲学不同：**Jetty 基于 Handler 的组合式架构，Tomcat 基于容器的层级式架构**。
+Jetty 是 Eclipse 基金会旗下的开源 **Servlet 容器**，同样实现 **Servlet 规范**。它与 Tomcat 定位相同（HTTP 服务器 + Servlet 容器），但设计哲学不同：**Jetty 基于 Handler 的组合式架构，Tomcat 基于容器的层级式架构**。
 
 ### 9.2 核心组件
 

@@ -146,7 +146,7 @@ public ThreadPoolExecutor(int corePoolSize,          // ① 核心线程数
 
 ## 五、Executors 工厂类及其陷阱
 
-`Executors` 提供了开箱即用的工厂方法，但**《阿里巴巴 Java 开发手册》明确禁止在生产环境使用**（强制级别），原因是它们隐藏了关键参数，且默认配置有 OOM 风险。
+`Executors` 提供了开箱即用的工厂方法，但 **《阿里巴巴 Java 开发手册》明确禁止在生产环境使用**（强制级别），原因是它们隐藏了关键参数，且默认配置有 OOM 风险。
 
 | 工厂方法 | 底层配置 | 风险 |
 |----------|----------|------|
@@ -518,7 +518,8 @@ long sum = new ForkJoinPool().invoke(new SumTask(array, 0, array.length));
 ```
 
 > **重要限制**：`ForkJoinPool` 不适合阻塞型 IO 任务——工作窃取算法假设任务不会阻塞，
-> 阻塞任务会导致线程饥饿。`parallelStream()` 底层用的就是 `ForkJoinPool.commonPool()`，
+> 阻塞任务会导致线程饥饿。
+> `parallelStream()` 底层用的就是 `ForkJoinPool.commonPool()`，
 > 这也是不建议在 `parallelStream()` 里做 IO 操作的原因。
 
 ---

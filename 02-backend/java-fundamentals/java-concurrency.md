@@ -17,8 +17,7 @@ date: 2026-11-13
 [[java-thread-pool|Java 线程池]]），而"三个远程调用怎么并行发起、结果怎么拼、某个失败了怎么降级、
 整体超时了怎么办"——这些把它写成一条声明式调用链就行，不用嵌套回调、不用手工计数。
 
-本文的代码块都已实际编译运行过（`javac --release 17`，3.2 的 `state()` 用 JDK 21），输出为实测值；
-涉及 JDK 9+ 才有的 API 会单独标注。
+本文的代码块都已实际编译运行过（`javac --release 17`，3.2 的 `state()` 用 JDK 21），输出为实测值；涉及 JDK 9+ 才有的 API 会单独标注。
 
 参考：
 
@@ -41,7 +40,7 @@ date: 2026-11-13
 
 ### 1.2 商品详情页的骨架
 
-四个下游服务各自可独立查询，页面要等四份数据齐了才能渲染——这是 CF 最典型的用法：
+四个下游服务各自可独立查询，页面要等四份数据齐了才能渲染——这是 `CompletableFuture` 最典型的用法：
 
 ```java
 CompletableFuture<ProductInfo> productFuture = CompletableFuture.supplyAsync(() -> getProductInfo());
