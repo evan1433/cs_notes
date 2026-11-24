@@ -73,10 +73,10 @@ command 2> /dev/null
 ### 1.7 stdin（标准输入）
 
 ```bash
-# 从文件读取输入
+# 从文件读取输入 <
 cat > catfile < ~/.bashrc
 
-# Here Document
+# 从脚本中的一段文本读入标准输入 Here Document
 cat > catfile << "eof"
 第一行
 第二行
