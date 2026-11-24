@@ -187,6 +187,8 @@ async def main():
 
 ## 3. 一次 await 到底发生了什么
 
+[[02-backend/python/attachments/asyncio-await.html|交互时序图：任务如何挂起与恢复]]
+
 理解调度时序，比记 API 重要得多。用下面这段代码观察两个协程的交错：
 
 ```python
@@ -237,6 +239,8 @@ asyncio.run(say_hello())
 ```
 
 ### 并发执行多个协程
+
+[[02-backend/python/attachments/asyncio-serial-vs-concurrent.html|交互瀑布图：逐个 await 与 gather 并发等待]]
 
 ```python
 import asyncio
