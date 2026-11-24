@@ -73,7 +73,10 @@ export function slugifyFilePath(fp: FilePath, excludeExt?: boolean): FullSlug {
   fp = stripSlashes(fp) as FilePath
   let ext = getFileExtension(fp)
   const withoutFileExt = fp.replace(new RegExp(ext + "$"), "")
-  if (excludeExt || [".md", ".html", undefined].includes(ext)) {
+  // local mod: keep ".html" intact so content html files (e.g. interactive diagrams
+  // under attachments/) publish WITH their extension. Treating them like pages strips
+  // the extension and GitHub Pages then serves extensionless files as downloads.
+  if (excludeExt || [".md", undefined].includes(ext)) {
     ext = ""
   }
 
