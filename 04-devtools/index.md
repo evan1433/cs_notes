@@ -30,6 +30,7 @@ date: 2024-03-21
 - [[curl|curl]]
 - [[wget|wget]]
 - [[rsync|rsync]]
+- [[ripgrep|ripgrep]]
 - [[fastapi|FastAPI]]
 - [[conda|Conda]]
 - [[latex-guide|LaTeX]]
