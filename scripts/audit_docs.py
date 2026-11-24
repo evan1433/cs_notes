@@ -26,7 +26,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IGNORED_DIRS = {
     "node_modules", "public", "quartz", ".obsidian", ".git", ".github",
     ".workbuddy", ".codebuddy", "copilot", "prompt", "deploy", "templates",
-    "Clippings", "private", ".agents",
+    "Clippings", "inbox", "private", ".agents",
 }
 IGNORED_FILES = {
     "AGENTS.md", "QWEN.md", "todo.md", "readlist.md", "CONTRIBUTING.md",

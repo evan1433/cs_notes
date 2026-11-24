@@ -23,6 +23,7 @@ const config: QuartzConfig = {
       ".git",
       ".github",
       "Clippings",
+      "inbox",
       "copilot",
       "prompt",
       "node_modules",
