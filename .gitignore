@@ -24,3 +24,7 @@ Thumbs.db
 .qoder/
 
 copilot/
+
+# 工具本地状态：archify 制图过程产物、AI 助手临时工作目录
+.archify/
+.temp/
