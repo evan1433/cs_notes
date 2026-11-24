@@ -18,6 +18,7 @@ date: 2026-11-18
 - [[02-backend/java-fundamentals/index|Java 基础]]
 - [[02-backend/python/index|Python]]
 - [[02-backend/go/index|Go]]
+- [[02-backend/c-language/index|C 语言]]
 - [[02-backend/databases/index|数据库]]
 - [[02-backend/web-servers/index|Web 服务器]]
 - [[02-backend/cloud-native/index|云原生]]
