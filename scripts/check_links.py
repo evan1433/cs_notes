@@ -64,6 +64,17 @@ def parse_wikilink(raw: str):
 def check_static():
     files = list(source_files())
     stems = {p.stem for p in files}
+    # 附件文件名集合：库内非 md 的真实文件（图片、交互图 html 等）。
+    # 带显式扩展名的 wiki-link 目标（如 [[attachments/x.png]]、[[...foo.html]]）
+    # 不可能出现在 md stems 里，改为按文件名实际存在性解析。
+    asset_names = {
+        p.name
+        for p in ROOT.rglob("*")
+        if p.is_file()
+        and p.suffix != ".md"
+        and not (set(p.parts) & SKIP_DIRS)
+        and not any(part.startswith(".") for part in p.relative_to(ROOT).parts)
+    }
     problems = []
 
     for path in files:
@@ -73,7 +84,9 @@ def check_static():
             target, _anchor = parse_wikilink(m.group(1))
             if not target:
                 continue
-            if target.split("/")[-1] not in stems:
+            last = target.split("/")[-1]
+            # 带扩展名 = 附件类目标，按附件集合解析（.md 仍走 stems，不放过 [[foo.md]]）
+            if last not in stems and not ("." in last and last in asset_names):
                 problems.append((path, m.group(0), "wiki-link 目标不存在"))
 
         for m in MD_LINK.finditer(body):
