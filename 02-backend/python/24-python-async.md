@@ -117,9 +117,12 @@ print(asyncio.run(coro))                    # 交给事件循环后才真正执�
 | 挂起 | `CORO_SUSPENDED` | 停在某个 `await` 处，等待条件满足 |
 | 结束 | `CORO_CLOSED` | 已返回或已抛异常，不可再次执行 |
 
-**③ 协程对象只能被 await 一次**。重复 await 会抛 `RuntimeError: cannot reuse already awaited coroutine`；想跑两次就重新调用函数。忘记 await 而直接丢弃协程对象时，CPython 只会打印一条 `RuntimeWarning: coroutine ... was never awaited` 然后静默丢弃——**不报错，也不执行**，这是最常见的隐形 bug。
+**③ 协程对象只能被 await 一次**。重复 await 会抛 `RuntimeError: cannot reuse already awaited coroutine`；想跑两次就重新调用函数。
+忘记 await 而直接丢弃协程对象时，CPython 只会打印一条 `RuntimeWarning: coroutine ... was never awaited` 然后静默丢弃——**不报错，也不执行**，这是最常见的隐形 bug。
 
-**④ 与生成器的关系**：协程在语法上脱胎于生成器（`yield` 让出执行权的能力），但两者类型不同。老式的生成器协程装饰器 `@asyncio.coroutine` 已在 Python 3.11 中移除，现在只有原生协程（`types.CoroutineType`）。生成器本身的内容见 [[09-python-functional|Python 函数式编程]]。
+**④ 与生成器的关系**：协程在语法上脱胎于生成器（`yield` 让出执行权的能力），但两者类型不同。
+老式的生成器协程装饰器 `@asyncio.coroutine` 已在 Python 3.11 中移除，现在只有原生协程（`types.CoroutineType`），
+生成器内容见 [[09-python-functional|Python 函数式编程]]。
 
 ### 可等待对象（Awaitable）
 
@@ -156,7 +159,8 @@ print(result)  # 输出: Hello from coroutine
 4. 某个 socket 可读或某个定时器到期，对应 Task 被放回就绪队列；
 5. 回到第 1 步。
 
-`asyncio.run()` 帮你做完了四件事：创建新的事件循环 → 把 `main()` 包成 Task 跑起来 → 结束时清理未关闭的异步生成器（`shutdown_asyncgens`）→ 关闭默认线程池（`shutdown_default_executor`）。所以**应用入口只该调用一次 `asyncio.run()`**，不要在函数中间反复调用。
+`asyncio.run()` 帮你做完了四件事：创建新的事件循环 → 把 `main()` 包成 Task 跑起来 → 结束时清理未关闭的异步生成器（`shutdown_asyncgens`）
+→ 关闭默认线程池（`shutdown_default_executor`）。所以**应用入口只该调用一次 `asyncio.run()`**，不要在函数中间反复调用。
 
 取循环句柄时用 `asyncio.get_running_loop()`，它有明确语义：没有运行中的循环就抛 `RuntimeError`。对比之下 `asyncio.get_event_loop()` 行为复杂且正在退场：
 
@@ -804,10 +808,11 @@ uvloop.run(main())          # 替代 asyncio.run(main())
 
 补充几条与版本演进相关的坑：
 
-6. **别在已有循环里再开循环**：Jupyter、FastAPI、pytest-asyncio 里已经在跑事件循环，此时调用 `asyncio.run()` 会抛 `RuntimeError: asyncio.run() cannot be called from a running event loop`，应改成 `await main()`。
-7. **`asyncio.wait()` 不接受协程**（3.11+ 起强制）：先 `create_task` 再传，否则直接 `TypeError`。
-8. **取循环用 `get_running_loop()`**：`get_event_loop()` 在 3.14+ 没有运行中循环时会抛 `RuntimeError`，事件循环 policy 体系也计划在 3.16 移除。
-9. **`async with` 与 `async for` 不能出现在同步函数里**：语法层面就报 `SyntaxError`，不是运行时问题。
+- **6. 别在已有循环里再开循环**：Jupyter、FastAPI、pytest-asyncio 里已经在跑事件循环，此时调用 `asyncio.run()`
+  会抛 `RuntimeError: asyncio.run() cannot be called from a running event loop`，应改成 `await main()`。
+- **7. `asyncio.wait()` 不接受协程**（3.11+ 起强制）：先 `create_task` 再传，否则直接 `TypeError`。
+- **8. 取循环用 `get_running_loop()`**：`get_event_loop()` 在 3.14+ 没有运行中循环时会抛 `RuntimeError`，事件循环 policy 体系也计划在 3.16 移除。
+- **9. `async with` 与 `async for` 不能出现在同步函数里**：语法层面就报 `SyntaxError`，不是运行时问题。
 
 ---
 
@@ -819,7 +824,8 @@ uvloop.run(main())          # 替代 asyncio.run(main())
 4. 使用信号量控制并发数（示例见[并发控制与同步原语](#7-并发控制与同步原语)）
 5. 使用 `uvloop` 替代默认事件循环以获得更好性能
 
-在第 2 条上补一个当代修正：**3.11+ 且"要么全成功要么全失败"的场景，`TaskGroup` 比 `gather` 更安全**——`gather` 在兄弟任务失败后不会取消其余任务，容易留下后台在跑的半成品任务。批量采集（允许部分失败）继续用 `gather` + `return_exceptions=True`。
+在第 2 条上补一个当代修正：**3.11+ 且"要么全成功要么全失败"的场景，`TaskGroup` 比 `gather` 更安全**——
+`gather` 在兄弟任务失败后不会取消其余任务，容易留下后台在跑的半成品任务。批量采集（允许部分失败）继续用 `gather` + `return_exceptions=True`。
 
 其余值得固化的习惯：
 
@@ -858,16 +864,16 @@ uvloop.run(main())          # 替代 asyncio.run(main())
 
 | 现象 | 原因 | 解决 |
 |------|------|------|
-| `RuntimeWarning: coroutine 'foo' was never awaited` | 调用了 `async def` 函数但没 `await`，协程对象被丢弃 | 补 `await`，或显式 `create_task` 后保存引用 |
-| `RuntimeError: asyncio.run() cannot be called from a running event loop` | 已有循环在跑（Jupyter / FastAPI / pytest-asyncio） | 改成 `await main()`，或 `nest_asyncio` 只作临时手段 |
-| `TypeError: object dict can't be used in 'await' expression` | `await` 了非可等待对象，常见于漏写括号拿到函数本身 | 检查 `await` 右侧是否为协程/Task/Future |
-| `TypeError: Passing coroutines is forbidden, use tasks explicitly` | `asyncio.wait()` 直接传了协程（3.11+） | 先 `create_task`，再传给 `wait()` |
+| `RuntimeWarning: coroutine 'foo' was never awaited` | 调了 `async def` 但没 `await`，协程丢弃 | 补 `await` 或 `create_task` 存引用 |
+| `RuntimeError: asyncio.run() cannot be called from a running event loop` | 循环已在跑（Jupyter 等） | 改 `await main()` |
+| `TypeError: object dict can't be used in 'await' expression` | `await` 了不可等待对象（漏括号） | 检查 `await` 右侧是否协程/Task/Future |
+| `TypeError: Passing coroutines is forbidden, use tasks explicitly` | `wait()` 直接传协程（3.11+） | 先 `create_task` 再传 |
 | `Task was destroyed but it is pending!` | `create_task` 返回值没被引用，任务被 GC | 用变量或集合持有任务，退出前 `await` |
 | `Task exception was never retrieved` | 任务抛异常但无人 `await` | 统一用 `TaskGroup`，或给任务加 `add_done_callback` |
 | 程序整体卡住、日志不再输出 | 协程里调了 `time.sleep` / 同步 HTTP / 大循环，阻塞了事件循环 | 换 `asyncio.sleep`，同步调用用 `to_thread` 包起来 |
-| `asyncio.exceptions.CancelledError` 冒泡到最外层 | 任务被取消且未在上层处理 | 在合适的边界 `except asyncio.CancelledError` 做清理后 `raise` |
-| `TimeoutError` 捕获不到 | `asyncio.timeout()` 的异常在块内被吞，或用了 `except asyncio.TimeoutError` 但版本 < 3.11 | 在 `async with` 块外捕获 `TimeoutError` |
-| `RuntimeError: no running event loop`（3.14+） | 在协程外用 `get_event_loop()` 取循环 | 用 `asyncio.run()`，协程内改用 `get_running_loop()` |
+| `CancelledError` 冒到最外层 | 任务被取消且未在上层处理 | 边界处 `except CancelledError` 清理后 `raise` |
+| `TimeoutError` 捕获不到 | 块内被吞，或 `except asyncio.TimeoutError` 需 3.11+ | 在 `async with` 块外捕获 `TimeoutError` |
+| `RuntimeError: no running event loop`（3.14+） | 协程外调 `get_event_loop()` | 用 `asyncio.run()`；循环内 `get_running_loop()` |
 
 ---
 

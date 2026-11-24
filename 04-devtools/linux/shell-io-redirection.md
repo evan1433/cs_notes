@@ -120,6 +120,7 @@ command || sudo apt install command
 ## 3. 管线命令
 
 > **注意**：
+>
 > - 管线命令 `|` 仅能处理前面一个指令的 **standard output**，对 **standard error** 没有直接处理能力
 > - 管线命令后面的命令必须能够接受 **standard input**
 
