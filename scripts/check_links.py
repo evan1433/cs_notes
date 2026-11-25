@@ -24,8 +24,8 @@ ROOT = Path(__file__).resolve().parent.parent
 # 里面的链接不会渲染成页面链接，因此不需要修。
 SKIP_DIRS = {
     "node_modules", "public", "quartz", ".git", ".github", ".obsidian",
-    ".devcontainer", ".workbuddy", "templates", "Clippings", "copilot", "inbox",
-    "private", "prompt",
+    ".devcontainer", ".workbuddy", "templates", "Clippings", "copilot",
+    "private", "prompt", ".agents", "inbox",
 }
 
 WIKILINK = re.compile(r"\[\[([^\]\n]+)\]\]")

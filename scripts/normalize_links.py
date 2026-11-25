@@ -21,9 +21,11 @@ import sys
 from pathlib import Path
 
 # 与 quartz.config.ts 的 ignorePatterns 对齐：这些文件不发布，链接过去必然是死链
+# （.agents 为技能包自带文档，用相对链接是正确形态，不做 wikilink 化改写）
 SKIP_DIRS = {
     "node_modules", "public", "quartz", ".git", ".obsidian", ".workbuddy",
     "templates", "Clippings", "copilot", "private", "prompt", ".github",
+    ".agents", "inbox",
 }
 SKIP_FILES = {"AGENTS.md", "todo.md"}
 
