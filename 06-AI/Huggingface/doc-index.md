@@ -7,4 +7,6 @@ aliases:
   - 06-AI/Huggingface/huggingface-doc-index
 ---
 
-https://huggingface.co/docs
+# Hugging Face 文档入口
+
+<https://huggingface.co/docs>

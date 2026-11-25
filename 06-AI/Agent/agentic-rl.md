@@ -8,4 +8,8 @@ aliases:
   - 06-AI/Agent/Agentic-RL
 ---
 
-https://mp.weixin.qq.com/s/T2nQrogVjB82flnHvuFDHg
+# Agentic RL
+
+资料占位，待补充智能体强化学习的体系笔记。
+
+<https://mp.weixin.qq.com/s/T2nQrogVjB82flnHvuFDHg>
