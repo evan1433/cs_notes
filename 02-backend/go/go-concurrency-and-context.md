@@ -313,7 +313,7 @@ go run -race . cancel
 - [[go-type-system-and-memory|类型与内存语义]]：理解共享对象后才能判断哪些访问需要同步。
 - [[go-project-design-patterns|工程组织与设计模式]]：比较 Worker Pool、Pipeline 与扇出扇入。
 - [[go-testing-and-quality|测试与质量保障]]：用竞争检测和可控时序验证并发行为。
-- [[操作系统|操作系统]]：理解调度、线程和同步的基本概念。
+- [[01-cs-fundamentals/operating-systems|操作系统]]：理解调度、线程和同步的基本概念。
 
 ## 参考
 

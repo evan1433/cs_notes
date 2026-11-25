@@ -129,7 +129,7 @@ func main() {
 ```
 
 `nil` 切片可以直接 `append`；`nil` map 可以读取，但写入会 panic，写入前应使用 `make` 或字面量初始化。
-这些集合可以结合 [[数据结构|数据结构]] 中的数组与哈希表知识理解。
+这些集合可以结合 [[01-cs-fundamentals/data-structures|数据结构]] 中的数组与哈希表知识理解。
 
 ## 结构体、方法与接口
 
@@ -296,9 +296,9 @@ go build -o go-learning .
 
 ## 与相关知识的关系
 
-- [[数据结构|数据结构]]：帮助理解切片容量、复制开销与 map 的使用场景。
-- [[操作系统|操作系统]]：帮助区分 goroutine、操作系统线程与并发同步。
-- [[计算机网络|计算机网络]]：为后续学习 Go HTTP 服务和网络超时控制提供基础。
+- [[01-cs-fundamentals/data-structures|数据结构]]：帮助理解切片容量、复制开销与 map 的使用场景。
+- [[01-cs-fundamentals/operating-systems|操作系统]]：帮助区分 goroutine、操作系统线程与并发同步。
+- [[01-cs-fundamentals/computer-networks|计算机网络]]：为后续学习 Go HTTP 服务和网络超时控制提供基础。
 
 接下来可以尝试用标准库 `net/http` 编写一个健康检查接口，再补充参数校验与自动化测试。
 在掌握语法之后，重点练习错误边界、资源释放和并发任务的退出条件。

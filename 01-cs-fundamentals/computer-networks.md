@@ -6,6 +6,8 @@ tags:
   - computer-networks
   - protocols
 date: 2024-03-21
+aliases:
+  - 01-cs-fundamentals/计算机网络
 ---
 
 reference:《计算机网络-自顶向下的方法》

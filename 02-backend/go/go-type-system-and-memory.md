@@ -278,7 +278,7 @@ func main() {
 
 - [[go-errors-and-resources|错误处理与资源管理]]：接口判空和返回值语义直接影响错误契约。
 - [[go-concurrency-and-context|并发与生命周期管理]]：共享数据必须具有明确的同步与所有权规则。
-- [[数据结构|数据结构]]：从底层数组与映射理解集合行为。
+- [[01-cs-fundamentals/data-structures|数据结构]]：从底层数组与映射理解集合行为。
 
 ## 参考
 

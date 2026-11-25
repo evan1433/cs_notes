@@ -18,7 +18,7 @@ JVM（Java Virtual Machine）是 Java "一次编写、到处运行" 的基石：
 ## 前置知识
 
 - [[java-se|Java SE 核心语法]]：需要熟悉对象、引用、继承的基本概念
-- [[操作系统|操作系统基础]]：了解进程内存布局（堆、栈、虚拟内存）有助于对比理解
+- [[01-cs-fundamentals/operating-systems|操作系统基础]]：了解进程内存布局（堆、栈、虚拟内存）有助于对比理解
 - [[java-multithreading|Java 多线程基础]]：GC 行为与线程私有区域密切相关
 
 ## 整体架构
@@ -328,7 +328,7 @@ jstack <pid> > thread-dump.txt
 
 - 与 [[java-se|Java SE 核心语法]] 的关系：语言层面的引用类型、static、final 语义最终都落实为 JVM 指令与内存布局
 - 与 [[java-multithreading|Java 多线程基础]] 的联系：虚拟机栈、程序计数器按线程私有，是线程隔离性的底层支撑
-- 与 [[操作系统|操作系统基础]] 的联系：JVM 本身是用户态进程，堆内存映射到 OS 虚拟内存页，理解页交换有助于解释"GC 突然变慢"
+- 与 [[01-cs-fundamentals/operating-systems|操作系统基础]] 的联系：JVM 本身是用户态进程，堆内存映射到 OS 虚拟内存页，理解页交换有助于解释"GC 突然变慢"
 - 与 [[java-interview|Java 面试题]] 的联系：JVM 内存区域与 GC 是高频面试题，本文档的表格可直接用于复习
 - 与 [[java-high-concurrency|Java 后端高并发系统设计]] 的联系：低延迟目标下的 GC 停顿是接口长尾的重要来源
 

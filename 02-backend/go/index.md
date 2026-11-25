@@ -81,7 +81,7 @@ pnpm dlx markdownlint-cli@0.45.0 --config 02-backend/go/.markdownlint.json '02-b
 
 - [[02-backend/index|后端开发]]：本目录所属知识体系。
 - [[postgresql|PostgreSQL]]：数据库原理与 SQL 基础。
-- [[数据结构|数据结构]]、[[操作系统|操作系统]]、[[计算机网络|计算机网络]]：集合、调度、同步和网络基础。
+- [[01-cs-fundamentals/data-structures|数据结构]]、[[01-cs-fundamentals/operating-systems|操作系统]]、[[01-cs-fundamentals/computer-networks|计算机网络]]：集合、调度、同步和网络基础。
 - [[02-backend/cloud-native/index|云原生]]：容器与交付的延伸阅读。
 
 ## 参考

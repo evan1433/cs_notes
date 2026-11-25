@@ -24,7 +24,7 @@ C 语言只提供很少的语言机制：基本类型、指针、数组、结构
 
 本文按"类型 → 输入输出 → 运算符 → 控制流 → 函数 → 指针 → 字符串 → 结构体与联合 → 复杂声明"的顺序展开，
 每个概念都配有可直接编译运行的示例。与原始速记不同的说法会明确标注，方便对照旧笔记复习。
-相关底层知识可参阅 [[操作系统]] 与 [[数据结构]]。
+相关底层知识可参阅 [[01-cs-fundamentals/operating-systems|操作系统]] 与 [[01-cs-fundamentals/data-structures|数据结构]]。
 
 ## 编译环境与语言标准
 
@@ -1245,14 +1245,14 @@ cc -std=c23 -fsanitize=address,undefined -g demo.c -o demo   # 检查越界与�
 | 编译产物 | 直接生成机器码，可静态链接 | 因此常被用作跨语言 ABI 的基础 |
 
 C 是几乎所有运行时的底层：CPython 解释器、JVM、Linux 内核、SQLite 都用 C 写成。
-理解了 C 的内存模型（栈帧、指针、数组退化），再看 [[操作系统]] 里的进程与虚拟内存、
-[[数据结构]] 里的链表与动态数组，很多实现细节就不必死记了。
+理解了 C 的内存模型（栈帧、指针、数组退化），再看 [[01-cs-fundamentals/operating-systems|操作系统]] 里的进程与虚拟内存、
+[[01-cs-fundamentals/data-structures|数据结构]] 里的链表与动态数组，很多实现细节就不必死记了。
 
 ## See Also
 
 - [[go-language-basics|Go 语言入门]]：同为编译型语言，对比着读更能体会 C 的"显式"风格
-- [[数据结构]]：链表、哈希表等结构的 C 实现基础
-- [[操作系统]]：进程地址空间、栈与堆的划分
+- [[01-cs-fundamentals/data-structures|数据结构]]：链表、哈希表等结构的 C 实现基础
+- [[01-cs-fundamentals/operating-systems|操作系统]]：进程地址空间、栈与堆的划分
 - [[linux|Linux 基础]]：`gcc`、`gdb`、`valgrind` 的使用场景
 - [[02-backend/index|后端开发目录]]
 

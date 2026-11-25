@@ -6,6 +6,8 @@ tags:
   - operating-systems
   - process-management
 date: 2024-03-21
+aliases:
+  - 01-cs-fundamentals/操作系统
 ---
 
 # 进程管理

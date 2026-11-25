@@ -59,7 +59,7 @@ C 语言的价值在于它让内存、指针和生命周期这些"底层事实"�
 
 ## 延伸阅读
 
-- [[数据结构]]：链表、栈、哈希表的 C 实现
-- [[操作系统]]：进程地址空间、栈与堆的划分
+- [[01-cs-fundamentals/data-structures|数据结构]]：链表、栈、哈希表的 C 实现
+- [[01-cs-fundamentals/operating-systems|操作系统]]：进程地址空间、栈与堆的划分
 - [[go-language-basics|Go 语言入门]]：对比理解"显式内存管理"与"GC"的取舍
 - [[02-backend/index|后端开发目录]]

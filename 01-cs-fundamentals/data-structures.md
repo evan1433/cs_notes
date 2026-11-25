@@ -6,6 +6,8 @@ tags:
   - data-structures
   - algorithms
 date: 2024-03-21
+aliases:
+  - 01-cs-fundamentals/数据结构
 ---
 
 
