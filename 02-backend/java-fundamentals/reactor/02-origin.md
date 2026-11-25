@@ -143,7 +143,7 @@ JDK 21 转正虚拟线程，Spring Boot 3.2 起一行配置 `spring.threads.virt
 
 一句话总结：**虚拟线程接管了"高并发"，Reactor 退回到"流式 + 编排 + 背压"**。这也意味着新项目不该
 "为了响应式而响应式"——把阻塞代码硬塞进 `Flux` 只是给线程模型换了层皮，成本更高。取舍清单见
-[[07-applications#虚拟线程时代还要不要 Reactor|虚拟线程时代还要不要 Reactor]]。
+[[07-applications#八、虚拟线程时代还要不要 Reactor|虚拟线程时代还要不要 Reactor]]。
 
 ## 常见误区
 

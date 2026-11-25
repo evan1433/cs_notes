@@ -14,6 +14,23 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [homeOnly(Component.SiteNav())],
   afterBody: [
+    homeOnly(
+      Component.RecentNotes({
+        title: "最近更新",
+        dateType: "modified",
+        limit: 6,
+        showTags: false,
+        filter: ({ slug, frontmatter, text }) =>
+          Boolean(
+            slug &&
+            /^(0[1-6]-[^/]+|architecture|sys-analyst)\//.test(slug) &&
+            !slug.endsWith("/index") &&
+            !slug.endsWith(".excalidraw") &&
+            !frontmatter?.draft &&
+            (text?.length ?? 0) >= 500
+          ),
+      }),
+    ),
     Component.ConditionalRender({
       condition: ({ fileData }) => fileData.slug === "blog",
       component: Component.RecentNotes({
