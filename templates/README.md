@@ -17,7 +17,7 @@
 
 ```bash
 # 1. 复制模板到目标目录（示例：写 vLLM 概念笔记）
-cp templates/concept-note.md 06-AI/model_deploy/vllm.md
+cp templates/concept-note.md 06-ai/model-deploy/vllm.md
 
 # 2. 重命名为英文 kebab-case（禁止中文、空格）
 # 3. 填写 front matter（title/description/tags/date 必填）

@@ -13,7 +13,7 @@ const config: QuartzConfig = {
     enablePopovers: true,
     analytics: null,
     locale: "zh-CN",
-    baseUrl: "/cs_notes/",
+    baseUrl: "evan1433.github.io/cs_notes",
     ignorePatterns: [
       "private",
       "templates",

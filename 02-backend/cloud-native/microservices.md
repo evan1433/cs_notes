@@ -510,7 +510,7 @@ public class TraceIdFilter extends OncePerRequestFilter {
 - 与 [[kubernetes|Kubernetes]]：编排层承接部署、伸缩、自愈，让"数十个服务独立发布"的成本可承受。
 - 与 [[docker|Docker]]：容器是微服务的标准交付物，保证"开发环境与生产环境一致"。
 - 与 [[kafka|Kafka]] 等消息中间件：异步通信与最终一致性的基础设施，Outbox 方案的投递通道。
-- 与 [[06-AI/ai-native-arch|AI 原生架构]]：AI 原生改变的是服务内部逻辑与算力结构，分布式治理问题依然复用本文方案。
+- 与 [[06-ai/ai-native-arch|AI 原生架构]]：AI 原生改变的是服务内部逻辑与算力结构，分布式治理问题依然复用本文方案。
 - 与 SOA 的区别：SOA 靠 ESB 集中治理，微服务靠平台化与契约治理，强调去中心化。
 
 ## 参考

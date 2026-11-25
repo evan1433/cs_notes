@@ -45,11 +45,11 @@ cs_notes/
 │   └── kubernetes.md
 ├── 05-book-notes/          # 技术书籍阅读笔记
 │   └── *.md
-├── 06-AI/                  # 人工智能与机器学习
-│   ├── Pytorch/
-│   ├── LLM/
-│   ├── LVLM/
-│   └── Agent/
+├── 06-ai/                  # 人工智能与机器学习
+│   ├── pytorch/
+│   ├── llm/
+│   ├── lvlm/
+│   └── agent/
 ├── sys-analyst/            # 系统分析师备考
 ├── architecture/           # 架构实践（非备考）
 ├── quartz/                 # Quartz 4.0 核心组件

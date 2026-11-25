@@ -53,11 +53,11 @@ date: 2024-03-21
 
 ### 人工智能
 
-- [[06-AI/LLM/index|LLM]]
-- [[06-AI/LVLM/index|LVLM]]
-- [[06-AI/Agent/index|Agent]]
-- [[06-AI/machine-learning/index|机器学习]]
-- [[06-AI/deep-learning/index|深度学习]]
+- [[06-ai/llm/index|LLM]]
+- [[06-ai/lvlm/index|LVLM]]
+- [[06-ai/agent/index|Agent]]
+- [[06-ai/machine-learning/index|机器学习]]
+- [[06-ai/deep-learning/index|深度学习]]
 
 ### 其他
 
