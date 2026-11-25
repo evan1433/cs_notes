@@ -1610,4 +1610,4 @@ server {
 - 变量参考：<https://nginx.org/en/docs/varindex.html>
 - 配置生成器：<https://www.digitalocean.com/community/tools/nginx>
 - Nginx 官方博客：<https://www.nginx.com/blog/>
-- 相关笔记：[[docker|Docker 部署 Nginx]]、[[http-protocol|HTTP 协议]]、[[linux|Linux 命令]]
+- 相关笔记：[[docker|Docker 部署 Nginx]]、[[http-protocol|HTTP 协议]]、[[04-devtools/linux/index|Linux 命令]]

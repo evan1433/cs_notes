@@ -1253,7 +1253,7 @@ C 是几乎所有运行时的底层：CPython 解释器、JVM、Linux 内核、S
 - [[go-language-basics|Go 语言入门]]：同为编译型语言，对比着读更能体会 C 的"显式"风格
 - [[01-cs-fundamentals/data-structures|数据结构]]：链表、哈希表等结构的 C 实现基础
 - [[01-cs-fundamentals/operating-systems|操作系统]]：进程地址空间、栈与堆的划分
-- [[linux|Linux 基础]]：`gcc`、`gdb`、`valgrind` 的使用场景
+- [[04-devtools/linux/index|Linux 基础]]：`gcc`、`gdb`、`valgrind` 的使用场景
 - [[02-backend/index|后端开发目录]]
 
 ## 参考

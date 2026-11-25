@@ -714,7 +714,7 @@ RustFS 发现已知挂载点上是新格式化盘时，会自动把缺失分片�
 - [[docker|Docker]] / [[docker-compose|Docker Compose]]：容器化部署
 - [[kubernetes|Kubernetes]] / [[helm|Helm]]：MNMD 集群与 Operator 部署
 - [[nginx|Nginx]]：反向代理与虚拟主机风格寻址
-- [[linux|Linux]]：磁盘分区、XFS、systemd
+- [[04-devtools/linux/index|Linux]]：磁盘分区、XFS、systemd
 - [[kafka|Kafka]]：作为事件通知的下游
 
 ## 参考

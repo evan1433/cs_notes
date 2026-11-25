@@ -767,7 +767,7 @@ rsync -avzP --bwlimit=5000 big.iso user@host:/data/
 ## 相关笔记
 
 - [[ssh|SSH]]
-- [[linux|Linux]]
+- [[04-devtools/linux/index|Linux]]
 - [[docker|Docker]]
 - [[nginx|Nginx]]
 - [[tmux|Tmux]]

@@ -3,6 +3,8 @@ title: Linux 学习笔记
 description: Linux 学习笔记索引，涵盖 Bash、常用命令、权限管理、目录配置、vim、进程管理等内容
 tags:
   - linux
+aliases:
+  - 04-devtools/linux
 ---
 
 # Linux 学习笔记

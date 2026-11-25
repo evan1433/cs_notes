@@ -715,7 +715,7 @@ curl http://127.0.0.1:9000/minio/v2/metrics/cluster
 - [[docker|Docker]]
 - [[docker-compose|Docker Compose]]
 - [[nginx|Nginx 反向代理]]
-- [[linux|Linux]]
+- [[04-devtools/linux/index|Linux]]
 
 ## 参考资料
 
