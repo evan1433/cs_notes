@@ -24,7 +24,12 @@ import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 
+import SiteNav from "./SiteNav"
+import HomeTopics from "./HomeTopics"
+
 export {
+  SiteNav,
+  HomeTopics,
   ArticleTitle,
   Content,
   TagContent,

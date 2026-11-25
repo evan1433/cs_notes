@@ -1,5 +1,6 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
+import { LegacyAiUrls } from "./quartz/legacy-ai-urls"
 import { byDateAndAlphabeticalFolderFirst } from "./quartz/components/PageList"
 
 /**
@@ -46,31 +47,31 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
+        header: "Noto Sans SC",
+        body: "Noto Sans SC",
         code: "IBM Plex Mono",
       },
       colors: {
         lightMode: {
-          light: "#faf8f8",
-          lightgray: "#e5e5e5",
+          light: "#fafafa",
+          lightgray: "#e2e8f0",
           gray: "#b8b8b8",
-          darkgray: "#4e4e4e",
-          dark: "#2b2b2b",
-          secondary: "#284b63",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
+          darkgray: "#475569",
+          dark: "#0f172a",
+          secondary: "#2563eb",
+          tertiary: "#64748b",
+          highlight: "rgba(91, 143, 230, 0.12)",
           textHighlight: "#fff23688",
         },
         darkMode: {
-          light: "#161618",
-          lightgray: "#393639",
+          light: "#0f1117",
+          lightgray: "#2b3440",
           gray: "#646464",
-          darkgray: "#d4d4d4",
-          dark: "#ebebec",
-          secondary: "#7b97aa",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
+          darkgray: "#94a3b8",
+          dark: "#e5e7eb",
+          secondary: "#60a5fa",
+          tertiary: "#94a3b8",
+          highlight: "rgba(91, 143, 230, 0.12)",
           textHighlight: "#b3aa0288",
         },
       },
@@ -99,6 +100,7 @@ const config: QuartzConfig = {
     filters: [Plugin.RemoveDrafts()],
     emitters: [
       Plugin.AliasRedirects(),
+      LegacyAiUrls(),
       Plugin.ComponentResources(),
       Plugin.ContentPage(),
       Plugin.FolderPage({

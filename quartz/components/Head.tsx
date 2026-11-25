@@ -1,5 +1,5 @@
 import { i18n } from "../i18n"
-import { FullSlug, getFileExtension, joinSegments, pathToRoot } from "../util/path"
+import { FullSlug, getFileExtension, joinSegments, pathToRoot, simplifySlug } from "../util/path"
 import { CSSResourceToStyleElement, JSResourceToScriptElement } from "../util/resources"
 import { googleFontHref, googleFontSubsetHref } from "../util/theme"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
@@ -28,8 +28,9 @@ export default (() => {
     const iconPath = joinSegments(baseDir, "static/icon.png")
 
     // Url of current page
-    const socialUrl =
-      fileData.slug === "404" ? url.toString() : joinSegments(url.toString(), fileData.slug!)
+    const siteRoot = `${url.href.replace(/\/$/, "")}/`
+    const pagePath = fileData.slug === "404" ? "404.html" : simplifySlug(fileData.slug!)
+    const socialUrl = new URL(pagePath.replace(/^\//, ""), siteRoot).href
 
     const usesCustomOgImage = ctx.cfg.plugins.emitters.some(
       (e) => e.name === CustomOgImagesEmitterName,
@@ -78,6 +79,7 @@ export default (() => {
           <>
             <meta property="twitter:domain" content={cfg.baseUrl}></meta>
             <meta property="og:url" content={socialUrl}></meta>
+            {fileData.slug !== "404" && <link rel="canonical" href={socialUrl} />}
             <meta property="twitter:url" content={socialUrl}></meta>
           </>
         )}

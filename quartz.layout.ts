@@ -1,10 +1,18 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import { QuartzComponent, QuartzComponentProps } from "./quartz/components/types"
+import { repositoryUrl } from "./quartz/components/SiteNav"
+
+const isHome = ({ fileData }: QuartzComponentProps) => fileData.slug === "index"
+const homeOnly = (component: QuartzComponent) =>
+  Component.ConditionalRender({ component, condition: isHome })
+const readingOnly = (component: QuartzComponent) =>
+  Component.ConditionalRender({ component, condition: (props) => !isHome(props) })
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
-  header: [],
+  header: [homeOnly(Component.SiteNav())],
   afterBody: [
     Component.ConditionalRender({
       condition: ({ fileData }) => fileData.slug === "blog",
@@ -20,7 +28,8 @@ export const sharedPageComponents: SharedLayout = {
   ],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/evan1433/cs_notes",
+      GitHub: repositoryUrl,
+      RSS: "https://evan1433.github.io/cs_notes/index.xml",
     },
   }),
 }
@@ -28,13 +37,9 @@ export const sharedPageComponents: SharedLayout = {
 // components for pages that display a single page (e.g. a single note)
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
-    Component.ConditionalRender({
-      component: Component.Breadcrumbs(),
-      condition: (page) => page.fileData.slug !== "index",
-    }),
-    Component.ArticleTitle(),
-    Component.ContentMeta(),
-    Component.TagList(),
+    homeOnly(Component.HomeTopics()),
+    ...[Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta(), Component.TagList()]
+      .map(readingOnly),
   ],
   left: [
     Component.PageTitle(),
@@ -74,8 +79,10 @@ export const defaultContentPageLayout: PageLayout = {
       },
       order: ["filter", "map", "sort"],
     }),
-  ],
+  ].map(readingOnly),
   right: [
+    Component.DesktopOnly(Component.TableOfContents()),
+    Component.Backlinks(),
     Component.Graph({
       localGraph: {
         drag: true,
@@ -104,9 +111,7 @@ export const defaultContentPageLayout: PageLayout = {
         removeTags: [],
       },
     }),
-    Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
-  ],
+  ].map(readingOnly),
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)

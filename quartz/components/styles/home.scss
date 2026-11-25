@@ -1,0 +1,121 @@
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  font-size: 0.9rem;
+
+  a { color: var(--dark); }
+
+  .site-brand {
+    font-size: 1.125rem;
+    white-space: nowrap;
+
+    span { color: var(--secondary); }
+  }
+
+  .site-nav-links,
+  .site-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+  }
+
+  a[aria-current="page"],
+  a:hover { color: var(--secondary); }
+
+  .site-nav-menu { display: none; }
+
+  @media (max-width: 800px) {
+    flex-wrap: wrap;
+    column-gap: 0.625rem;
+
+    .site-nav-links, .site-nav-github { display: none; }
+    .site-nav-actions { gap: 0.5rem; margin-inline-start: auto; }
+    .search-button {
+      padding: 0;
+      & > p { display: none; }
+    }
+    .site-nav-menu {
+      display: block;
+      position: relative;
+
+      summary {
+        padding: 0.375rem;
+        cursor: pointer;
+        color: var(--dark);
+      }
+
+      nav {
+        position: absolute;
+        z-index: 2;
+        inset-inline-end: 0;
+        min-width: 8rem;
+        display: grid;
+        border: 1px solid var(--lightgray);
+        border-radius: 0.625rem;
+        background: var(--light);
+
+        a { padding: 0.5rem 1rem; }
+      }
+    }
+  }
+}
+
+.home-hero {
+  margin-block: 2rem 2.5rem;
+  padding: clamp(1.5rem, 6vw, 4.5rem);
+  border: 1px solid var(--lightgray);
+  border-radius: 0.75rem;
+  background: linear-gradient(115deg, var(--highlight), var(--light) 85%);
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 4.25rem);
+    line-height: 1.15;
+  }
+
+  p { max-width: 36rem; margin-block: 1rem 1.5rem; }
+}
+
+.home-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+
+  a {
+    padding: 0.625rem 1rem;
+    border: 1px solid var(--lightgray);
+    border-radius: 0.625rem;
+  }
+
+  .home-primary {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: var(--light);
+  }
+
+  .home-secondary { color: var(--dark); }
+}
+
+.home-topic-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+
+  .home-topic {
+    display: block;
+    padding: 1rem;
+    border: 1px solid var(--lightgray);
+    border-radius: 0.75rem;
+
+    &:hover, &:focus-visible { border-color: var(--secondary); }
+    h3 { margin: 0 0 0.4rem; color: var(--secondary); }
+    p { margin: 0; font-size: 0.925rem; font-weight: 400; }
+  }
+
+  @media (max-width: 800px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
