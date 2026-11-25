@@ -3,20 +3,23 @@ name: Deploy Quartz site to GitHub Pages
 on:
   push:
     branches: [master]
+  pull_request:
+    branches: [master, "redesign/**"]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: "pages"
+  group: ${{ github.event_name == 'pull_request' && format('pages-pr-{0}', github.event.pull_request.number) || 'pages' }}
   cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,18 +40,37 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Check TypeScript
+        run: pnpm check
+
+      - name: Report documentation audit
+        run: pnpm docs:audit
+
+      - name: Report source links
+        continue-on-error: true
+        run: python3 scripts/check_links.py
+
       - name: Build Quartz
         run: pnpm build
 
+      - name: Check published links
+        run: python3 scripts/check_links.py --built
+
       - name: Setup Pages
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
   deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

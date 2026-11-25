@@ -37,6 +37,25 @@ body[data-slug="index"] {
         border-bottom: 1px solid var(--lightgray);
       }
 
+      .page-footer .recent-notes > h3 {
+        margin-top: 0;
+        font-size: 1.35rem;
+      }
+
+      @media (min-width: 801px) {
+        .center {
+          display: grid;
+          grid-template: "intro intro" auto "curated recent" auto "divider divider" auto / minmax(0, 3fr) minmax(0, 2fr);
+          column-gap: 2rem;
+        }
+
+        .page-header { grid-area: intro; }
+        .center > article { grid-area: curated; }
+        .page-footer { grid-area: recent; margin-block: 2rem; }
+        .center > hr { grid-area: divider; width: 100%; }
+        .page-footer .recent-notes { border-inline-start: 1px solid var(--lightgray); padding-inline-start: 2rem; }
+      }
+
       .home-page {
         margin-block: 2rem;
         ul { padding-inline-start: 1.25rem; }

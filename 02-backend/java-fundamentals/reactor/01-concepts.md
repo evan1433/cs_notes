@@ -53,7 +53,7 @@ Servlet 容器（Tomcat）用"一请求一线程"承接流量。一个线程在�
 | 调试成本 | 低（同步栈） | 高（异步栈、需要 checkpoint） |
 
 代价要说清楚：**响应式不是免费的**。它换来并发能力，付出的是心智负担——一旦链路中有一环是阻塞的，
-整条链的收益立刻归零（见 [[07-applications#生产实践|生产实践]] 里的 BlockHound 检测）。
+整条链的收益立刻归零（见 [[07-applications#九、生产实践|生产实践]] 里的 BlockHound 检测）。
 
 ## 二、响应式流规范：四个接口
 
@@ -249,7 +249,7 @@ Mono.deferContextual(ctx -> {
 - 与 [[05-processor|Processor]] 的关系：`Processor` 就是同时实现 `Publisher` 与 `Subscriber` 的组件，
   是规范里唯一的"中间人"角色，现已由 `Sinks` 取代。
 - 与虚拟线程的关系：JDK 21 的虚拟线程让"阻塞代码也能高并发"，削弱了响应式在**吞吐**上的独占优势，
-  但背压、流式组合、取消传播仍是 Reactor 的独有能力。取舍见 [[07-applications#虚拟线程时代还要不要 Reactor|虚拟线程时代还要不要 Reactor]]。
+  但背压、流式组合、取消传播仍是 Reactor 的独有能力。取舍见 [[07-applications#八、虚拟线程时代还要不要 Reactor|虚拟线程时代还要不要 Reactor]]。
 
 ## 参考
 
