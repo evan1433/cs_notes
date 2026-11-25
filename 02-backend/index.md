@@ -1,5 +1,5 @@
 ---
-title: 后端
+title: 后端工程
 description: Java、Python、Go、数据库、中间件、Spring 框架等后端开发技术栈
 tags:
   - backend
@@ -12,6 +12,11 @@ date: 2026-11-18
 # 后端开发
 
 后端开发相关技术栈，包括 Java、Python、Go、数据库、中间件、Spring 框架等。
+
+## 推荐阅读
+
+从 [[02-backend/java-fundamentals/index|Java]] 或 [[02-backend/python/index|Python]] 起步，接着学习数据库和 Web 框架，
+最后到 [[02-backend/projects/index|项目实战]] 对照框架和中间件的使用。具体练习见 [[paths/index#后端工程|后端工程路线]]。
 
 ## 子目录
 

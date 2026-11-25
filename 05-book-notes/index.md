@@ -11,6 +11,11 @@ date: 2024-03-21
 
 阅读技术书籍的笔记和总结。
 
+## 推荐阅读
+
+了解 Java 语言和标准库时，可以先读 [[05-book-notes/java-core-technology|Java 核心技术]]。关注数据库时，先读
+[[05-book-notes/mysql-internals|MySQL 内部原理]]，再看 [[05-book-notes/high-performance-mysql|高性能 MySQL]] 的优化思路。
+
 ## 目录
 
 - [[java-core-technology|JAVA 核心技术]]

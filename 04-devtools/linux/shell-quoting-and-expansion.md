@@ -2,11 +2,13 @@
 title: Shell 引号、变量展开与文件名处理
 description: $() 命令替换、四种引号规则、参数展开技巧、批量处理文件的安全写法与踩坑清单
 tags:
+  - technical-blog
   - linux
   - bash
   - shell
   - quoting
 date: 2026-11-20
+published: 2026-11-20
 aliases:
   - shell-quoting
   - shell-expansion

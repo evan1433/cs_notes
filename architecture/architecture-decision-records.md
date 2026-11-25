@@ -2,10 +2,12 @@
 title: 架构决策记录（ADR）
 description: 架构师最核心的产出不是架构图而是可追溯的决策依据，介绍 ADR 的判定标准、结构化写法、生命周期与常见反模式
 tags:
+  - technical-blog
   - system-architecture
   - architecture-decision-record
   - engineering-practice
 date: 2026-11-13
+published: 2026-11-13
 ---
 
 # 架构决策记录（ADR）

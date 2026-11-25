@@ -1,3 +1,66 @@
 @use "./base.scss";
+@use "../components/styles/home.scss";
 
-// put your custom CSS here!
+.center > article {
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 1201px) {
+  body:not([data-slug="index"]) .page > #quartz-body {
+    grid-template-columns: clamp(220px, 18vw, 260px) minmax(0, 760px) clamp(200px, 16vw, 240px);
+    justify-content: center;
+  }
+}
+
+@media (max-width: 800px) {
+  .page > #quartz-body .sidebar.right {
+    display: none;
+  }
+}
+
+body[data-slug="index"] {
+  .page {
+    max-width: 1100px;
+
+    > #quartz-body {
+      grid-template: "grid-center" auto "grid-footer" auto / minmax(0, 1fr);
+      gap: 0;
+      padding: 0 clamp(1rem, 3vw, 2rem);
+
+      .sidebar { display: none; }
+      .center { min-width: 0; }
+      .page-header { margin-top: 0; }
+      .page-header > header {
+        margin: 0;
+        min-height: 4.5rem;
+        border-bottom: 1px solid var(--lightgray);
+      }
+
+      .page-footer .recent-notes > h3 {
+        margin-top: 0;
+        font-size: 1.35rem;
+      }
+
+      @media (min-width: 801px) {
+        .center {
+          display: grid;
+          grid-template: "intro intro" auto "curated recent" auto "divider divider" auto / minmax(0, 3fr) minmax(0, 2fr);
+          column-gap: 2rem;
+        }
+
+        .page-header { grid-area: intro; }
+        .center > article { grid-area: curated; }
+        .page-footer { grid-area: recent; margin-block: 2rem; }
+        .center > hr { grid-area: divider; width: 100%; }
+        .page-footer .recent-notes { border-inline-start: 1px solid var(--lightgray); padding-inline-start: 2rem; }
+      }
+
+      .home-page {
+        margin-block: 2rem;
+        ul { padding-inline-start: 1.25rem; }
+        li + li { margin-top: 0.5rem; }
+      }
+    }
+  }
+}

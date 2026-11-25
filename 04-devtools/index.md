@@ -12,6 +12,11 @@ date: 2024-03-21
 
 开发工具和通用技能，包括 Git、Docker、Linux 等。
 
+## 推荐阅读
+
+从 [[04-devtools/git|Git]] 和 [[04-devtools/linux/index|Linux]] 熟悉版本管理与命令行，
+再用 [[04-devtools/docker|Docker]] 和 [[04-devtools/docker-compose|Docker Compose]] 检查应用的运行环境和依赖。
+
 ## 目录
 
 - [[git|Git]]
