@@ -14,10 +14,10 @@ date: 2024-03-18
 
 ## 目录
 
-- [[llm-intro|LLM 入门]]
+- [[06-ai/llm/llm-intro|LLM 入门]]
 - [[06-ai/llm/concepts|概念]]
-- [[causal-language-model|Causal Language Model]]
-- [[fine-tuning-framework|LLM Fine-tuning Framework]]
+- [[06-ai/llm/causal-language-model|Causal Language Model]]
+- [[06-ai/llm/fine-tuning-framework|LLM Fine-tuning Framework]]
 
 ## 参考资源
 

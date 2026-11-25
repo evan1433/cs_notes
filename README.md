@@ -1,15 +1,17 @@
-# 📚 全栈学习笔记
+# CS Notes
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/evan1433/cs_notes/blob/master/LICENSE)
 ![Markdown](https://img.shields.io/badge/markdown-%E2%9C%93-blue.svg)
 [![Obsidian](https://img.shields.io/badge/Obsidian-Compatible-purple.svg)](https://obsidian.md)
 [![Quartz](https://img.shields.io/badge/Quartz-4.0-green.svg)](https://quartz.jzhao.xyz/)
 
-> 一个系统化的计算机科学与全栈开发知识库，支持 Obsidian 查看和 GitHub Pages 在线浏览
+> Evan 的技术主页、结构化知识库与工程实践记录。
+
+![CS Notes 首页，展示顶部导航、技术领域卡片和精选文章](attachments/site-home.webp)
 
 ## 📝 简介
 
-本仓库收录了计算机科学基础、前端开发、后端开发、人工智能等领域的学习笔记。内容来源于优质学习资源，经过系统化整理，适合作为全栈开发学习参考。
+这里汇集计算机科学、后端、前端、AI 与系统架构笔记，包含学习路线、原创文章与工程案例。使用 Obsidian 编辑，通过 Quartz 4 发布到 GitHub Pages。
 
 **特点：**
 
@@ -52,6 +54,9 @@ cs_notes/
 │   └── agent/
 ├── sys-analyst/            # 系统分析师备考
 ├── architecture/           # 架构实践（非备考）
+├── knowledge/               # 知识库首页
+├── paths/                   # 学习路线入口
+├── projects/                # 工程实践入口
 ├── quartz/                 # Quartz 4.0 核心组件
 └── CONTRIBUTING.md         # 文档编写规范
 ```
@@ -74,7 +79,11 @@ cs_notes/
 
 本仓库已部署到 GitHub Pages，可直接在线浏览：
 
-👉 **[https://evan1433.github.io/cs_notes/](https://evan1433.github.io/cs_notes/)**
+- [首页](https://evan1433.github.io/cs_notes/)
+- [知识库](https://evan1433.github.io/cs_notes/knowledge/)
+- [学习路线](https://evan1433.github.io/cs_notes/paths/)
+- [项目实践](https://evan1433.github.io/cs_notes/projects/)
+- [关于 Evan](https://evan1433.github.io/cs_notes/about)
 
 ### 本地 Quartz 预览
 

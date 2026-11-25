@@ -1,5 +1,5 @@
 ---
-title: AI 学习专题
+title: AI 与大模型
 description: 按顺序学习大语言模型、智能体、PyTorch 模型训练与推理部署。
 tags:
   - ai
@@ -7,6 +7,8 @@ tags:
   - deep-learning
 date: 2024-03-21
 ---
+
+从基础模型到应用开发、训练和部署，每条路线都附有阅读顺序和练习目标。也可查看 [[paths/index|全部学习路线]]。
 
 ## 学习路线图
 

@@ -13,9 +13,13 @@ Quartz 会把附件名 slug 化（`Pasted image 1.png` → `Pasted-image-1.png`�
 退出码: 0 无问题; 1 存在断链
 """
 
+import json
+import posixpath
 import re
 import sys
 import urllib.parse
+import xml.etree.ElementTree as ET
+from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -108,11 +112,54 @@ def check_static():
     return problems
 
 
-def ids_of(page: Path, cache: dict) -> set:
-    if page not in cache:
-        html = page.read_text(encoding="utf-8", errors="ignore")
-        cache[page] = set(re.findall(r'id="([^"]+)"', html))
-    return cache[page]
+class BuiltPage(HTMLParser):
+    def __init__(self, path: Path):
+        super().__init__()
+        self.ids = set()
+        self.links = []
+        self.redirect = False
+        self.feed(path.read_text(encoding="utf-8", errors="replace"))
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if element_id := attrs.get("id"):
+            self.ids.add(element_id)
+        if tag == "a" and (href := attrs.get("href")):
+            self.links.append((href, "link"))
+        elif tag == "img" and (src := attrs.get("src")):
+            self.links.append((src, "image"))
+        elif tag == "link" and attrs.get("rel") == "canonical" and (href := attrs.get("href")):
+            self.links.append((href, "metadata"))
+        elif tag == "meta" and attrs.get("property") == "og:url" and (url := attrs.get("content")):
+            self.links.append((url, "metadata"))
+        elif tag == "meta" and attrs.get("http-equiv", "").lower() == "refresh":
+            if match := re.fullmatch(r"\s*\d+;\s*url=(.+)", attrs.get("content", ""), re.I):
+                self.redirect = True
+                self.links.append((match[1], "link"))
+
+
+def built_base_url():
+    config = (ROOT / "quartz.config.ts").read_text(encoding="utf-8")
+    match = re.search(r"""^\s*baseUrl:\s*["']([^"']+)["']""", config, re.M)
+    if not match:
+        return None
+    url = urllib.parse.urlsplit(f"https://{match[1]}")
+    return url if url.hostname else None
+
+
+def feed_urls(path: Path):
+    if path.name == "sitemap.xml":
+        selector = ".//{http://www.sitemaps.org/schemas/sitemap/0.9}loc"
+    else:
+        selector = ".//link"
+    root = ET.parse(path)
+    return [(node.text.strip(), "metadata") for node in root.findall(selector) if node.text]
+
+
+def legacy_output_name(source: str) -> str:
+    slug = re.sub(r"\s", "-", source).replace("&", "-and-").replace("%", "-percent")
+    slug = slug.replace("?", "").replace("#", "")
+    return slug.removesuffix(".md") + ".html" if slug.endswith(".md") else slug
 
 
 def check_built():
@@ -121,43 +168,77 @@ def check_built():
         print("public/ 不存在，请先运行 pnpm build")
         return None
 
-    problems, cache = [], {}
-    pages = list(public.rglob("*.html"))
+    base = built_base_url()
+    if base is None:
+        print("quartz.config.ts 缺少完整站点 baseUrl")
+        return None
 
-    for page in pages:
-        html = page.read_text(encoding="utf-8", errors="ignore")
-        for href in re.findall(r'<a[^>]*href="([^"]+)"', html):
-            if href.startswith(("http://", "https://", "mailto:", "data:")):
-                continue
-            path, _, anchor = href.partition("#")
-            anchor = urllib.parse.unquote(anchor)
-            path = urllib.parse.unquote(path)
+    files = {path.relative_to(public).as_posix() for path in public.rglob("*") if path.is_file()}
+    pages = {name: BuiltPage(public / name) for name in sorted(files) if name.endswith(".html")}
+    if "index.html" not in pages:
+        print("public/index.html 不存在，请先运行 pnpm build")
+        return None
 
-            if not path:                     # 同页锚点
-                if anchor and anchor not in ids_of(page, cache):
-                    problems.append((page, href, "同页锚点不存在"))
+    problems = []
+    references = {name: page.links for name, page in pages.items()}
+    for name in ("sitemap.xml", "index.xml"):
+        try:
+            references[name] = feed_urls(public / name)
+        except (OSError, ET.ParseError):
+            problems.append((public / name, name, "Sitemap 或 RSS 产物缺失或无效"))
+
+    base_path = base.path.rstrip("/")
+    # On macOS, legacy aliases or tags can share an output file with the canonical spelling.
+    # On GitHub Actions' Linux filesystem, each URL must have an exact match.
+    folded_files = {}
+    if (public / "INDEX.HTML").is_file():
+        folded_files = {name.casefold(): name for name in files}
+    else:
+        legacy_paths = ROOT / "quartz/legacy-ai-paths.json"
+        if legacy_paths.is_file():
+            for old_path in json.loads(legacy_paths.read_text(encoding="utf-8")):
+                output = legacy_output_name(old_path)
+                if output not in files or (output in pages and not pages[output].redirect):
+                    problems.append((public / output, old_path, "历史 URL 缺少重定向或附件产物"))
+    for name, links in references.items():
+        page_url = f"https://{base.netloc}{base_path}/{urllib.parse.quote(name)}"
+        redirect = name in pages and pages[name].redirect
+        for href, kind in links:
+            # Browsers resolve generated links from the current page, including the Pages subpath.
+            url = urllib.parse.urlsplit(urllib.parse.urljoin(page_url, href))
+            if kind == "metadata" and not redirect:
+                if url.netloc != base.netloc or not href.startswith(f"https://{base.netloc}/"):
+                    problems.append((public / name, href, "页面元数据 URL 必须使用部署站点的 HTTPS 地址"))
+                    continue
+            elif url.scheme not in {"http", "https"} or url.netloc != base.netloc:
                 continue
 
-            target = (page.parent / path).resolve()
-            # 注意：必须用「追加 .html」而不是 with_suffix，否则
-            # agent.excalidraw → agent.html 会误判为断链
-            if not target.exists():
-                appended = type(target)(str(target) + ".html")
-                if appended.exists():
-                    target = appended
-            if not target.exists() and (target / "index.html").exists():
-                target = target / "index.html"
-            if not target.exists():
-                problems.append((page, href, "目标页不存在"))
-                continue
-            if anchor and anchor not in ids_of(target, cache):
-                problems.append((page, href, "目标页锚点不存在"))
+            path = posixpath.normpath(urllib.parse.unquote(url.path))
+            if path == base_path or path.startswith(f"{base_path}/"):
+                relative = path[len(base_path):].lstrip("/")
+                candidates = [relative]
+                if kind != "image":
+                    candidates.extend([posixpath.join(relative, "index.html"), f"{relative}.html"])
+                target = next((candidate for candidate in candidates if candidate in files), None)
+                if target is None and folded_files:
+                    target = next(
+                        (
+                            folded_files[candidate.casefold()]
+                            for candidate in candidates
+                            if candidate.casefold() in folded_files
+                        ),
+                        None,
+                    )
+            else:
+                target = None
 
-        for src in re.findall(r'<img[^>]+src="([^"]+)"', html):
-            if src.startswith(("http://", "https://", "data:")):
+            if target is None:
+                reason = "图片在产物中不存在" if kind == "image" else "目标页不存在"
+                problems.append((public / name, href, reason))
                 continue
-            if not (page.parent / urllib.parse.unquote(src)).resolve().exists():
-                problems.append((page, src, "图片在产物中不存在"))
+            anchor = urllib.parse.unquote(url.fragment)
+            if anchor and target in pages and anchor not in pages[target].ids:
+                problems.append((public / name, href, "目标页锚点不存在"))
 
     return problems
 

@@ -14,25 +14,29 @@ AI Agent 智能体相关知识。
 
 ## 概念
 
-**定义** 智能体是指**具有自主决策能力和自我学习能力的计算机程序或机器人**。智能体可以通过感知环境、分析信息、制定决策并执行行动来完成任务。
+**定义** 智能体是指**具有自主决策能力和自我学习能力的计算机程序或机器人**。
+智能体可以通过感知环境、分析信息、制定决策并执行行动来完成任务。
 
 智能体通常包括感知模块、决策模块和执行模块。
 
 ## 目录
 
 ### 核心框架
-- [[A2A|A2A 协议]]
-- [[MCP|Model Context Protocol]]
-- [[agent-framework|Agent 框架]]
+
+- [[06-ai/agent/A2A|A2A 协议]]
+- [[06-ai/agent/MCP|Model Context Protocol]]
+- [[06-ai/agent/agent-framework|Agent 框架]]
 
 ### 工程实践
-- [[anthropic-agent-engineering|Anthropic Agent 工程]]
-- [[openclaw|OpenClaw]]
-- [[aaas-concept|AaaS 概念]]
+
+- [[06-ai/agent/anthropic-agent-engineering|Anthropic Agent 工程]]
+- [[06-ai/agent/openclaw|OpenClaw]]
+- [[06-ai/agent/aaas-concept|AaaS 概念]]
 
 ### 架构设计
-- [[agent-arch.excalidraw|Agent 架构图]]
-- [[agent.excalidraw|Agent excalidraw]]
+
+- [[06-ai/agent/agent-arch.excalidraw|Agent 架构图]]
+- [[06-ai/agent/agent.excalidraw|Agent excalidraw]]
 
 ## 学习资源
 
@@ -40,9 +44,9 @@ AI Agent 智能体相关知识。
 - [Agent Skills](https://agentskills.io/home)
 
 ## 开源项目
+
 - qwenpaw
 - hermes-agent
-- [OpenClaw]()
 
 ## 参考资源
 
