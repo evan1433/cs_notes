@@ -1,3 +1,4 @@
+import GitHubLabel from "./GitHubLabel"
 import { FullSlug, resolveRelative } from "../util/path"
 import Darkmode from "./Darkmode"
 import Search from "./Search"
@@ -35,7 +36,7 @@ export default (() => {
         <div class="site-nav-actions">
           <SearchControl {...props} />
           <ThemeControl {...props} />
-          <a class="site-nav-github" href={repositoryUrl}>GitHub</a>
+          <a class="site-nav-github" href={repositoryUrl}><GitHubLabel /></a>
         </div>
         <details class="site-nav-menu">
           <summary>菜单</summary>

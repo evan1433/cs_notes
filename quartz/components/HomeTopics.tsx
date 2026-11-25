@@ -1,3 +1,4 @@
+import GitHubLabel from "./GitHubLabel"
 import { FullSlug, resolveRelative } from "../util/path"
 import { repositoryUrl } from "./SiteNav"
 import { QuartzComponent, QuartzComponentConstructor } from "./types"
@@ -19,7 +20,7 @@ const HomeTopics: QuartzComponent = ({ fileData }) => {
         <p>我是 Evan。这是我的个人技术主页，记录 AI、后端工程和系统架构的学习路线、原理笔记与工程实践。</p>
         <div class="home-hero-actions">
           <a class="home-primary" href={href("knowledge/index")}>探索知识库</a>
-          <a class="home-secondary" href={repositoryUrl}>GitHub</a>
+          <a class="home-secondary" href={repositoryUrl}><GitHubLabel /></a>
         </div>
       </section>
       <section aria-labelledby="home-topics-title">

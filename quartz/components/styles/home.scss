@@ -119,3 +119,11 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+.github-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+
+  svg { flex: none; }
+}

@@ -1,3 +1,4 @@
+import GitHubLabel from "./GitHubLabel"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import style from "./styles/footer.scss"
 import { version } from "../../package.json"
@@ -8,7 +9,7 @@ interface Options {
 }
 
 export default ((opts?: Options) => {
-  const Footer: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
+  const Footer: QuartzComponent = ({ displayClass, cfg, fileData }: QuartzComponentProps) => {
     const year = new Date().getFullYear()
     const links = opts?.links ?? []
     return (
@@ -20,7 +21,9 @@ export default ((opts?: Options) => {
         <ul>
           {Object.entries(links).map(([text, link]) => (
             <li>
-              <a href={link}>{text}</a>
+              <a href={link}>
+                {fileData.slug === "index" && text === "GitHub" ? <GitHubLabel /> : text}
+              </a>
             </li>
           ))}
         </ul>
