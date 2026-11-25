@@ -1214,7 +1214,7 @@ public class LimitDemo {
 注意 `gate.acquire()` 会**阻塞池线程**：许可数如果配得和线程池一样大，信号量就形同虚设（线程池才是真正的
 上限），还会让一批线程白白挂在 `acquire` 上。所以许可数要明显小于池大小，让"排队"发生在信号量而不是线程池。
 生产上更彻底的方案是用 `Flux.flatMap(fn, concurrency)`
-（见 [[reactor/index|Project Reactor 专题]]）——它在信号层面限流，不占线程。信号量只是没有 Reactor 时的轻量替代。
+（见 [[02-backend/java-fundamentals/reactor/index|Project Reactor 专题]]）——它在信号层面限流，不占线程。信号量只是没有 Reactor 时的轻量替代。
 
 ### 6.4 上下文传递：ThreadLocal 会丢
 
