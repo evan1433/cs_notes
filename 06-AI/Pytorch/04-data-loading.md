@@ -568,6 +568,6 @@ for epoch in range(10):
 
 ## 参考资源
 
-- [[13-training流程]] - 完整训练示例
+- [[06-AI/Pytorch/13-training-pipeline|13-training流程]] - 完整训练示例
 - [PyTorch Dataset 文档](https://pytorch.org/docs/stable/data.html)
 - [torchvision Transforms](https://pytorch.org/vision/stable/transforms.html)

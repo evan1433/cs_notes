@@ -33,7 +33,7 @@ PyTorch 深度学习框架学习笔记。
 - [[10-mlp|多层感知机 MLP]]
 - [[11-lstm|LSTM]]
 - [[12-transformer|Transformer]]
-- [[13-training流程|模型训练完整流程]]
+- [[06-AI/Pytorch/13-training-pipeline|模型训练完整流程]]
 
 ## 参考资源
 

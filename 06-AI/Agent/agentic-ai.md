@@ -1,7 +1,11 @@
 ---
-tag:
+title: Agentic AI
+description: Agentic AI 概念与资料入口（占位待补）
+tags:
   - agent
   - ai
+aliases:
+  - 06-AI/Agent/Agentic-AI
 ---
 
 Agentic AI

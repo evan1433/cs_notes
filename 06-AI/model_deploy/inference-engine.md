@@ -1,3 +1,13 @@
+---
+title: 推理引擎对比
+description: vLLM、SGLang、MindIE-LLM 等推理引擎的文档入口集合（占位待补）
+tags:
+  - ai
+  - inference
+aliases:
+  - 06-AI/model_deploy/Inference-Engine
+---
+
 # Inference Engine
 SGLang is a high-performance serving framework for large language models and multimodal models.
 https://docs.sglang.io/index.html

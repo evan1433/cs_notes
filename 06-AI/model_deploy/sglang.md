@@ -33,7 +33,7 @@ SGLang 的行业地位：
 - **PD 分离**：prefill 与 decode 解耦，分别扩缩容（disaggregation）
 - **零开销 CPU 调度器** + CUDA Graph 高级技术，decode 延迟极低
 
-> 相关文档：[[vllm|vLLM 推理服务框架]]、[[Inference Engine|推理引擎对比]]、[[quantization|模型量化]]、[[Ascend 昇腾|华为昇腾部署]]
+> 相关文档：[[vllm|vLLM 推理服务框架]]、[[06-AI/model_deploy/inference-engine|推理引擎对比]]、[[quantization|模型量化]]、[[06-AI/model_deploy/ascend|华为昇腾部署]]
 
 ## 2. 核心原理
 
@@ -533,7 +533,7 @@ curl http://localhost:30000/metrics
 - **前缀复用率高**（固定 system prompt、RAG、agent 工具定义）→ SGLang 的 RadixAttention 收益明显
 - **通用场景 / 团队已有 vLLM 运维经验** → vLLM 生态更成熟、资料更多
 - 两者均支持 OpenAI 兼容 API，迁移成本低，可先在相同负载下 benchmark 再决定
-- 昇腾环境参考 [[Ascend 昇腾|MindIE-LLM 部署]]（昇腾官方方案，SGLang 也提供 Ascend NPU 支持）
+- 昇腾环境参考 [[06-AI/model_deploy/ascend|MindIE-LLM 部署]]（昇腾官方方案，SGLang 也提供 Ascend NPU 支持）
 
 ## 13. 参考链接
 
@@ -546,7 +546,7 @@ curl http://localhost:30000/metrics
 ## See Also
 
 - [[vllm|vLLM 推理服务框架]]
-- [[Inference Engine|推理引擎对比与部署]]
+- [[06-AI/model_deploy/inference-engine|推理引擎对比与部署]]
 - [[quantization|模型量化]]
-- [[Ascend 昇腾|华为昇腾 MindIE 部署]]
+- [[06-AI/model_deploy/ascend|华为昇腾 MindIE 部署]]
 - [[model-precision-quantization|模型精度与量化方法]]

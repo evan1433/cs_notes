@@ -468,5 +468,5 @@ x = torch.nan_to_num(x, nan=0.0)
 ## 参考资源
 
 - [[09-optimizers]] - 参数优化
-- [[13-training流程]] - 完整训练示例
+- [[06-AI/Pytorch/13-training-pipeline|13-training流程]] - 完整训练示例
 - [PyTorch 损失函数文档](https://pytorch.org/docs/stable/nn.html#loss-functions)

@@ -45,7 +45,7 @@
 ### 四、训练与实践
 
 #### 4.1 训练流程
-- [[13-training流程]] - 从数据到模型的完整训练流程
+- [[06-AI/Pytorch/13-training-pipeline|13-training流程]] - 从数据到模型的完整训练流程
 
 ## 📖 学习顺序
 
@@ -79,7 +79,7 @@
 1. [[06-linear]] + [[07-activation-functions]] → 理解网络层
 2. [[08-loss-functions]] + [[09-optimizers]] → 完成训练流程
 3. [[10-mlp]] → 动手实现第一个模型
-4. [[13-training流程]] → 掌握端到端训练
+4. [[06-AI/Pytorch/13-training-pipeline|13-training流程]] → 掌握端到端训练
 
 ### 高级路径（第5-8周）
 1. [[11-lstm]] → 序列模型

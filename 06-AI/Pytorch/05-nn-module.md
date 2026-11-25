@@ -579,5 +579,5 @@ loss = criterion(pred, target)
 
 - [[06-linear]] - 全连接层
 - [[07-activation-functions]] - 激活函数详解
-- [[13-training流程]] - 训练示例
+- [[06-AI/Pytorch/13-training-pipeline|13-training流程]] - 训练示例
 - [PyTorch nn.Module 文档](https://pytorch.org/docs/stable/generated/torch.nn.Module.html)

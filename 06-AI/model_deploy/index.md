@@ -18,7 +18,7 @@ date: 2026-08-28
 1. [[vllm|vLLM 推理服务框架]] —— PagedAttention 原理、`vllm serve` 配置、分布式推理与量化
 2. [[sglang|SGLang 推理服务框架]] —— RadixAttention 前缀缓存、launch_server 部署
 3. [[quantization|模型量化]] —— AWQ 等量化方案与 Qwen 系列的量化实践
-4. 昇腾生态 —— [[vllm-ascend]] 与 [[Ascend 昇腾|昇腾环境]] 的 NPU 适配
+4. 昇腾生态 —— [[vllm-ascend]] 与 [[06-AI/model_deploy/ascend|昇腾环境]] 的 NPU 适配
 
 ## 笔记索引
 
@@ -29,8 +29,8 @@ date: 2026-08-28
 | [[quantization\|模型量化]] | 速查 | 🚧 草稿 | 量化方案链接集 |
 | [[vllm-ascend]] | 速查 | 🕳 待补 | vLLM 昇腾版本文档链接 |
 | [[vLLM-Omni]] | 速查 | 🕳 待补 | vLLM-Omni 文档链接 |
-| [[Ascend 昇腾\|昇腾环境]] | 教程 | 🚧 草稿 | CANN 安装与 NPU 验证 |
-| [[Inference Engine\|推理引擎对比]] | 速查 | 🕳 待补 | 框架文档入口集合 |
+| [[06-AI/model_deploy/ascend\|昇腾环境]] | 教程 | 🚧 草稿 | CANN 安装与 NPU 验证 |
+| [[06-AI/model_deploy/inference-engine\|推理引擎对比]] | 速查 | 🕳 待补 | 框架文档入口集合 |
 
 ## 相关目录
 

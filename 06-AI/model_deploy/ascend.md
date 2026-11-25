@@ -1,3 +1,13 @@
+---
+title: 昇腾 NPU 部署环境
+description: CANN 安装、NPU 验证与 MindIE 服务启动的命令速查（占位待补）
+tags:
+  - ai
+  - model-deploy
+  - ascend
+aliases:
+  - 06-AI/model_deploy/Ascend-昇腾
+---
 
 https://ascend.github.io/docs/sources/ascend/quick_install.html
 # cann

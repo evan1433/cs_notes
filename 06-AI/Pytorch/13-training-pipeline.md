@@ -1,3 +1,13 @@
+---
+title: PyTorch 模型训练完整流程
+description: 从数据准备到模型保存与部署的 PyTorch 端到端训练流程
+tags:
+  - pytorch
+  - training
+aliases:
+  - 06-AI/Pytorch/13-training流程
+---
+
 # PyTorch 模型训练完整流程
 
 本文档详细介绍从数据准备到模型部署的完整训练流程。

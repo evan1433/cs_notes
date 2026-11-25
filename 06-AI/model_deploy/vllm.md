@@ -27,7 +27,7 @@ vLLM 的核心优势：
 
 vLLM 已于 2023 年 SOSP 发表论文（[arXiv:2309.06180](https://arxiv.org/abs/2309.06180)），并被阿里云、字节跳动等广泛用于生产环境。
 
-> 相关文档：[[Inference Engine|推理引擎对比]]、[[quantization|模型量化]]、[[Ascend 昇腾|华为昇腾部署]]
+> 相关文档：[[06-AI/model_deploy/inference-engine|推理引擎对比]]、[[quantization|模型量化]]、[[06-AI/model_deploy/ascend|华为昇腾部署]]
 
 ## 2. 核心原理
 
@@ -567,7 +567,7 @@ curl http://localhost:8000/metrics
 - 生产环境 GPU 推理首选 **vLLM**（生态成熟、社区活跃）
 - 前缀复用极多的场景（如 RAG 大量固定指令）可评估 **SGLang**
 - CPU / Apple Silicon / 边缘设备选 **llama.cpp**
-- 华为昇腾环境参考 [[Ascend 昇腾|MindIE-LLM 部署]]（昇腾官方，与 vLLM 同 API 风格）
+- 华为昇腾环境参考 [[06-AI/model_deploy/ascend|MindIE-LLM 部署]]（昇腾官方，与 vLLM 同 API 风格）
 
 ## 13. 参考链接
 
@@ -579,7 +579,7 @@ curl http://localhost:8000/metrics
 
 ## See Also
 
-- [[Inference Engine|推理引擎对比与部署]]
+- [[06-AI/model_deploy/inference-engine|推理引擎对比与部署]]
 - [[quantization|模型量化]]
-- [[Ascend 昇腾|华为昇腾 MindIE 部署]]
+- [[06-AI/model_deploy/ascend|华为昇腾 MindIE 部署]]
 - [[model-precision-quantization|模型精度与量化方法]]

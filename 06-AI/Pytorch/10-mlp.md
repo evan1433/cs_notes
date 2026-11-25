@@ -519,4 +519,4 @@ torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
 - [[07-activation-functions]] - 激活函数详解
 - [[08-loss-functions]] - 损失函数
 - [[09-optimizers]] - 优化器
-- [[13-training流程]] - 完整训练示例
+- [[06-AI/Pytorch/13-training-pipeline|13-training流程]] - 完整训练示例
