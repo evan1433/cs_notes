@@ -32,6 +32,7 @@ cs_notes/
 │   ├── java-fundamentals/   # Java 基础
 │   ├── databases/           # 数据库
 │   ├── middleware/          # Redis、MQ、ES 等
+│   ├── python/              # Python 学习笔记
 │   └── spring/             # Spring 生态
 ├── 03-frontend/             # 前端开发技术栈
 │   ├── html.md
@@ -44,12 +45,11 @@ cs_notes/
 │   └── kubernetes.md
 ├── 05-book-notes/          # 技术书籍阅读笔记
 │   └── *.md
-├── 06-ai/                  # 人工智能与机器学习
-│   ├── python/
-│   ├── pytorch/
-│   ├── llm/
-│   ├── lvlm/
-│   └── agent/
+├── 06-AI/                  # 人工智能与机器学习
+│   ├── Pytorch/
+│   ├── LLM/
+│   ├── LVLM/
+│   └── Agent/
 ├── sys-analyst/            # 系统分析师备考
 ├── architecture/           # 架构实践（非备考）
 ├── quartz/                 # Quartz 4.0 核心组件

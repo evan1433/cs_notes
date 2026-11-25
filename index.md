@@ -1,23 +1,31 @@
 ---
-title: 首页
-description: 全栈学习笔记首页
+title: 全栈学习笔记
+description: Evan 的中文计算机科学与全栈开发笔记，包含精选文章、近期更新和项目实践。
 tags: []
 date: 2024-03-21
 ---
-# 全栈学习笔记
+## 关于我
 
-> 一个系统化的计算机科学与全栈开发知识库，基于 Obsidian 构建
+我是 Evan。我用 Obsidian 整理计算机科学基础、全栈开发和 AI 的学习笔记，并在这里记录代码示例和项目实践。
 
-## 简介
+[GitHub · evan1433](https://github.com/evan1433)
 
-本站收录了计算机科学基础、前端开发、后端开发、人工智能等领域的学习笔记。内容来源于优质学习资源，经过系统化整理，适合作为全栈开发学习参考。
+## 精选文章
 
-**特点：**
+- [[01-cs-fundamentals/data-structures|数据结构]]：查阅常见数据结构及其操作。
+- [[02-backend/python/24-python-async|Python 异步编程]]：用示例理解 `asyncio` 的任务调度、取消与超时。
+- [[architecture/architecture-decision-records|架构决策记录]]：记录技术选型的背景、备选方案与影响。
 
-- 📖 系统化知识分类，由浅入深
-- 🔗 知识点互联，便于查阅
-- 💻 丰富的代码示例与实践案例
-- 🌐 中文为主，便于阅读
+## 最近更新
+
+- **2026-11-25** · [[02-backend/java-fundamentals/java-concurrency|Java 并发编程]]：修正了指向 Reactor 笔记索引的链接。
+- **2026-11-24** · [[02-backend/c-language/c-language-basics|C 语言基础]]：新增基础语法和编译运行示例。
+- **2026-11-24** · [[02-backend/python/24-python-async|Python 异步编程]]：加入交互图，展示串行等待与并发调度。
+
+## 项目展示
+
+- [[02-backend/projects/gulimall-project|谷粒商城微服务实践]]：记录 Nacos 服务注册与配置、Gateway 路由和对象存储接入。
+- [[02-backend/projects/ssm-auth-project|SSM 权限管理实践]]：记录 Spring Security 集成、角色管理和 Swagger 接口文档。
 
 ## 内容导航
 
@@ -45,9 +53,9 @@ date: 2024-03-21
 
 ### 人工智能
 
-- [[06-AI/llm/index|LLM]]
-- [[06-AI/lvlm/index|LVLM]]
-- [[06-AI/agent/index|Agent]]
+- [[06-AI/LLM/index|LLM]]
+- [[06-AI/LVLM/index|LVLM]]
+- [[06-AI/Agent/index|Agent]]
 - [[06-AI/machine-learning/index|机器学习]]
 - [[06-AI/deep-learning/index|深度学习]]
 
