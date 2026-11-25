@@ -1,5 +1,11 @@
 ---
-title: sdd
+title: AI 编码中的规范驱动开发（SDD）
+description: 梳理 AI 编码中的规范驱动开发流程、实践方式与工具。
+tags:
+  - ai
+  - technical-blog
+date: 2026-08-25
+published: 2026-08-25
 ---
 
 

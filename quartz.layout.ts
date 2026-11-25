@@ -5,7 +5,19 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.ConditionalRender({
+      condition: ({ fileData }) => fileData.slug === "blog",
+      component: Component.RecentNotes({
+        title: "全部文章",
+        dateType: "published",
+        filter: ({ frontmatter }) =>
+          Boolean(frontmatter?.published && frontmatter.tags?.includes("technical-blog")),
+        limit: Infinity,
+        showTags: false,
+      }),
+    }),
+  ],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/evan1433/cs_notes",

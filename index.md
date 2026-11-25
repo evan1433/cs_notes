@@ -10,6 +10,14 @@ date: 2024-03-21
 
 [GitHub · evan1433](https://github.com/evan1433)
 
+## 按内容浏览
+
+- [[learning/index|系统学习]] · 按路线阅读基础教程，勾选已读章节。
+- [[blog|技术博客]] · 按发布日期浏览技术文章。
+- [[06-ai/index|AI 专题]] · 从 LLM 基础走向 Agent、模型训练与推理部署。
+- [[architecture/index|架构设计]] · 查看设计图、架构决策和案例。
+- [[resources/index|资源收藏]] · 查找外部资料、论文阅读清单和读书笔记。
+
 ## 精选文章
 
 - [[01-cs-fundamentals/data-structures|数据结构]]：查阅常见数据结构及其操作。
@@ -61,8 +69,6 @@ date: 2024-03-21
 
 ### 其他
 
-- [[05-book-notes/index|读书笔记]]
-- [[architecture/index|架构实践]]
 - [[04-devtools/index|开发工具]]
 
 ---
