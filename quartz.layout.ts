@@ -57,6 +57,7 @@ export const defaultContentPageLayout: PageLayout = {
     homeOnly(Component.HomeTopics()),
     ...[Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta(), Component.TagList()]
       .map(readingOnly),
+    Component.ExcalidrawPreview(),
   ],
   left: [
     Component.PageTitle(),
